@@ -7,3 +7,4 @@ Here you can find more information about the [project](https://summerofcode.with
 
 ## 3/06/2021 Community Bonding: first Community meeting
 Call to meet with almost all DBpedia/GSoC mentors and students.
+ 
