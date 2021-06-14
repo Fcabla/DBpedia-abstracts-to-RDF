@@ -98,9 +98,9 @@ As has been shown, the results generated are not good at all. One of the most no
 
 For more information please check the [repository][6].
 
-[1]https://ishani-mondal.github.io/
-[2]http://resources.mpi-inf.mpg.de/d5/clausie/clausie-www13.pdf
-[3]https://github.com/AnthonyMRios/pyclausie
-[4]https://github.com/mmxgn/spacy-clausie
-[5]https://github.com/Fcabla/DBpedia-abstracts-to-RDF/tree/main/results/Examples_pyclausie_vs_spacy-clausie.md
-[6]https://github.com/Fcabla/DBpedia-abstracts-to-RDF
+[1]: https://ishani-mondal.github.io/
+[2]: http://resources.mpi-inf.mpg.de/d5/clausie/clausie-www13.pdf
+[3]: https://github.com/AnthonyMRios/pyclausie
+[4]: https://github.com/mmxgn/spacy-clausie
+[5]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/tree/main/results/Examples_pyclausie_vs_spacy-clausie.md
+[6]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF
