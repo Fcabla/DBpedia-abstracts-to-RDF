@@ -96,7 +96,7 @@ Maybe we could split the conjunctions mantaining the subject, although in this c
 For more information please check the [repository][5].
 
 [1]: https://databus.dbpedia.org/vehnem/text/long-abstracts/2021.05.01
-[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/tree/main/datasets/examples.csv
-[3]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/tree/main/datasets/cw2.py
+[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/datasets/examples.csv
+[3]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/cw2.py
 [4]: https://stackoverflow.com/questions/49271730/how-to-parse-verbs-using-spacy
 [5]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF
