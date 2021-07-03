@@ -1,12 +1,46 @@
-from os import PRIO_PGRP
+# load all examples
+# trim better the phrases
+# subjs modifiers as new triplets red ballon | whatever | whatever --> ballon | property | red
+
+# \(.*?\)
+# (August 4, 1910 – March 19, 1968)
+# (February 11, 1975 – May 21, 2010)
+# (born January 7, 1981)
+# (植田 憲一, Ueda Ken'ichi; born on October 22, 1946)
+# (born 17 February 1947)
+# (1 March 1913 – 31 May 1991) 
+# (24 December 1825 – 13 October 1903)
+# (born 15 February 1981)
+# (born April 27, 1957)
+# matches = re.findall('(\d{2}[\/ ](\d{2}|January|Jan|February|Feb|March|Mar|April|Apr|May|May|June|Jun|July|Jul|August|Aug|September|Sep|October|Oct|November|Nov|December|Dec)[\/ ]\d{2,4})', string)
+
+from os import PRIO_PGRP, pipe
 import spacy
 import re
 from spacy.symbols import nsubj, VERB, AUX, PUNCT
 from spacy import displacy
 from spacy.matcher import Matcher
 import pandas as pd
-import clause_extraction as ce
 
+class Document:
+    def __init__(self, triples):
+        self.triples = triples
+
+class Triple:
+    def __init__(self, subj, pred, obj):
+        self.subj = subj
+        self.pred = pred
+        self.obj = obj
+    
+    def __repr__(self):
+        return f"{' '.join(self.subj)} | {' '.join(self.pred)} | {' '.join(self.obj)}"
+
+    def __str__(self):
+        return f"{' '.join(self.subj)} {' '.join(self.pred)} {' '.join(self.obj)}"
+
+t = Triple(["He"], ["was", "awarded", "in"], ["1982"])
+print(repr(t))   #Vector3([1,2,3])
+print(str(t))   #x:1, y:2, z:3
 
 test_examples = [
     "Alchemy (from Arabic: al-kīmiyā; from Ancient Greek: khumeía) is an ancient branch of natural philosophy, a philosophical and protoscientific tradition that was historically practiced in China, India, the Muslim world, and Europe. In its Western form, it is first attested in a number of pseudepigraphical texts written in Greco-Roman Egypt during the first few centuries CE.Alchemists attempted to purify, mature, and perfect certain materials. Common aims were chrysopoeia, the transmutation of \"base metals\" (e.g., lead) into \"noble metals\" (particularly gold); the creation of an elixir of immortality; and the creation of panaceas able to cure any disease. The perfection of the human body and soul was thought to result from the alchemical magnum opus (\"Great Work\"). The concept of creating the philosophers' stone was variously connected with all of these projects.Islamic and European alchemists developed a basic set of laboratory techniques, theories, and terms, some of which are still in use today. However, they did not abandon the ancients' belief that everything is composed of four elements, and they tended to guard their work in secrecy, often making use of cyphers and cryptic symbolism. In Europe, the 12th-century translations of medieval Islamic works on science and the rediscovery of Aristotelian philosophy gave birth to a flourishing tradition of Latin alchemy. This late medieval tradition of alchemy would go on to play a significant role in the development of early modern science (particularly chemistry and medicine).Modern discussions of alchemy are generally split into an examination of its exoteric practical applications and its esoteric spiritual aspects, despite criticisms by scholars such as Eric J. Holmyard and Marie-Louise von Franz that they should be understood as complementary. The former is pursued by historians of the physical sciences, who examine the subject in terms of early chemistry, medicine, and charlatanism, and the philosophical and religious contexts in which these events occurred. The latter interests historians of esotericism, psychologists, and some philosophers and spiritualists. The subject has also made an ongoing impact on literature and the arts.",
@@ -20,24 +54,9 @@ test_examples = [
     "The Austroasiatic languages , also known as Mon–Khmer , are a large language family of Mainland Southeast Asia, also scattered throughout parts of India, Bangladesh, Nepal, and southern China. There are around 117 million speakers of Austroasiatic languages. Of these languages, only Vietnamese, Khmer and Mon have a long-established recorded history and only Vietnamese and Khmer have official status as modern national languages (in Vietnam and Cambodia, respectively). The Mon language is a recognized indigenous language in Myanmar and Thailand. In Myanmar, the Wa language is the de facto official language of Wa State. Santali is one of the 22 scheduled languages of India. The rest of the languages are spoken by minority groups and have no official status.Ethnologue identifies 168 Austroasiatic languages. These form thirteen established families (plus perhaps Shompen, which is poorly attested, as a fourteenth), which have traditionally been grouped into two, as Mon–Khmer and Munda. However, one recent classification posits three groups (Munda, Nuclear Mon-Khmer and Khasi–Khmuic), while another has abandoned Mon–Khmer as a taxon altogether, making it synonymous with the larger family.Austroasiatic languages have a disjunct distribution across Southeast Asia and parts of India, Bangladesh, Nepal and East Asia, separated by regions where other languages are spoken. They appear to be the extant autochthonous languages of Mainland Southeast Asia (excluding the Andaman Islands), with the neighboring Kra–Dai, Hmong-Mien, Austronesian, and Sino-Tibetan languages being the result of later migrations.",
     "Barack Hussein Obama II is an American politician who is the 44th and current President of the United States. He is the first African American to hold the office and the first president born outside the continental United States. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University and Harvard Law School, where he was president of the Harvard Law Review. He was a community organizer in Chicago before earning his law degree. He worked as a civil rights attorney and taught constitutional law at the University of Chicago Law School between 1992 and 2004. While serving three terms representing the 13th District in the Illinois Senate from 1997 to 2004, he ran unsuccessfully in the Democratic primary for the United States Hou",
     "Elon Reeve Musk (/ˈiːlɒn ˈmʌsk/; born June 28, 1971) is a South African-born Canadian-American business magnate, investor, engineer and inventor. He is the founder, CEO, and CTO of SpaceX; co-founder, CEO, and product architect of Tesla Motors; co-founder and chairman of SolarCity; co-chairman of OpenAI; co-founder of Zip2; and founder of X.com which merged with PayPal of Confinity. As of June 2016, he has an estimated net worth of US$12.7 billion, making him the 83rd wealthiest person in the world. Musk has stated that the goals of SolarCity, Tesla Motors, and SpaceX revolve around his vision to change the world and humanity. His goals include reducing global warming through sustainable energy production and consumption, and reducing the \"risk of human extinction\" by \"making life multiplanetary\" by setting up a human colony on Mars. In addition to his primary business pursuits, he has also envisioned a high-speed transportation system known as the Hyperloop, and has proposed a VTOL supersonic jet aircraft with electric fan propulsion, known as the Musk electric jet.",
-    "Anton Drexler (13 June 1884 – 24 February 1942) was a German far-right political leader of the 1920s who was instrumental in the formation of the pan-German and anti-Semitic German Workers' Party (Deutsche Arbeiterpartei – DAP), the antecedent of the Nazi Party (Nationalsozialistische Deutsche Arbeiterpartei – NSDAP). Drexler served as mentor to Adolf Hitler during his early days in politics."
+    "Anton Drexler (13 June 1884 – 24 February 1942) was a German far-right political leader of the 1920s who was instrumental in the formation of the pan-German and anti-Semitic German Workers' Party (Deutsche Arbeiterpartei – DAP), the antecedent of the Nazi Party (Nationalsozialistische Deutsche Arbeiterpartei – NSDAP). Drexler served as mentor to Adolf Hitler during his early days in politics.",
+    "Alain Connes (French: [alɛ̃ kɔn]; born 1 April 1947) is a French mathematician, and a theoretical physicist, known for his contributions to the study of operator algebras and noncommutative geometry. He is a Professor at the Collège de France, IHÉS, Ohio State University and Vanderbilt University. He was awarded the Fields Medal in 1982."
 ]
-
-banned_subjects = ["he", "she", "it", "his", "hers"]
-SPOTLIGHT_LOCAL_URL = "http://localhost:2222/rest/annotate/"
-SPOTLIGHT_ONLINE_API = "https://api.dbpedia-spotlight.org/en/annotate"
-
-def get_parsed_text(text2parse):
-    # Load model and parse text
-    nlp = spacy.load("en_core_web_sm")
-    doc = nlp(text2parse)
-    return doc
-
-def clean_text(text):
-    #remove pronunciacion
-    text = re.sub("\(\/.+\/; ", "(", text, 1)
-
-    return(text)
 
 def get_sentences(doc):
     # Extract the sentences
@@ -46,151 +65,260 @@ def get_sentences(doc):
         sentences.append(sente)
     return(sentences)
 
-def extract_complete_subject(token):
-    elems = []
-    for descendant in token.subtree:
-        assert token is descendant or token.is_ancestor(descendant)
-        if descendant.dep_ == 'compound':
-            elems.append(descendant.text)
-    elems.append(token.text)
-    return(' '.join(elems))
-
-def print_everything(doc):
-    for token in doc:
-        print(token.text, token.dep_, token.head.text, token.head.pos_, [child for child in token.children])
-    displacy.render(doc, style='dep')
-
-def make_simplified_sentences(sentences_list):
-
-    if(len(sentences_list) < 2):
-        sentences = [item for sublist in sentences_list for item in sublist]
-        return [' '.join(sentences)]
-    else:
-        sentences_list = [' '.join(sentence) for sentence in sentences_list]
-        for i in range(len(sentences_list)-1):
-            a = sentences_list[i]
-            b = sentences_list[i+1]
-            if b in a:
-                sentences_list[i] = a.replace(b,'')
-            elif a in b: 
-                sentences_list[i] = b.replace(a,'')
-        return sentences_list
-
-def check_verb(token):
-    """Check verb type given spacy token"""
-    if token.pos_ == 'VERB':
-        indirect_object = False
-        direct_object = False
-        for item in token.children:
-            if(item.dep_ == "iobj" or item.dep_ == "pobj"):
-                indirect_object = True
-            if (item.dep_ == "dobj" or item.dep_ == "dative"):
-                direct_object = True
-        if indirect_object and direct_object:
-            return 'DITRANVERB'
-        elif direct_object and not indirect_object:
-            return 'TRANVERB'
-        elif not direct_object and not indirect_object:
-            return 'INTRANVERB'
-        else:
-            return 'VERB'
-    else:
-        return token.pos_
-
-def sentences_1_verb(doc):
-    sentences = get_sentences(doc)
+def sentences_1_verb(sentences):
+    #sentences = get_sentences(doc)
     results = []
     for s in sentences:
-        c = 0
+        regular_verbs = 0
+        aux_verbs = 0
+        mult_verbs = 0
         for token in s:
-            if(token.pos == VERB or token.pos == AUX):
-                c = c + 1
-        if(c == 1):
+            if(token.pos == VERB):
+                regular_verbs = regular_verbs + 1
+            elif(token.pos == AUX):
+                aux_verbs = aux_verbs + 1
+                if(token.head.pos == VERB):
+                    mult_verbs = mult_verbs + 1
+        if(regular_verbs + aux_verbs == 1):
             results.append(s)
+        elif(regular_verbs == 1 and aux_verbs == 1):
+            if(mult_verbs == 1):
+                results.append(s)
+
     return results
 
-def main():
-    #text = test_texts[0]
-    #text = clean_text(text)
-    #doc = get_parsed_text(text)
-    #sentences = get_sentences(doc)
-    nlp = spacy.load("en_core_web_sm")
-    
-    #df = pd.read_csv("datasets/examples.csv", sep=",,", header=1)
-    examples = []
-    for x in test_examples:
-        dc = nlp(x)
-        examples.append(sentences_1_verb(dc))
-    print(examples)
-    
-    for token in nlp('In the English grammar, "a", and its variant "an", are indefinite articles.'):
-        print(token.text, token.dep_, token.pos_, [child for child in token.children])
+def get_dates_first_sentence(sentence):
+    # month, day, year
+    date_pattern1 = "(January|Jan|February|Feb|March|Mar|April|Apr|May|May|June|Jun|July|Jul|August|Aug|September|Sep|October|Oct|November|Nov|December|Dec) (\d{1,2}), (\d{4})"
+    # day, month, year
+    date_pattern2 = "(\d{1,2}) (January|Jan|February|Feb|March|Mar|April|Apr|May|May|June|Jun|July|Jul|August|Aug|September|Sep|October|Oct|November|Nov|December|Dec) (\d{4})"
+    first_date = ""
+    last_date = ""
+    sentence = str(sentence)
+    parnth = re.findall("\(.*?\)", sentence)
+    if parnth:
+        dp1 = re.findall(date_pattern1, sentence)
+        dp2 = re.findall(date_pattern2, sentence)
+        if dp1:
+            if len(dp1) == 1:
+                first_date = dp1[0][1] + " " + dp1[0][0] + " " + dp1[0][2]
+            elif len(dp1) == 2:
+                first_date = dp1[0][1] + " " + dp1[0][0] + " " + dp1[0][2]
+                last_date = dp1[1][1] + " " + dp1[1][0] + " " + dp1[1][2]
+        elif dp2:
+            if len(dp2) == 1:
+                first_date = dp2[0][0] + " " + dp2[0][1] + " " + dp2[0][2]
+            elif len(dp2) == 2:
+                first_date = dp2[0][0] + " " + dp2[0][1] + " " + dp2[0][2]
+                last_date = dp2[1][0] + " " + dp2[1][1] + " " + dp2[1][2]
 
+    return first_date, last_date
 
-    for example in examples:
-        for sentence in example:
-            subjs = []
-            objs = []
+def get_dates_triples(sentence):
+    results = []
+    first_date, last_date = get_dates_first_sentence(sentence)
+    if first_date:
+        results.append(f"individual born {first_date}")
+    if last_date:
+        results.append(f"individual death {last_date}")
+    return results
 
-            for token in sentence:
-                #if(token.pos == VERB or token.pos == AUX):
-                if(token.dep_ == "ROOT"):
-                    pred = token.text
-
-                    for children in token.children:
-                        #if(children.dep_ == "dobj"):
-                        #    pred = pred + " " + children.text
-                        # retrieve subtrees
-                        is_subj = False
-                        is_obj = False
-                        temp_elem = []
-                        for token_children in children.subtree:
-                            if(token_children.dep_.find("subj")==True):
-                                is_subj = True
-                            elif(token_children.dep_.find("obj")==True ):
-                                is_obj = True
-                            elif(token_children.dep_ == "attr"):
-                                is_obj = True
-                            #if(token_children.pos != PUNCT and token_children.dep_ != "cc"):
-                            temp_elem.append(token_children.text)
-                        if(is_subj):
-                            subjs.append(' '.join(temp_elem))
-                        elif(is_obj):
-                            objs.append(' '.join(temp_elem))
-                        else:
-                            pass
-            for s in subjs:
-                for o in objs:
-                    print(f"{s}|{pred}|{o}")
-    #displacy.serve(nlp("In Myanmar, the Wa language is the de facto official language of Wa State"),style="dep")
-
-    for example in examples:
-        for sentence in example:
-            for token in sentence:
-                if(token.pos == VERB or token.pos == AUX):
-                    print(check_verb(token), token.text)
-    exit()      
-    subjects = []
-    for token in sentences[0]:
-        if(token.dep_.find("subj")==True):
-            subjects.append(extract_complete_subject(token))
-        #print(token.text, token.dep_, token.head.text, token.head.pos_, [child for child in token.children])
-    print(subjects)
-
-    simplified_sentences = []
-    for sentence in sentences:
-        sntcs = []
+def get_triples(document):
+    triples = []
+    for sentence in document:
+        subjs = []
+        objs = []
+        preds = []
         for token in sentence:
-            if(token.pos == VERB or token.pos == AUX):
-                sntc = []
-                for tkn in token.subtree:
-                    sntc.append(tkn.text)
-                sntcs.append(sntc)
-            #print(token.text, token.dep_, token.pos_)
-        simplified_sentences.append(make_simplified_sentences(sntcs))
-    print(simplified_sentences)
+            #if(token.pos == VERB or token.pos == AUX):
+            if(token.dep_ == "ROOT"):
+                pred = token.text
+                preds.append(token)
+                for children in token.children:
+                    if(children.pos == AUX):
+                        #auxiliary passive
+                        preds.insert(0,children)
+                    #    pred = pred + " " + children.text
+                    # retrieve subtrees
+                    is_subj = False
+                    is_obj = False
+                    temp_elem = []
+                    for token_children in children.subtree:
+                        if(token_children.dep_.find("subj")==True):
+                            is_subj = True
+                        elif(token_children.dep_.find("obj")==True ):
+                            is_obj = True
+                        elif(token_children.dep_ == "attr"):
+                            is_obj = True
+                        #if(token_children.pos != PUNCT and token_children.dep_ != "cc"):
+                        temp_elem.append(token_children)
+                    if(is_subj):
+                        subjs.append(temp_elem)
+                    elif(is_obj):
+                        objs.append(temp_elem)
+                    else:
+                        pass
+        for s in subjs:
+            for o in objs:
+                triples.append([s,preds.copy(),o])
+                #print(f"{s.text}|{pred.text}|{o.text}")
+    return triples
 
+def append_preps_verbs(triples):
+    for triple in triples:
+        #print(triple[2][0].dep_, triple[2][0].pos_)
+        if len(triple[2])>0:
+            if(triple[2][0].dep_ == "prep" or triple[2][0].dep_ == "agent"):
+                triple[1].append(triple[2].pop(0))
+    return triples
+
+def split_conjunctions_subjs(triples):
+    new_triples = []
+    for triple in triples:
+        for token in triple[0]:
+            if token.dep_ == "conj":
+                #new_subjs.append(token)
+                new_triples.append([[token], triple[1], triple[2]])
+                triple[0].remove(token)
+                #remove token
+            elif token.dep_ == "punct" or token.dep_ == "cc":
+                triple[0].remove(token)
+    for t in new_triples:
+        triples.append(t)
+    return triples
+
+def split_conjunctions_obj(triples):
+    new_triples = []
+    objs = []
+    for triple in triples:
+        obj = []
+        for token in triple[2]:
+            if token.dep_ == "cc" or token.dep_ == "punct" :
+                objs.append(obj)
+                obj = []
+            else:
+                obj.append(token)
+        if objs:
+            for o in objs:
+                new_triples.append([triple[0],triple[1],o])
+            # remove old triples
+            triples.remove(triple)
+
+    #append new triples
+    for t in new_triples:
+        triples.append(t)
+    return triples
+
+def fix_aux_verbs(triples):
+    new_triples = []
+    for triple in triples:
+        # if there is only one verb
+        if len(triple[1]) == 1:
+            # if there is only one auxiliary verb
+            if triple[1][0].pos == AUX:
+                # retrieve all the tokens to identify possible candidates
+                verb_subtree = [x for x in triple[1][0].subtree]
+                verb_mod_explore = []
+                for elem in verb_subtree:
+                    if(elem.dep_ == "attr" and elem.head.pos == AUX):
+                        verb_mod_explore.append(elem)
+                    elif(elem.dep_ == "conj" and elem.head in verb_mod_explore ):
+                        verb_mod_explore.append(elem)
+                
+                verb_mods = []
+                for elem in verb_mod_explore:
+                    verb_mod = []
+                    for child in elem.children:
+                        if(child.dep_ != "cc" and child.dep_ != "conj" and child.dep_ != "prep"):
+                            verb_mod.append(child)
+                    verb_mod.append(elem)
+                    verb_mods.append(verb_mod)
+
+                # new object
+                if(verb_mods[-1][-1] in triple[2]):
+                    index = triple[2].index(verb_mods[-1][-1])+1
+                    new_obj = triple[2][index:]
+
+                    # Fix prepositions
+                    if len(new_obj) > 0:
+                        if new_obj[0].dep_ == "prep":
+                            prep = new_obj.pop(0)
+                            for v in verb_mods:
+                                if(v[-1].dep_ != "prep"):
+                                    v.append(prep)
+                    
+                    # new triples
+                    for v in verb_mods:
+                        new_triples.append([triple[0],triple[1]+v,new_obj])
+
+                    # remove old triples
+                    triples.remove(triple)
+            
+    #append new triples
+    for t in new_triples:
+        triples.append(t)
+    return triples
+                
+def print_triples(triples):
+    for triple in triples:
+        s = [x.text for x in triple[0]]
+        p = [x.text for x in triple[1]]
+        o = [x.text for x in triple[2]]
+        print(f"{' '.join(s)} | {' '.join(p)} | {' '.join(o)}")
+
+def pipeline(t, nlp):
+    doc = nlp(t)
+    sentences = get_sentences(doc)
+    dates_triples = get_dates_triples(sentences[0])
+    sentences = sentences_1_verb(sentences)
+    print(sentences)
+    #ncs(sentences)
+    #return
+    triples = get_triples(sentences)
+    #print(triples)
+
+    triples = fix_aux_verbs(triples)
+    #print(triples)
+
+    triples = append_preps_verbs(triples)
+    #print(triples)
+
+    triples = split_conjunctions_subjs(triples)
+    #print(triples)
+
+    triples = split_conjunctions_obj(triples)
+    #print(triples)
+    print_triples(triples)
+
+    #print(dates_triples)
+    #split_conjunctions_obj
+def ncs(sentences):
+    for s in sentences:
+        for chunk in s.noun_chunks:
+            print(chunk.text, chunk.root.text, chunk.root.dep_,
+            chunk.root.head.text)
+
+def main():
+    nlp = spacy.load("en_core_web_sm")
+    #nlp = spacy.load("en_core_web_trf")
+    # preps after tripoes
+    #pipeline(test_examples[12], nlp)
+    #exit()
+    for t in test_examples:
+        pipeline(t,nlp)
+        print("---"*50)
+    exit()
+    doc = nlp(t)
+    sentences = get_sentences(doc)
+    dates_triples = get_dates_triples(sentences[0])
+    print(dates_triples)
+    sentences = sentences_1_verb(sentences)
+    print(sentences)
+    print(get_triples(sentences))
     
+
+    #print(get_dates_first_sentence(get_sentences(doc)[0]))
+    #for token in nlp("Alain Connes is a French mathematician, and a theoretical physicist, known for his contributions to the study of operator algebras and noncommutative geometry."):
+    #    print(token.text, token.dep_)
 if __name__ == "__main__":
     main()
-

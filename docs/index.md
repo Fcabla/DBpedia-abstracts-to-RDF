@@ -14,3 +14,15 @@ In this first week i have been reviewing the code of the last two participants o
 
 ## Coding week 2 (14/06/2021 - 21/06/2021)
 In this second week I have tried to rethink the whole project and use different approaches to extract my own clauses. We have simplified the problem to get closer to a good base solution. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week2)
+
+## Coding week 3 (21/06/2021 - 28/06/2021)
+In this third week i have continued with the approach introduced in week 2 (exploring subtrees) trying to introduce improvements. At the moment we continue with the simplified problem to get closer to a good base solution. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week3)
+
+## Coding week 4 (28/06/2021 - 05/07/2021)
+TODO. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week4)
+
+July 12 - July 16: First evaluation period - students submit evaluations of mentors
+
+
+August 16 - 23: Students submit their code, write tests and documentation, and submit a final evaluation of their Mentor
+August 31: Students who pass receive their final payment (55%)
