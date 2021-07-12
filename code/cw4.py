@@ -1,19 +1,3 @@
-# load all examples
-# trim better the phrases
-# subjs modifiers as new triplets red ballon | whatever | whatever --> ballon | property | red
-
-# \(.*?\)
-# (August 4, 1910 – March 19, 1968)
-# (February 11, 1975 – May 21, 2010)
-# (born January 7, 1981)
-# (植田 憲一, Ueda Ken'ichi; born on October 22, 1946)
-# (born 17 February 1947)
-# (1 March 1913 – 31 May 1991) 
-# (24 December 1825 – 13 October 1903)
-# (born 15 February 1981)
-# (born April 27, 1957)
-# matches = re.findall('(\d{2}[\/ ](\d{2}|January|Jan|February|Feb|March|Mar|April|Apr|May|May|June|Jun|July|Jul|August|Aug|September|Sep|October|Oct|November|Nov|December|Dec)[\/ ]\d{2,4})', string)
-
 from os import PRIO_PGRP, pipe
 import spacy
 import re
@@ -22,28 +6,8 @@ from spacy import displacy
 from spacy.matcher import Matcher
 import pandas as pd
 
-class Document:
-    def __init__(self, triples):
-        self.triples = triples
-
-class Triple:
-    def __init__(self, subj, pred, obj):
-        self.subj = subj
-        self.pred = pred
-        self.obj = obj
-    
-    def __repr__(self):
-        return f"{' '.join(self.subj)} | {' '.join(self.pred)} | {' '.join(self.obj)}"
-
-    def __str__(self):
-        return f"{' '.join(self.subj)} {' '.join(self.pred)} {' '.join(self.obj)}"
-
-t = Triple(["He"], ["was", "awarded", "in"], ["1982"])
-print(repr(t))   #Vector3([1,2,3])
-print(str(t))   #x:1, y:2, z:3
-
 test_examples = [
-    "Alchemy (from Arabic: al-kīmiyā; from Ancient Greek: khumeía) is an ancient branch of natural philosophy, a philosophical and protoscientific tradition that was historically practiced in China, India, the Muslim world, and Europe. In its Western form, it is first attested in a number of pseudepigraphical texts written in Greco-Roman Egypt during the first few centuries CE.Alchemists attempted to purify, mature, and perfect certain materials. Common aims were chrysopoeia, the transmutation of \"base metals\" (e.g., lead) into \"noble metals\" (particularly gold); the creation of an elixir of immortality; and the creation of panaceas able to cure any disease. The perfection of the human body and soul was thought to result from the alchemical magnum opus (\"Great Work\"). The concept of creating the philosophers' stone was variously connected with all of these projects.Islamic and European alchemists developed a basic set of laboratory techniques, theories, and terms, some of which are still in use today. However, they did not abandon the ancients' belief that everything is composed of four elements, and they tended to guard their work in secrecy, often making use of cyphers and cryptic symbolism. In Europe, the 12th-century translations of medieval Islamic works on science and the rediscovery of Aristotelian philosophy gave birth to a flourishing tradition of Latin alchemy. This late medieval tradition of alchemy would go on to play a significant role in the development of early modern science (particularly chemistry and medicine).Modern discussions of alchemy are generally split into an examination of its exoteric practical applications and its esoteric spiritual aspects, despite criticisms by scholars such as Eric J. Holmyard and Marie-Louise von Franz that they should be understood as complementary. The former is pursued by historians of the physical sciences, who examine the subject in terms of early chemistry, medicine, and charlatanism, and the philosophical and religious contexts in which these events occurred. The latter interests historians of esotericism, psychologists, and some philosophers and spiritualists. The subject has also made an ongoing impact on literature and the arts.",
+    "Alchemy (from Arabic: al-kīmiyā; from Ancient Greek: khumeía) is an ancient branch of natural philosophy, a philosophical and protoscientific tradition that was historically practiced in China, India, the Muslim world, and Europe. In its Western form, it is first attested in a number of pseudepigraphical texts written in Greco-Roman Egypt during the first few centuries CE. Alchemists attempted to purify, mature, and perfect certain materials. Common aims were chrysopoeia, the transmutation of \"base metals\" (e.g., lead) into \"noble metals\" (particularly gold); the creation of an elixir of immortality; and the creation of panaceas able to cure any disease. The perfection of the human body and soul was thought to result from the alchemical magnum opus (\"Great Work\"). The concept of creating the philosophers' stone was variously connected with all of these projects.Islamic and European alchemists developed a basic set of laboratory techniques, theories, and terms, some of which are still in use today. However, they did not abandon the ancients' belief that everything is composed of four elements, and they tended to guard their work in secrecy, often making use of cyphers and cryptic symbolism. In Europe, the 12th-century translations of medieval Islamic works on science and the rediscovery of Aristotelian philosophy gave birth to a flourishing tradition of Latin alchemy. This late medieval tradition of alchemy would go on to play a significant role in the development of early modern science (particularly chemistry and medicine). Modern discussions of alchemy are generally split into an examination of its exoteric practical applications and its esoteric spiritual aspects, despite criticisms by scholars such as Eric J. Holmyard and Marie-Louise von Franz that they should be understood as complementary. The former is pursued by historians of the physical sciences, who examine the subject in terms of early chemistry, medicine, and charlatanism, and the philosophical and religious contexts in which these events occurred. The latter interests historians of esotericism, psychologists, and some philosophers and spiritualists. The subject has also made an ongoing impact on literature and the arts.",
     "A, or a, is the first letter and the first vowel letter of the modern English alphabet and the ISO basic Latin alphabet. Its name in English is a (pronounced ), plural aes. It is similar in shape to the Ancient Greek letter alpha, from which it derives. The uppercase version consists of the two slanting sides of a triangle, crossed in the middle by a horizontal bar. The lowercase version can be written in two forms: the double-storey a and single-storey ɑ. The latter is commonly used in handwriting and fonts based on it, especially fonts intended to be read by children, and is also found in italic type.In the English grammar, \"a\", and its variant \"an\", are indefinite articles.",
     "Analysis of variance (ANOVA) is a collection of statistical models and their associated estimation procedures (such as the \"variation\" among and between groups) used to analyze the differences among means. ANOVA was developed by the statistician Ronald Fisher. ANOVA is based on the law of total variance, where the observed variance in a particular variable is partitioned into components attributable to different sources of variation. In its simplest form, ANOVA provides a statistical test of whether two or more population means are equal, and therefore generalizes the t-test beyond two means.",
     "Allan Dwan (born Joseph Aloysius Dwan; 3 April 1885 – 28 December 1981) was a pioneering Canadian-born American motion picture director, producer, and screenwriter.",
@@ -68,6 +32,7 @@ def get_sentences(doc):
 def sentences_1_verb(sentences):
     #sentences = get_sentences(doc)
     results = []
+    results2 = []
     for s in sentences:
         regular_verbs = 0
         aux_verbs = 0
@@ -84,44 +49,11 @@ def sentences_1_verb(sentences):
         elif(regular_verbs == 1 and aux_verbs == 1):
             if(mult_verbs == 1):
                 results.append(s)
-
-    return results
-
-def get_dates_first_sentence(sentence):
-    # month, day, year
-    date_pattern1 = "(January|Jan|February|Feb|March|Mar|April|Apr|May|May|June|Jun|July|Jul|August|Aug|September|Sep|October|Oct|November|Nov|December|Dec) (\d{1,2}), (\d{4})"
-    # day, month, year
-    date_pattern2 = "(\d{1,2}) (January|Jan|February|Feb|March|Mar|April|Apr|May|May|June|Jun|July|Jul|August|Aug|September|Sep|October|Oct|November|Nov|December|Dec) (\d{4})"
-    first_date = ""
-    last_date = ""
-    sentence = str(sentence)
-    parnth = re.findall("\(.*?\)", sentence)
-    if parnth:
-        dp1 = re.findall(date_pattern1, sentence)
-        dp2 = re.findall(date_pattern2, sentence)
-        if dp1:
-            if len(dp1) == 1:
-                first_date = dp1[0][1] + " " + dp1[0][0] + " " + dp1[0][2]
-            elif len(dp1) == 2:
-                first_date = dp1[0][1] + " " + dp1[0][0] + " " + dp1[0][2]
-                last_date = dp1[1][1] + " " + dp1[1][0] + " " + dp1[1][2]
-        elif dp2:
-            if len(dp2) == 1:
-                first_date = dp2[0][0] + " " + dp2[0][1] + " " + dp2[0][2]
-            elif len(dp2) == 2:
-                first_date = dp2[0][0] + " " + dp2[0][1] + " " + dp2[0][2]
-                last_date = dp2[1][0] + " " + dp2[1][1] + " " + dp2[1][2]
-
-    return first_date, last_date
-
-def get_dates_triples(sentence):
-    results = []
-    first_date, last_date = get_dates_first_sentence(sentence)
-    if first_date:
-        results.append(f"individual born {first_date}")
-    if last_date:
-        results.append(f"individual death {last_date}")
-    return results
+            else:
+                results2.append(s)
+        else:
+            results2.append(s)
+    return results, results2
 
 def get_triples(document):
     triples = []
@@ -138,6 +70,11 @@ def get_triples(document):
                     if(children.pos == AUX):
                         #auxiliary passive
                         preds.insert(0,children)
+                    elif(children.dep_ == "neg"):
+                        #negative
+                        preds.insert(1,children)
+                    elif(children.dep_ == "xcomp"):
+                        preds.append(children)
                     #    pred = pred + " " + children.text
                     # retrieve subtrees
                     is_subj = False
@@ -164,163 +101,117 @@ def get_triples(document):
                 #print(f"{s.text}|{pred.text}|{o.text}")
     return triples
 
-def append_preps_verbs(triples):
-    for triple in triples:
-        #print(triple[2][0].dep_, triple[2][0].pos_)
-        if len(triple[2])>0:
-            if(triple[2][0].dep_ == "prep" or triple[2][0].dep_ == "agent"):
-                triple[1].append(triple[2].pop(0))
-    return triples
+def get_triples_complex_sentence(sent_tokens):
+    pass
 
-def split_conjunctions_subjs(triples):
-    new_triples = []
-    for triple in triples:
-        for token in triple[0]:
-            if token.dep_ == "conj":
-                #new_subjs.append(token)
-                new_triples.append([[token], triple[1], triple[2]])
-                triple[0].remove(token)
-                #remove token
-            elif token.dep_ == "punct" or token.dep_ == "cc":
-                triple[0].remove(token)
-    for t in new_triples:
-        triples.append(t)
-    return triples
+def simplify_sentence(complex_sentence):
+    # advcl: adverbial clause modifier
+    # relcl: relative clause modifier
+    # xcomp: open clausal complement 
+    # acl: clausal modifier of noun (adjectival clause)
+    # ccomp: clausal complement 
+    # conj
+    
+    root_clau = []
+    adv_clau = []
+    rela_clau = []
+    acl_clau = []
+    conj_clau = []
+    # xcomp = []
+    for token in complex_sentence:
+        if token.dep_ == "ROOT":
+            print(token.text, token.dep_, token.pos_)
+            root_clau.append(token)
+        elif token.dep_ == "advcl":
+            print(token.text, token.dep_)
+            adv_clau.append(token)
+        elif token.dep_ == "relcl":
+            print(token.text, token.dep_)
+            rela_clau.append(token)
+        elif token.dep_ == "acl":
+            print(token.text, token.dep_)
+            acl_clau.append(token)
+        if token.dep_ == "conj" and token.head.pos == VERB:
+            print(token.text, token.dep_)
+            conj_clau.append(token)
 
-def split_conjunctions_obj(triples):
-    new_triples = []
-    objs = []
-    for triple in triples:
-        obj = []
-        for token in triple[2]:
-            if token.dep_ == "cc" or token.dep_ == "punct" :
-                objs.append(obj)
-                obj = []
-            else:
-                obj.append(token)
-        if objs:
-            for o in objs:
-                new_triples.append([triple[0],triple[1],o])
-            # remove old triples
-            triples.remove(triple)
+    # This should be put into a function to avoid code rep 
+    # only one root 
+    for token in root_clau:
+        sent = []
+        for token_children in token.subtree:            
+            ancestors = [t for t in token_children.ancestors]
+            if any([t.dep_ in ["advcl", "acl", "relcl"] for t in ancestors]):
+                break
+            sent.append(token_children)
+        print(' '.join([t.text for t in sent]))
+        print("----")
 
-    #append new triples
-    for t in new_triples:
-        triples.append(t)
-    return triples
+    for token in adv_clau:
+        sent = []
+        for token_children in token.subtree:
+            #print(token_children.text)
+            sent.append(token_children.text)
+            rights = [t for t in token_children.rights]
+            if any([t.dep_ == "advcl" for t in rights]):
+                break
+        print(' '.join(sent))
+        print("----")
 
-def fix_aux_verbs(triples):
-    new_triples = []
-    for triple in triples:
-        # if there is only one verb
-        if len(triple[1]) == 1:
-            # if there is only one auxiliary verb
-            if triple[1][0].pos == AUX:
-                # retrieve all the tokens to identify possible candidates
-                verb_subtree = [x for x in triple[1][0].subtree]
-                verb_mod_explore = []
-                for elem in verb_subtree:
-                    if(elem.dep_ == "attr" and elem.head.pos == AUX):
-                        verb_mod_explore.append(elem)
-                    elif(elem.dep_ == "conj" and elem.head in verb_mod_explore ):
-                        verb_mod_explore.append(elem)
-                
-                verb_mods = []
-                for elem in verb_mod_explore:
-                    verb_mod = []
-                    for child in elem.children:
-                        if(child.dep_ != "cc" and child.dep_ != "conj" and child.dep_ != "prep"):
-                            verb_mod.append(child)
-                    verb_mod.append(elem)
-                    verb_mods.append(verb_mod)
+    for token in rela_clau:
+        sent = []
+        for token_children in token.subtree:
+            #print(token_children.text)
+            sent.append(token_children.text)
+            rights = [t for t in token_children.rights]
+            if any([t.dep_ == "relcl" for t in rights]):
+                break
+        print(' '.join(sent))
+        print("----")
 
-                # new object
-                if(verb_mods[-1][-1] in triple[2]):
-                    index = triple[2].index(verb_mods[-1][-1])+1
-                    new_obj = triple[2][index:]
+    for token in acl_clau:
+        sent = []
+        for token_children in token.subtree:
+            #print(token_children.text)
+            sent.append(token_children.text)
+            rights = [t for t in token_children.rights]
+            if any([t.dep_ == "acl" for t in rights]):
+                break
+        print(' '.join(sent))
+        print("----")
 
-                    # Fix prepositions
-                    if len(new_obj) > 0:
-                        if new_obj[0].dep_ == "prep":
-                            prep = new_obj.pop(0)
-                            for v in verb_mods:
-                                if(v[-1].dep_ != "prep"):
-                                    v.append(prep)
-                    
-                    # new triples
-                    for v in verb_mods:
-                        new_triples.append([triple[0],triple[1]+v,new_obj])
+    for token in conj_clau:
+        sent = []
+        for token_children in token.subtree:
+            #print(token_children.text)
+            sent.append(token_children.text)
+            rights = [t for t in token_children.rights]
+            if any([t.dep_ == "conj" for t in rights]):
+                break
+        print(' '.join(sent))
+        print("----")
 
-                    # remove old triples
-                    triples.remove(triple)
-            
-    #append new triples
-    for t in new_triples:
-        triples.append(t)
-    return triples
-                
-def print_triples(triples):
-    for triple in triples:
-        s = [x.text for x in triple[0]]
-        p = [x.text for x in triple[1]]
-        o = [x.text for x in triple[2]]
-        print(f"{' '.join(s)} | {' '.join(p)} | {' '.join(o)}")
-
-def pipeline(t, nlp):
-    doc = nlp(t)
-    sentences = get_sentences(doc)
-    dates_triples = get_dates_triples(sentences[0])
-    sentences = sentences_1_verb(sentences)
-    print(sentences)
-    #ncs(sentences)
-    #return
-    triples = get_triples(sentences)
-    #print(triples)
-
-    triples = fix_aux_verbs(triples)
-    #print(triples)
-
-    triples = append_preps_verbs(triples)
-    #print(triples)
-
-    triples = split_conjunctions_subjs(triples)
-    #print(triples)
-
-    triples = split_conjunctions_obj(triples)
-    #print(triples)
-    print_triples(triples)
-
-    #print(dates_triples)
-    #split_conjunctions_obj
-def ncs(sentences):
-    for s in sentences:
-        for chunk in s.noun_chunks:
-            print(chunk.text, chunk.root.text, chunk.root.dep_,
-            chunk.root.head.text)
+def print_everything(doc):
+    for token in doc:
+        print(token.text, token.dep_, token.head.text, token.head.pos_, [child for child in token.children])
+    displacy.serve(doc, style='dep', options = {"collapse_phrases": True, "collapse_punct": True, "distance": 125})
 
 def main():
     nlp = spacy.load("en_core_web_sm")
-    #nlp = spacy.load("en_core_web_trf")
-    # preps after tripoes
-    #pipeline(test_examples[12], nlp)
-    #exit()
-    for t in test_examples:
-        pipeline(t,nlp)
-        print("---"*50)
-    exit()
-    doc = nlp(t)
+    doc = nlp(test_examples[0])
     sentences = get_sentences(doc)
-    dates_triples = get_dates_triples(sentences[0])
-    print(dates_triples)
-    sentences = sentences_1_verb(sentences)
-    print(sentences)
-    print(get_triples(sentences))
-    
+    sentences1, sentences2 = sentences_1_verb(sentences)
+    for s in sentences2:
+        print(s)
+        #for chunk in s.noun_chunks:
+        #    print(chunk.text, chunk.root.text, chunk.root.dep_,chunk.root.head.text)
+        simplify_sentence(s)
+        print("*"*64)
 
-    #print(get_dates_first_sentence(get_sentences(doc)[0]))
-    #for token in nlp("Alain Connes is a French mathematician, and a theoretical physicist, known for his contributions to the study of operator algebras and noncommutative geometry."):
-    #    print(token.text, token.dep_)
-
+    #print_everything(nlp("Islamic and European alchemists developed a basic set of laboratory techniques, theories, and terms, some of which are still in use today."))
+    #print_everything(nlp("The former is pursued by historians of the physical sciences, who examine the subject in terms of early chemistry, medicine, and charlatanism, and the philosophical and religious contexts in which these events occurred."))
+    print_everything(nlp("However, they did not abandon the ancients' belief that everything is composed of four elements, and they tended to guard their work in secrecy, often making use of cyphers and cryptic symbolism."))
     
+    #print(get_triples(nlp("Alchemy is an ancient branch of natural philosophy, a philosophical and protoscientific tradition that was historically practiced in China, India, the Muslim world, and Europe.")))
 if __name__ == "__main__":
     main()

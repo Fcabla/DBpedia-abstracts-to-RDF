@@ -29,7 +29,7 @@ A set of 12 dbpedia abstracts has been prepared for the initial tests, 9 of them
 
 For each sentence, we first identified the verb and extracted its children. 
 The children of a token are those words that are connected (dependency). With spacy you can extract graphs to identify these connections.
-![example_dependency_tree](https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/docs/example_dependency_tree.png)
+![example_dependency_tree](https://raw.githubusercontent.com/Fcabla/DBpedia-abstracts-to-RDF/main/docs/example_dependency_tree.png)
 
 With the children, dependency subtrees are extracted which are then inspected and classified into subjects or objects.
 To classify them the whole subtree is explored, if an element of the subtree corresponds to a subject or object these are added to their corresponding classes. 

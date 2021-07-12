@@ -1,4 +1,4 @@
-# Attempting to enhance the triples
+# Attempting to enhance the triples part 2
 In this third week i have continued with the approach introduced in week 2 (exploring subtrees) trying to introduce improvements. At the moment we continue with the simplified problem to get closer to a good base solution.
 
 ## Coding week 2 results and indentified problems
@@ -150,7 +150,10 @@ He | is a Professor at | Ohio State University
 
 During this third week we have improved the extraction of triplets introduced in the second week using simple sentences with a single verb (regular or auxiliary) or with a compound verb (auxiliary and regular).
 
-Even with the improvements introduced some things to improve can be observed such as sentences with very long subject, for example `the 12th century translations of medieval Islamic works on science the of Aristotelian philosophy`. Next week we will explore more complex sentences and how they behave with the developed system. Perhaps the approach of exploring the subtrees of the children of the root will be changed to one using the noun chunks.
+Even with the improvements introduced some things to improve can be observed such as sentences with very long subject, for example `the 12th century translations of medieval Islamic works on science the of Aristotelian philosophy`. 
+Other problems can be found in the triples generated for the sentence `A, or a, is the first letter and the first vowel letter of the modern English alphabet and the ISO basic Latin alphabet.` where the sistem identified the object of the triples `modern English alphabet and the ISO basic Latin alphabet` as an extension of the auxiliary verb. This happen only when the "en_core_web_sm" model is used.
+
+In the next week we will explore more complex sentences and how they behave with the developed system. Perhaps the approach of exploring the subtrees of the children of the root will be changed to one using the noun chunks.
 
 Finally, it has been noticed that depending on the model used ("en_core_web_sm" vs "en_core_web_trf") the results change.
 

@@ -19,10 +19,23 @@ In this second week I have tried to rethink the whole project and use different 
 In this third week i have continued with the approach introduced in week 2 (exploring subtrees) trying to introduce improvements. At the moment we continue with the simplified problem to get closer to a good base solution. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week3)
 
 ## Coding week 4 (28/06/2021 - 05/07/2021)
-TODO. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week4)
+During this fourth week we have been studying the type of tokens that make up complex sentences containing more than one verb and how to simplify the sentences entered into the system. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week4)
 
-July 12 - July 16: First evaluation period - students submit evaluations of mentors
+## Coding week 5 (05/07/2021 - 12/07/2021)
+WIP
 
+## First evaluation period (12/07/2021 - 16/07/2021)
+First evaluation period - students submit evaluations of mentors
 
-August 16 - 23: Students submit their code, write tests and documentation, and submit a final evaluation of their Mentor
-August 31: Students who pass receive their final payment (55%)
+## Coding week 6 (12/07/2021 - 19/07/2021)
+
+## Coding week 7 (19/07/2021 - 26/07/2021)
+
+## Coding week 8 (26/07/2021 - 02/08/2021)
+
+## Coding week 9 (26/07/2021 - 02/08/2021)
+
+## Coding week 10 (02/08/2021 - 09/08/2021)
+
+## Final evaluation period (16/08/2021 - 23/08/2021)
+Students submit their code, write tests and documentation, and submit a final evaluation of their Mentor
