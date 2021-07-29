@@ -91,9 +91,9 @@ From the examples available, the following conclusion has been reached:
 1. if the verb token is of type acl, the new subject is the subject of the previous sentence.
 2. If the verb token is of type conj and its direct ancestor is a verb, the new subject is the subject of the previous sentence.
 3. If the verb token is any other type of clause:
-4.      If the current subject is passive and the previous subject is nominal, the new subject is the subject of the previous sentence.
-5.      If the current subject and the previous subject are different, the new subject is the subject of the previous sentence.
-6.      If the present subject and the preceding subject are both nominal, the new subject is the subject of the preceding sentence. 
+4.  If the current subject is passive and the previous subject is nominal, the new subject is the subject of the previous sentence.
+5.  If the current subject and the previous subject are different, the new subject is the subject of the previous sentence.
+6.  If the present subject and the preceding subject are both nominal, the new subject is the subject of the preceding sentence. 
 7. If none of the above is true, do not modify the triplet.
 
 Some examples:
