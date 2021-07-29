@@ -9,7 +9,7 @@ The other approach is to try to adapt the system to be able to deal with all typ
 We have chosen to follow the first approach as it seems simpler and there are already some proposed solutions to the problem of simplifying complex sentences that can be used or inspired by them. Once the sentences have been simplified, they can be fed into the system already built to generate triples.
 
 
-### Soluciones encontradas
+### Solutions Found
 After searching for works related to the problem of simplifying complex sentences three solutions have been found. 
 The first tool can be found [here][3], it seems to be a project based on the standfor parser, after investigating the project report found in the repository it has been seen that the solution seems to work well for sentences with more than two clauses. The methodology followed by the authors consists of three steps: (1) Setting the criteria for a clause, (2) Algorithm for segmentation of clause and (3) Criteria for marking clause boundaries.
 

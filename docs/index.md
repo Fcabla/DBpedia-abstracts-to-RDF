@@ -22,20 +22,25 @@ In this third week i have continued with the approach introduced in week 2 (expl
 During this fourth week we have been studying the type of tokens that make up complex sentences containing more than one verb and how to simplify the sentences entered into the system. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week4)
 
 ## Coding week 5 (05/07/2021 - 12/07/2021)
-WIP
+In the fifth week of development of the GSoC project I have focused on further improving the processing of more complex sentences as well as adapting all the previous code to work with this type of sentences. I have also made some modifications and improvements to some of the functions developed during the previous weeks. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week5)
 
 ## First evaluation period (12/07/2021 - 16/07/2021)
 First evaluation period - students submit evaluations of mentors
 
 ## Coding week 6 (12/07/2021 - 19/07/2021)
+WIP. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week6)
 
 ## Coding week 7 (19/07/2021 - 26/07/2021)
+WIP. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week7)
 
 ## Coding week 8 (26/07/2021 - 02/08/2021)
+WIP. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week8)
 
-## Coding week 9 (26/07/2021 - 02/08/2021)
+## Coding week 9 (02/08/2021 - 09/08/2021)
+WIP. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week9)
 
-## Coding week 10 (02/08/2021 - 09/08/2021)
+## Coding week 10 (09/08/2021 - 16/08/2021)
+WIP. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week10)
 
 ## Final evaluation period (16/08/2021 - 23/08/2021)
 Students submit their code, write tests and documentation, and submit a final evaluation of their Mentor
