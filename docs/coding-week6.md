@@ -136,7 +136,7 @@ For more information please check the [repository][1] or the [source file of thi
 [1]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF
 [2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/cw6.py
 [3]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/e2d3ca02e6f0eff50a7c037f42deebae79189298/code/cw5.py#L417
-[4]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/docs/coding-week1.md
+[4]: https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week1
 [5]: https://www.dbpedia-spotlight.org/
 [6]: https://www.dbpedia-spotlight.org/api
 [7]: https://www.dbpedia-spotlight.org/demo/
