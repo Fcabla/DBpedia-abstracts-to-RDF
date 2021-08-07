@@ -6,7 +6,7 @@ import re
 import json
 
 INPUT_FILE = "datasets/long-abstracts-sample.csv"
-OUTPUT_FILE = "results/stats/complex_sentences_common_prep_test.json"
+OUTPUT_FILE = "results/stats/simple_sentences_common_verbs_prep.json"
 
 def clean_text(text):
     #remove all the parentheses
@@ -105,10 +105,11 @@ def main():
         doc = nlp(abstract)
         sentences = get_sentences(doc)
         for sentence in sentences:
-            #if get_num_verbs(sentence) == 1:
-            #verbs.extend(get_lemmatized_verbs(sentence))
-            #verbs.extend(get_lemmatized_verbs_prepositions(sentence))
-            verbs.extend(get_prepositions(sentence))
+            if get_num_verbs(sentence) == 1:
+                #verbs.extend(get_lemmatized_verbs(sentence))
+                verbs.extend(get_lemmatized_verbs_prepositions(sentence))
+                #verbs.extend(get_prepositions(sentence))
+    verbs = [verb.lower() for verb in verbs]
     verb_counter = Counter(verbs)
     verb_counter = OrderedDict(verb_counter.most_common())
     print(verb_counter)

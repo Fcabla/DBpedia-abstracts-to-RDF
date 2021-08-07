@@ -1,7 +1,7 @@
-# Translating text to RDF
-During this sixth week it has been proposed how to perform the first approach for the translation of text format triples to RDF format triples, using dbpedia spotlight for Name Entity Recognition. In addition, new improvements have been introduced to the pipeline in relation to correlations.
+# Translating text into RDF
+During this sixth week it has been proposed how to perform the first approach for the translation of text format triples into RDF format triples, using dbpedia spotlight for Name Entity Recognition. In addition, new improvements have been introduced to the pipeline in relation to correlations.
 
-## Strategy for translating text to RDF
+## Strategy for translating text into RDF
 
 So far we have focused on processing the DBpedia abstract to split it into very simple sentences, so that we could form triples with the structure `subject | predicate | object`. To give an example, for the description of a book called Animalia, with 343 characters one of the extracted sentences is `Animalia | was published in | 1986`.
 
@@ -26,7 +26,7 @@ The second script [most_common_verbs.py][11] reads the previously created csv fi
 In verbs composed by an auxiliary verb and a regular verb only regular verbs have been counted (was rewarded -> rewarded).
 
 ## Name entity recognition (NER): DBpedia Spotlight
-This technique consists in the identification of entities in texts. For this project, this technique is of great help since it allows us to identify which parts of the text we should translate from raw text to RDF.
+This technique consists in the identification of entities in texts. For this project, this technique is of great help since it allows us to identify which parts of the text we should translate from raw text into RDF.
 
 Several tools other than Spotlight have been explored to apply NER, such as Spacy and Standford NLP. The problem with these two tools is that they only identify the text entities but do not inform us of the URI in any ontology of the spotted resources.
 
@@ -127,7 +127,7 @@ According to my tutor, when the verb to be appears by itself it should be replac
 After trying to remove the function and inspect the results I have some doubts that I will discuss with my tutor, for example in the sentence `Alain Connes | is | a Professor at the Collège de France` I suppose that Alain connes will be of type professor and place of work COllege de France, but a resource can be of type Professor? should I replace the resource professor by the type (DBpedia) of the resource professor (in this case it is professor)?
 
 ## Conclusions
-In conclusion, this week we have tested different tools and declared a plan for the translation of the texts in the triples to RDF. We have also continued to improve the text processing with the use of the coreference plugin. I still consider that the splitting of the objects in the triples should be improved as in some cases very strange sub triples are produced.
+In conclusion, this week we have tested different tools and declared a plan for the translation of the texts in the triples into RDF. We have also continued to improve the text processing with the use of the coreference plugin. I still consider that the splitting of the objects in the triples should be improved as in some cases very strange sub triples are produced.
 
 During the next week I will be creating the lookup table and the mechanism to substitute the predicates by the properties inside the lookup table, as well as improving the translation of the objects and subjects. In weeks 9 and 10 the web application will be built, by command line and some statistics and benchmarks will be extracted.
 
