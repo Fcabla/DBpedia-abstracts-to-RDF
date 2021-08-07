@@ -26,7 +26,7 @@ def plot_cumsum(df, tick_freq=20, topic = "Elem", save_plots=False):
     plt.xlabel(f"{topic} (index)")
     plt.ylabel("% Cases covered")
     if save_plots:
-        plt.savefig(f"{SAVE_PATH}cumsum_{topic}.png".lower())
+        plt.savefig(f"{SAVE_PATH}cumsum_{topic}.png".lower(),  dpi=300)
     plt.show()
 
 def plot_cumsum_labels(df, tick_freq=20, topic = "Elem", save_plots=False):
@@ -43,7 +43,7 @@ def plot_cumsum_labels(df, tick_freq=20, topic = "Elem", save_plots=False):
     plt.xlabel(f"{topic} (index)")
     plt.ylabel("% Cases covered")
     if save_plots:
-        plt.savefig(f"{SAVE_PATH}cumsum_{topic}.png".lower())
+        plt.savefig(f"{SAVE_PATH}cumsum_{topic}.png".lower(),  dpi=300)
     plt.show()
 
 
