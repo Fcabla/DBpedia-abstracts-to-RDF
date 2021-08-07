@@ -21,12 +21,12 @@ def plot_cumsum(df, tick_freq=20, topic = "Elem", save_plots=False):
    
     df[["elem","cumsum"]].plot()
     xticks = np.arange(0, len(df)+1, tick_freq)
-    plt.xticks(xticks)
+    plt.xticks(xticks, rotation="vertical")  
     plt.title(f"Cumulative sum for {topic}")
     plt.xlabel(f"{topic} (index)")
     plt.ylabel("% Cases covered")
     if save_plots:
-        plt.savefig(f"{SAVE_PATH}cumsum_{topic}.png".lower(),  dpi=300)
+        plt.savefig(f"{SAVE_PATH}cumsum_{topic}.png".lower(),  dpi=300,bbox_inches='tight')
     plt.show()
 
 def plot_cumsum_labels(df, tick_freq=20, topic = "Elem", save_plots=False):
