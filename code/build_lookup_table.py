@@ -4,13 +4,13 @@ The idea is to take the first N most relevant prepositions and the first N most 
 Adding also UNK to the unknown values and DEF to the default verb (no preposition or not found)
 """
 
-VERBS_FILE_PATH = "results/stats/complex_sentences_common_verbs.json"
-PREPOSITIONS_FILE_PATH = "results/stats/complex_sentences_common_prep.json"
+VERBS_FILE_PATH = "results/stats/simple_sentences_common_verbs.json"
+PREPOSITIONS_FILE_PATH = "results/stats/simple_sentences_common_prep.json"
 UNKOWN_VALUE = "UNK"
 DEFAULT_VERB = "DEF"
-NVERBS = 100
-NPREPS = 13
-OUTPUT_FILE = "results/verb_prep_property_lookup.json"
+NVERBS = 30
+NPREPS = 12
+OUTPUT_FILE = "datasets/verb_prep_property_lookup.json"
 import json
 from collections import Counter
 

@@ -9,7 +9,7 @@ PREPOSITIONS_FILE_PATH = "results/stats/simple_sentences_common_prep.json"
 SAVE_PATH = "results/"
 
 def get_cumsum_df(json_file):
-    """ To do """
+    """ Reads a json file with a Counter dict and returns a dataframe with the info read and the cumsum of the count """
     with open(json_file) as jfile:
         dict = json.load(jfile)
     df = pd.DataFrame(dict.items(), columns=["elem","count"])
@@ -18,7 +18,6 @@ def get_cumsum_df(json_file):
 
 def plot_cumsum(df, tick_freq=20, topic = "Elem", save_plots=False):
     """ Function to plot the elements index(x) and cumsums (y) to check how many elements to choose"""
-   
     df[["elem","cumsum"]].plot()
     xticks = np.arange(0, len(df)+1, tick_freq)
     plt.xticks(xticks, rotation="vertical")  
@@ -35,7 +34,6 @@ def plot_cumsum_labels(df, tick_freq=20, topic = "Elem", save_plots=False):
     df = df.set_index("elem")
     ts = df["cumsum"]
     ts.plot()
-    #df[["elem","cumsum"]].plot()
     xticks = np.arange(0, len(df)+1, tick_freq)
     labels = labels[xticks]
     plt.xticks(xticks, labels, rotation=45)
@@ -50,9 +48,9 @@ def plot_cumsum_labels(df, tick_freq=20, topic = "Elem", save_plots=False):
 def main():
     verbs = get_cumsum_df(VERBS_FILE_PATH)
     prepositions = get_cumsum_df(PREPOSITIONS_FILE_PATH)
-    plot_cumsum(verbs, tick_freq=25, topic="Verbs", save_plots=True)
-    plot_cumsum(prepositions, tick_freq=10, topic="Prepositions", save_plots=True)
-    
+    plot_cumsum(verbs, tick_freq=25, topic="Verbs", save_plots=False)
+    plot_cumsum(prepositions, tick_freq=10, topic="Prepositions", save_plots=False)
+    print(verbs.head(30))
 
 if __name__ == "__main__":
     main()

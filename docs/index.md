@@ -28,10 +28,10 @@ In the fifth week of development of the GSoC project I have focused on further i
 First evaluation period - students submit evaluations of mentors
 
 ## Coding week 6 (12/07/2021 - 19/07/2021)
-WIP. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week6)
+During this sixth week it has been proposed how to perform the first approach for the translation of text format triples into RDF format triples, using dbpedia spotlight for Name Entity Recognition. In addition, new improvements have been introduced to the pipeline in relation to correlations. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week6)
 
 ## Coding week 7 (19/07/2021 - 26/07/2021)
-WIP. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week7)
+This week we have focused on the construction of the lookup table that will allow us to apply lexicalization to infer the property (predicate) of the ontology from the verb + preposition of a sentence. As we did when developing the pipeline to process the sentences, we will only use simple sentences with verbs. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week7)
 
 ## Coding week 8 (26/07/2021 - 02/08/2021)
 WIP. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week8)
