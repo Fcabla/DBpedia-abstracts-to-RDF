@@ -23,12 +23,14 @@ As can be seen, the verb `to be` appears in most of the sentences taken in the s
 
 Once these lists were constructed, the cumulative sum of the number of occurrences was calculated, in this way we can see how many cases we covered with each sublist of verbs. In the following plot you can see the verbs in the x-axis and the the percentage of cases covered from the X to the origin (cumulative sum) in the y-axis. ![cumsum_verbs](https://raw.githubusercontent.com/Fcabla/DBpedia-abstracts-to-RDF/main/results/cumsum_verbs.png)
 
-Each time more verbs are added (X-axis) the difference of cases covered becomes smaller. For example, if we wanted to cover 90% of the cases we would have to include 175 verbs in the lexicalization table, which is a huge manual workload that is a bit out of the scope of this project. For the moment only the first 25 verbs will be included, giving a coverage of 70% of the cases.
+Each time more verbs are added (X-axis) the difference of cases covered becomes smaller. For example, if we wanted to cover 90% of the cases we would have to include 175 verbs in the lexicalization table, which is a huge manual workload that is a bit out of the scope of this project. For the moment only the first 30 verbs will be included, giving a coverage of 70% of the cases.
 
 In the case of prepositions, the following plot has been obtained: 
 ![cumsum_prepositions](https://raw.githubusercontent.com/Fcabla/DBpedia-abstracts-to-RDF/main/results/cumsum_prepositions.png)
 
 Prepositions present a behavior similar to that of verbs, the more we consider the smaller the difference in the number of cases covered. However, in this case, taking into account only 10 prepositions covers 90% of the cases in the sample taken.
+
+If we choose 30 verbs and 10 prepositions, we have to associate 300 different combinations with their corresponding properties, which is quite a lot of manual work. Between this week and the next weeks the lexicalization table will be filled in.
 
 These plots have been obtained from the following [python script][5]
 

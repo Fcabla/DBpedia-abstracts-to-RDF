@@ -1,6 +1,6 @@
 {
     "be": {
-        "in": "UNK",
+        "in": ["http://dbpedia.org/ontology/locationCity", "http://dbpedia.org/ontology/locationCountry","http://dbpedia.org/ontology/location"],
         "on": "UNK",
         "at": "https://dbpedia.org/ontology/place",
         "as": "http://dbpedia.org/ontology/similar",
@@ -27,14 +27,15 @@
         "after": "UNK",
         "of": "UNK",
         "into": "UNK",
-        "DEF": "UNK"
+        "by": "https://dbpedia.org/ontology/owner",
+        "DEF": "https://dbpedia.org/ontology/owns"
     },
     "play": {
-        "in": "UNK",
+        "in": ["http://dbpedia.org/ontology/playerInTeam", "http://dbpedia.org/ontology/league", "http://dbpedia.org/ontology/ground", "http://dbpedia.org/ontology/position", "http://dbpedia.org/ontology/tenant"],
         "on": "UNK",
-        "at": "UNK",
-        "as": "UNK",
-        "for": "UNK",
+        "at": ["https://dbpedia.org/ontology/ground","https://dbpedia.org/ontology/location", "http://dbpedia.org/ontology/tenant"],
+        "as": "http://dbpedia.org/ontology/position",
+        "for": ["http://dbpedia.org/ontology/playerInTeam", "https://dbpedia.org/ontology/formerTeam", "https://dbpedia.org/ontology/draftTeam", "https://dbpedia.org/ontology/team"],
         "from": "UNK",
         "to": "UNK",
         "with": ["https://dbpedia.org/ontology/bandMember","https://dbpedia.org/ontology/associatedBand","https://dbpedia.org/ontology/team", "http://dbpedia.org/ontology/associatedMusicalArtist", "https://dbpedia.org/ontology/associate"],
@@ -42,12 +43,14 @@
         "after": "UNK",
         "of": "UNK",
         "into": "UNK",
-        "DEF": "UNK"
+        "against": "http://dbpedia.org/ontology/opponent",
+        "by": ["http://dbpedia.org/ontology/writer","http://dbpedia.org/ontology/author","http://dbpedia.org/ontology/musicalArtist","http://dbpedia.org/ontology/artist"],
+        "DEF": ["https://dbpedia.org/ontology/genre", "http://dbpedia.org/ontology/sport", "https://dbpedia.org/ontology/sportDiscipline", "http://dbpedia.org/ontology/instrument"]
     },
     "locate": {
-        "in": "UNK",
-        "on": "UNK",
-        "at": "UNK",
+        "in": ["https://dbpedia.org/ontology/place", "https://dbpedia.org/ontology/location", "http://dbpedia.org/ontology/locatedInArea"],
+        "on": ["https://dbpedia.org/ontology/place", "https://dbpedia.org/ontology/location", "http://dbpedia.org/ontology/locatedInArea"],
+        "at": ["https://dbpedia.org/ontology/place", "https://dbpedia.org/ontology/location", "http://dbpedia.org/ontology/locatedInArea"],
         "as": "UNK",
         "for": "UNK",
         "from": "UNK",
@@ -57,13 +60,13 @@
         "after": "UNK",
         "of": "UNK",
         "into": "UNK",
-        "DEF": "UNK"
+        "DEF": ["https://dbpedia.org/ontology/place", "https://dbpedia.org/ontology/location", "http://dbpedia.org/ontology/locatedInArea"]
     },
     "serve": {
-        "in": "UNK",
-        "on": "UNK",
+        "in": "http://dbpedia.org/ontology/regionServed",
+        "on": "http://dbpedia.org/ontology/ingredient",
         "at": "UNK",
-        "as": "UNK",
+        "as": ["http://dbpedia.org/ontology/occupation", "https://dbpedia.org/ontology/position", "https://dbpedia.org/ontology/keyPerson"],
         "for": "UNK",
         "from": "UNK",
         "to": "UNK",
@@ -72,7 +75,7 @@
         "after": "UNK",
         "of": "UNK",
         "into": "UNK",
-        "DEF": "UNK"
+        "DEF": ["http://dbpedia.org/ontology/militaryService", "https://dbpedia.org/ontology/service", "https://dbpedia.org/ontology/broadcastArea", "https://dbpedia.org/ontology/servingRailwayLine"]
     },
     "include": {
         "in": "UNK",
@@ -105,7 +108,7 @@
         "DEF": "UNK"
     },
     "release": {
-        "in": "UNK",
+        "in": "http://dbpedia.org/ontology/releaseLocation",
         "on": "UNK",
         "at": "UNK",
         "as": "UNK",
@@ -198,7 +201,7 @@
         "in": "UNK",
         "on": "UNK",
         "at": "UNK",
-        "as": "UNK",
+        "as": "www.w3.org/2002/07/owl#sameAs",
         "for": "http://dbpedia.org/ontology/knownFor",
         "from": "UNK",
         "to": "UNK",
@@ -305,7 +308,7 @@
         "at": "UNK",
         "as": "UNK",
         "for": "UNK",
-        "from": "UNK",
+        "from": "http://dbpedia.org/ontology/ingredient",
         "to": "UNK",
         "with": "https://dbpedia.org/ontology/ingredient",
         "during": "UNK",
@@ -360,7 +363,7 @@
         "DEF": "UNK"
     },
     "found": {
-        "in": "UNK",
+        "in": "https://dbpedia.org/ontology/foundationPlace",
         "on": "UNK",
         "at": "UNK",
         "as": "UNK",
@@ -372,6 +375,7 @@
         "after": "UNK",
         "of": "UNK",
         "into": "UNK",
+        "by": "https://dbpedia.org/ontology/fundedBy",
         "DEF": "UNK"
     },
     "feature": {
