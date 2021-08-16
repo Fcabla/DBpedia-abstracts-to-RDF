@@ -7,7 +7,7 @@ import pandas as pd
 import requests
 import json
 import copy
-from rdflib import Graph, OWL, RDFS, RDF, URIRef
+from rdflib import Graph, OWL, RDFS, RDF, URIRef, Literal
 
 ############
 # Examples #
@@ -18,7 +18,9 @@ SPOTLIGHT_LOCAL_URL = "http://localhost:2222/rest/annotate/"
 SPOTLIGHT_ONLINE_API = "https://api.dbpedia-spotlight.org/en/annotate"
 MODIFIERS = ["compound", "amod", "nummod", "nmod", "advmod", "npadvmod"]
 USE_COMPLEX_SENTENCES = False
-LEXICALIZATION_TABLE = "datasets/verb_prep_property_lookup.json"
+PROP_LEXICALIZATION_TABLE = "datasets/verb_prep_property_lookup.json"
+CLA_LEXICALIZATION_TABLE = "datasets/classes_lookup.json"
+
 DBPEDIA_ONTOLOGY = "datasets/dbo_ontology_2021.08.06.owl"
 UNKOWN_VALUE = "UNK"
 DEFAULT_VERB = "DEF"
@@ -773,12 +775,12 @@ def load_dbo_graph(dbo_path):
     return g
 
 def load_lexicalization_table(lex_path):
-    """ Return the lexicalization table as a python dict of dics (verbs and prepositions) """
-    with open(LEXICALIZATION_TABLE) as json_file:
+    """ Return the lexicalization table as a python dict of dics (verbs and prepositions, classes) """
+    with open(PROP_LEXICALIZATION_TABLE) as json_file:
         lexicalization_table = json.load(json_file)
     return lexicalization_table
 
-def replace_text_URI(triples, term_URI_dict, term_types_dict, lexicalization_table, dbo_graph):
+def replace_text_URI(triples, term_URI_dict, term_types_dict, prop_lex_table, cla_lex_table, dbo_graph):
     """
     Maybe this function should be inside the triple class
     """
@@ -790,7 +792,7 @@ def replace_text_URI(triples, term_URI_dict, term_types_dict, lexicalization_tab
         
         verb = [tkn for tkn in triple.pred if tkn.pos_ == "VERB" or (tkn.pos_ == "AUX" and tkn.dep_ not in ["aux","auxpass"])].pop()
         verb = str(verb.lemma_)
-        prep = [tkn for tkn in triple.pred if tkn.dep_ == "prep"]
+        prep = [tkn.text for tkn in triple.pred if tkn.dep_ == "prep"]
         if prep:
             prep = prep.pop()
         else:
@@ -805,9 +807,9 @@ def replace_text_URI(triples, term_URI_dict, term_types_dict, lexicalization_tab
 
         if verb == "be" and prep == DEFAULT_VERB:
             # the case of the verb to be has to be treated different from the rest
-            pass
-            objct = [get_dbo_class(objct)]
-            pred = term_URI_dict[verb]
+            objct = get_dbo_class(objct, cla_lex_table)
+            o_candidates = [objct]
+            pred = prop_lex_table[verb][prep]
         else:
             # NER the object
             o_candidates = []
@@ -817,14 +819,14 @@ def replace_text_URI(triples, term_URI_dict, term_types_dict, lexicalization_tab
                     o_candidates.append(term_URI_dict[word])
 
             # Lexicalization predicate        
-            if verb in lexicalization_table:
-                if prep in lexicalization_table[verb]:
-                    if lexicalization_table[verb][prep] == UNKOWN_VALUE:
-                        pred = lexicalization_table[verb][DEFAULT_VERB]
+            if verb in prop_lex_table:
+                if prep in prop_lex_table[verb]:
+                    if prop_lex_table[verb][prep] == UNKOWN_VALUE:
+                        pred = prop_lex_table[verb][DEFAULT_VERB]
                     else:
-                        pred = lexicalization_table[verb][prep]
+                        pred = prop_lex_table[verb][prep]
                 else:
-                    pred = lexicalization_table[verb][DEFAULT_VERB]
+                    pred = prop_lex_table[verb][DEFAULT_VERB]
             else:
                 pred = orginal_pred
             
@@ -861,15 +863,28 @@ def get_best_candidate(subj, objct, candidates, term_types_dict, dbo_graph):
 
     best_score = max(scores)
     result = candidates[scores.index(best_score)]
-    return result
+    return URIRef(result)
     
-def get_dbo_class(objct):
+def get_dbo_class(objct, cla_lex_table):
     """ Function that returns a dbo class given a text, for the to be case """
-    pass
+    if objct in cla_lex_table.keys():
+        return URIRef(cla_lex_table[objct])
+    else:
+        candidates = []
+        for k in cla_lex_table.keys():
+            if k in objct:
+                candidates.append(k)
+    
+        # strategy to select best candidate
+        if candidates:
+            result = candidates.pop()
+            return URIRef(result)
+        else:
+            return Literal(objct)
 
 
 # Main pipeline
-def pipeline(nlp, document, dbo_graph ,lexicalization_table):
+def pipeline(nlp, document, dbo_graph, prop_lex_table, cla_lex_table):
     """ Main sequence of steps to process certain input text into triples. """
     text = clean_text(document)
     #d1,d2 = get_dates_first_sentence(document)
@@ -883,7 +898,7 @@ def pipeline(nlp, document, dbo_graph ,lexicalization_table):
     triples = split_conjunctions_obj(triples)
     triples = swap_subjects_correferences(triples, doc._.coref_chains)
     term_URI_dict, term_types_dict = get_annotated_text_dict(text)
-    RDF_triples = replace_text_URI(triples, term_URI_dict, term_types_dict, lexicalization_table, dbo_graph)
+    RDF_triples = replace_text_URI(triples, term_URI_dict, term_types_dict, prop_lex_table, cla_lex_table, dbo_graph)
 
 
     for t in RDF_triples:
@@ -905,14 +920,14 @@ def main():
     nlp = spacy.load("en_core_web_trf")
     nlp.add_pipe('coreferee')
     
-    lexicalization_table = load_lexicalization_table(LEXICALIZATION_TABLE)
+    prop_lex_table = load_lexicalization_table(PROP_LEXICALIZATION_TABLE)
+    cla_lex_table = load_lexicalization_table(CLA_LEXICALIZATION_TABLE)
+    
     dbo_graph = load_dbo_graph(DBPEDIA_ONTOLOGY)
 
     for example in test_examples:
         term_URI_dict, term_types_dict = get_annotated_text_dict(example)
-        print(term_types_dict)
-        exit()
-        pipeline(nlp, example, dbo_graph ,lexicalization_table)
+        pipeline(nlp, example, dbo_graph ,prop_lex_table, cla_lex_table)
     exit()
 
 if __name__ == "__main__":
