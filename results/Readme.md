@@ -1,4 +1,4 @@
-## Results
+# Results
 This file contains the results that have been generated during the whole project.
 
 **Examples_pyclausie_vs_spacy-clausie.md** shows the performance of pyclausie vs the implementation of clausie in spacy.

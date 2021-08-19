@@ -1,4 +1,4 @@
-## Scripts or helpers
+# Scripts or helpers
 This folder contains some scripts that have been used during the project and are not part of the main pipeline. Inside this folder you can find another Readme file with a description of each one.
 
 **clause_extraction.py** contains the first approach of extracting the clauses using ClausIE, more info in the [coding week 1 blog](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week1)
