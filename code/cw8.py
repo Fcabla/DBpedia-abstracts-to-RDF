@@ -46,14 +46,15 @@ test_examples = [
 ################################
 
 class Triple:
-    def __init__(self, subj, pred, objct):
+    def __init__(self, subj, pred, objct, sent):
         """list of tokens"""
         self.subj = subj
         self.pred = pred
         self.objct = objct
-    
+        self.sent = sent
+
     def get_copy(self):
-        return Triple(self.subj.copy(), self.pred.copy(), self.objct.copy())
+        return Triple(self.subj.copy(), self.pred.copy(), self.objct.copy(), self.sent)
 
     def get_all_tokens(self):
         """
@@ -66,7 +67,7 @@ class Triple:
         self.pred_rdf = pred
         self.objct_rdf = objct
 
-    def get_rdf_triples(self):
+    def get_rdf_triple(self):
         return f"{self.subj_rdf} | {self.pred_rdf} | {self.objct_rdf}"
 
     def __repr__(self):
@@ -334,7 +335,7 @@ def get_simple_triples(sentence):
     # Build triples
     for s in subjs:
         for o in objs:
-            triples.append(Triple(s,preds.copy(),o))
+            triples.append(Triple(s,preds.copy(),o, sentence))
     return triples
 
 def get_all_triples(sentences):
@@ -345,11 +346,12 @@ def get_all_triples(sentences):
     triples = []
     for sentence in sentences:
         # complex sentence
-        if get_num_verbs(sentence) > 1 and USE_COMPLEX_SENTENCES:
-            simple_sentences = simplify_sentence(sentence)
-            for sent in simple_sentences:
-                tps = get_simple_triples(sent)
-                triples.extend(tps)
+        if get_num_verbs(sentence) > 1:
+            if USE_COMPLEX_SENTENCES:
+                simple_sentences = simplify_sentence(sentence)
+                for sent in simple_sentences:
+                    tps = get_simple_triples(sent)
+                    triples.extend(tps)
         # simple sentence
         else:
             tps = get_simple_triples(sentence)
@@ -422,12 +424,15 @@ def get_subj_complex_sentence_helper(previous_triple, triple, clausule_verb, pre
     Results: Alchemy | was practiced | in China , India , the Muslim world , and Europe
     Returns a list of triples
     """
+    result_triple = triple.get_copy()
     if clausule_verb.dep_ == "acl":
         new_subj = [tkn for tkn in previous_triple.objct]
-        result_triple = Triple(new_subj, triple.pred, triple.objct)
+        #result_triple = Triple(new_subj, triple.pred, triple.objct)
+        result_triple.subj = new_subj
     elif clausule_verb.dep_ == "conj":
         new_subj = previous_triple.subj.copy()
-        result_triple = Triple(new_subj, triple.pred, triple.objct)
+        #result_triple = Triple(new_subj, triple.pred, triple.objct)
+        result_triple.subj = new_subj
     else:
         if clausule_verb.dep_ == "advcl":
             #print(f"{triple} <> {previous_triple} <> {subject.dep_} <> {previous_subject.dep_}")
@@ -436,7 +441,8 @@ def get_subj_complex_sentence_helper(previous_triple, triple, clausule_verb, pre
         if subject.dep_ == "nsubjpass" and previous_subject.dep_ == "nsubj":
             # take the subject of previous triplet as new subject
             new_subj = previous_triple.subj.copy()
-            result_triple = Triple(new_subj, triple.pred, triple.objct)
+            #result_triple = Triple(new_subj, triple.pred, triple.objct)
+            result_triple.subj = new_subj
         elif subject.dep != previous_subject.dep:
             #subject.dep_ == "nsubj":
             #take the object of previous triplet as new subject
@@ -444,12 +450,14 @@ def get_subj_complex_sentence_helper(previous_triple, triple, clausule_verb, pre
             #new_subj = [tkn for tkn in previous_triple.objct]
             if not new_subj:
                 new_subj = [tkn for tkn in previous_triple.objct]
-            result_triple = Triple(new_subj, triple.pred, triple.objct)
+            #result_triple = Triple(new_subj, triple.pred, triple.objct)
+            result_triple.subj = new_subj
         elif subject.dep_ == "nsubj" and previous_subject.dep_ == "nsubj":
             #subject.dep_ == "nsubjpass" or (
             # take the subject of previous triplet as new subject
             new_subj = previous_triple.subj.copy()
-            result_triple = Triple(new_subj, triple.pred, triple.objct)
+            #result_triple = Triple(new_subj, triple.pred, triple.objct)
+            result_triple.subj = new_subj
         else:
             result_triple = triple
 
@@ -564,9 +572,12 @@ def append_preps_verbs(triples):
     Result: He | was awarded in | 1982
     Returns a list of triples
     """
+    
     new_triples=[]
     for triple in triples:
-        prepositions = [tkn for tkn in triple.objct if tkn.dep_ in ["prep","agent"] and tkn.head.pos_ == "VERB"]
+        verb = [tkn for tkn in triple.pred if tkn.pos_ == "VERB" or (tkn.pos_ == "AUX" and tkn.dep_ not in ["aux","auxpass"])].pop()
+        prepositions = [tkn for tkn in verb.children if tkn.dep_ in ["prep","agent"]]
+
         if prepositions:
             for prep in prepositions:
                 if prep in triple.objct:
@@ -776,7 +787,7 @@ def load_dbo_graph(dbo_path):
 
 def load_lexicalization_table(lex_path):
     """ Return the lexicalization table as a python dict of dics (verbs and prepositions, classes) """
-    with open(PROP_LEXICALIZATION_TABLE) as json_file:
+    with open(lex_path) as json_file:
         lexicalization_table = json.load(json_file)
     return lexicalization_table
 
@@ -786,7 +797,8 @@ def replace_text_URI(triples, term_URI_dict, term_types_dict, prop_lex_table, cl
     """
     new_triples = []
     for triple in triples:
-        subj = ' '.join([x.text.lower() for x in triple.subj])
+        subj = [x for x in triple.subj if x.dep_ != "det"]
+        subj = ' '.join([x.text.lower() for x in subj])
         orginal_pred = ' '.join([x.text.lower() for x in triple.pred])
         objct = ' '.join([x.text.lower() for x in triple.objct])
         
@@ -795,15 +807,25 @@ def replace_text_URI(triples, term_URI_dict, term_types_dict, prop_lex_table, cl
         prep = [tkn.text for tkn in triple.pred if tkn.dep_ == "prep"]
         if prep:
             prep = prep.pop()
+            prep = prep.lower()
         else:
             prep = DEFAULT_VERB
 
         # NER the subject
         s_candidates = []
-        for word in subj.split():
-            word = word.lower()
-            if word in term_URI_dict:
-                s_candidates.append(term_URI_dict[word])
+        keys = []
+        for key in term_URI_dict.keys():
+            if key in subj.lower():
+                s_candidates.append(term_URI_dict[key])
+                keys.append(key)
+
+        # removing some subjects (not definitive)
+        if len(keys) > 1:
+            candidate = [b for a,b in zip(keys, s_candidates) if " " in a]
+            if candidate:
+                s_candidates = [candidate.pop()]
+            else:
+                s_candidates = [s_candidates.pop()]
 
         if verb == "be" and prep == DEFAULT_VERB:
             # the case of the verb to be has to be treated different from the rest
@@ -813,10 +835,9 @@ def replace_text_URI(triples, term_URI_dict, term_types_dict, prop_lex_table, cl
         else:
             # NER the object
             o_candidates = []
-            for word in objct.split():
-                word = word.lower()
-                if word in term_URI_dict:
-                    o_candidates.append(term_URI_dict[word])
+            for key in term_URI_dict.keys():
+                if key in objct.lower():
+                    o_candidates.append(term_URI_dict[key])
 
             # Lexicalization predicate        
             if verb in prop_lex_table:
@@ -825,21 +846,27 @@ def replace_text_URI(triples, term_URI_dict, term_types_dict, prop_lex_table, cl
                         pred = prop_lex_table[verb][DEFAULT_VERB]
                     else:
                         pred = prop_lex_table[verb][prep]
+
                 else:
                     pred = prop_lex_table[verb][DEFAULT_VERB]
             else:
-                pred = orginal_pred
+                pred = Literal(orginal_pred)
             
         # Build triple
+
         for s in s_candidates:
             for o in o_candidates:
                 if isinstance(pred,list):
                     # temporal fix, to be changed
                     # pred = pred.pop()
                     pred = get_best_candidate(s, o, pred, term_types_dict, dbo_graph)
+                else:
+                    if not isinstance(pred, Literal):
+                        pred = URIRef(pred)
                 new_triple = triple.get_copy()
-                new_triple.set_rdf_triples(s,pred,o)
+                new_triple.set_rdf_triples(URIRef(s),pred,URIRef(o))
                 new_triples.append(new_triple)
+
     return new_triples
 
 def get_best_candidate(subj, objct, candidates, term_types_dict, dbo_graph):
@@ -867,21 +894,32 @@ def get_best_candidate(subj, objct, candidates, term_types_dict, dbo_graph):
     
 def get_dbo_class(objct, cla_lex_table):
     """ Function that returns a dbo class given a text, for the to be case """
+    
     if objct in cla_lex_table.keys():
         return URIRef(cla_lex_table[objct])
     else:
         candidates = []
+        temp_obj = objct.split(" ")
         for k in cla_lex_table.keys():
-            if k in objct:
+            if k in temp_obj:
                 candidates.append(k)
-    
+
         # strategy to select best candidate
         if candidates:
-            result = candidates.pop()
+            key = candidates.pop()
+            result = cla_lex_table[key]
             return URIRef(result)
         else:
             return Literal(objct)
 
+def build_result_graph(triples):
+    """ Builds a rdf graph with the result triples """
+
+    g = Graph()
+    for triple in triples:
+        triple.get_rdf_triple()
+        g.add((triple.subj_rdf, triple.pred_rdf, triple.objct_rdf))
+    print(g.serialize(format='ttl'))
 
 # Main pipeline
 def pipeline(nlp, document, dbo_graph, prop_lex_table, cla_lex_table):
@@ -898,16 +936,30 @@ def pipeline(nlp, document, dbo_graph, prop_lex_table, cla_lex_table):
     triples = split_conjunctions_obj(triples)
     triples = swap_subjects_correferences(triples, doc._.coref_chains)
     term_URI_dict, term_types_dict = get_annotated_text_dict(text)
-    RDF_triples = replace_text_URI(triples, term_URI_dict, term_types_dict, prop_lex_table, cla_lex_table, dbo_graph)
-
-
-    for t in RDF_triples:
-        print(t.get_rdf_triples())
-    #print_triples(text,triples)
+    rdf_triples = replace_text_URI(triples, term_URI_dict, term_types_dict, prop_lex_table, cla_lex_table, dbo_graph)
+    print_rdf_results(rdf_triples)    
+    #build_result_graph(rdf_triples)
     return triples
 
+def print_rdf_results(triples):
+    """ Print the final result: Original sentence, text triples and rdf triples"""
+    if triples:
+        sent = triples[0].sent
+        print("-"*50)
+        print(f"**{sent}**")
+        print("\n")
+        for t in triples:
+            if t.sent != sent:
+                sent = t.sent
+                print("\n")
+                print("-"*50)
+                print(f"**{sent}**")
+                print("\n")
+            print(t.__repr__())
+            print(t.get_rdf_triple())
+
 def print_triples(text, triples):
-    RDF_triples = print(text)
+    print(text)
     print("-"*64)
     print("\n"*2)
     for triple in triples:
@@ -926,7 +978,7 @@ def main():
     dbo_graph = load_dbo_graph(DBPEDIA_ONTOLOGY)
 
     for example in test_examples:
-        term_URI_dict, term_types_dict = get_annotated_text_dict(example)
+        term_URI_dict, term_types_dict = get_annotated_text_dict(example, service_url=SPOTLIGHT_LOCAL_URL)
         pipeline(nlp, example, dbo_graph ,prop_lex_table, cla_lex_table)
     exit()
 

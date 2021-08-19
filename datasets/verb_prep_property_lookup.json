@@ -8,8 +8,8 @@
         "from": ["http://dbpedia.org/ontology/birthPlace", "https://dbpedia.org/ontology/place"],
         "to": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
         "with": "https://dbpedia.org/ontology/relation",
-        "during": ["https://dbpedia.org/property/years", "http://dbpedia.org/ontology/event", "http://dbpedia.org/ontology/period"],
-        "after": ["https://dbpedia.org/ontology/previousEvent", "https://dbpedia.org/property/after", "https://dbpedia.org/ontology/mainInterest"],
+        "during": ["http://dbpedia.org/ontology/event", "http://dbpedia.org/ontology/period"],
+        "after": ["https://dbpedia.org/ontology/previousEvent", "https://dbpedia.org/ontology/mainInterest"],
         "of": ["https://dbpedia.org/ontology/isPartOf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"],
         "into": "http://dbpedia.org/ontology/mainInterest",
         "DEF": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
