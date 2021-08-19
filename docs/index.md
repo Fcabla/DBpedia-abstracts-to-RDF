@@ -34,7 +34,7 @@ During this sixth week it has been proposed how to perform the first approach fo
 This week we have focused on the construction of the lookup table that will allow us to apply lexicalization to infer the property (predicate) of the ontology from the verb + preposition of a sentence. As we did when developing the pipeline to process the sentences, we will only use simple sentences with verbs. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week7)
 
 ## Coding week 8 (26/07/2021 - 02/08/2021)
-WIP. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week8)
+In this eighth week we have dedicated ourselves to build the necessary functions to correctly convert text triples into RDF triples. In addition, we have filled in the lexicalization table a bit more and fixed some bugs. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week8)
 
 ## Coding week 9 (02/08/2021 - 09/08/2021)
 WIP. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week9)
