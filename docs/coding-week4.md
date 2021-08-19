@@ -110,7 +110,7 @@ On the other hand, I am looking into ways to transform verbs into properties in 
 For more information please check the [repository][1] or the [source file of this coding week 4][2].
 
 [1]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF
-[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/cw4.py
+[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/codingweeks/cw4.py
 [3]: https://github.com/shreyaUp/Sentence-Simplification
 [4]: https://github.com/garain/Sentence-Simplification
 [5]: https://github.com/bionlplab/isimp

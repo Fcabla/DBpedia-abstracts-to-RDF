@@ -193,7 +193,7 @@ From now on I will focus on the translation of generated triples, formed by text
 For more information please check the [repository][1] or the [source file of this coding week 5][2].
 
 [1]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF
-[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/cw5.py
+[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/codingweeks/cw5.py
 [3]: https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week4
 [4]: https://universaldependencies.org/
 [5]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/tree/main/results/processed_sentences_cw5.md

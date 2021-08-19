@@ -134,14 +134,14 @@ During the next week I will be creating the lookup table and the mechanism to su
 For more information please check the [repository][1] or the [source file of this coding week 6][2].
 
 [1]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF
-[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/cw6.py
-[3]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/e2d3ca02e6f0eff50a7c037f42deebae79189298/code/cw5.py#L417
+[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/codingweeks/cw6.py
+[3]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/b1eef7fb69cbf01bde50ccf5c51571351794eaa6/code/codingweeks/cw5.py#L422
 [4]: https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week1
 [5]: https://www.dbpedia-spotlight.org/
 [6]: https://www.dbpedia-spotlight.org/api
 [7]: https://www.dbpedia-spotlight.org/demo/
 [8]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/results/stats
 [9]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/results/stats/complex_sentences_common_verbs.json
-[10]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/rdf2csv.py
-[11]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/most_common_verbs.py
+[10]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/scripts/rdf2csv.py
+[11]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/scripts/most_common_verbs.py
 [12]: https://spacy.io/universe/project/coreferee

@@ -161,5 +161,5 @@ Finally, it has been noticed that depending on the model used ("en_core_web_sm" 
 For more information please check the [repository][1] or the [source file of this coding week 3][2].
 
 [1]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF
-[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/cw3.py
+[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/codingweeks/cw3.py
 

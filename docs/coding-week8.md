@@ -75,30 +75,20 @@ These are a sample of the results obtained. To see all the results obtained from
 
 ```
 **In Myanmar, the Wa language is the de facto official language of Wa State.**
-
-
 Khmer | is In | Myanmar
 http://dbpedia.org/resource/khmer_language | http://dbpedia.org/ontology/locationCity | http://dbpedia.org/resource/myanmar
-
-
 --------------------------------------------------
 **Ethnologue identifies 168 Austroasiatic languages.**
-
-
 Ethnologue | identifies | 168 Austroasiatic languages
 http://dbpedia.org/resource/ethnologue | identifies | http://dbpedia.org/resource/austroasiatic_languages
 Ethnologue | identifies | 168 Austroasiatic languages
 http://dbpedia.org/resource/ethnologue | identifies | http://dbpedia.org/resource/languages_of_india
 --------------------------------------------------
 **He was a community organizer in Chicago before earning his law degree.**
-
-
 Obama | was before | earning his law degree
 http://dbpedia.org/resource/barack_obama | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | http://dbpedia.org/resource/juris_doctor
 --------------------------------------------------
 **Drexler served as mentor to Adolf Hitler during his early days in politics.**
-
-
 Anton Drexler | served as | mentor to Adolf Hitler
 http://dbpedia.org/resource/anton_drexler | http://dbpedia.org/ontology/occupation | http://dbpedia.org/resource/mentorship
 Anton Drexler | served as | mentor to Adolf Hitler
@@ -111,8 +101,6 @@ Anton Drexler | served during | his early days in politics
 http://dbpedia.org/resource/anton_drexler | http://dbpedia.org/ontology/militaryService | http://dbpedia.org/resource/politics
 --------------------------------------------------
 **He is a Professor at the Collège de France, IHÉS, Ohio State University and Vanderbilt University.**
-
-
 Alain Connes | is | a Professor at the Collège de France
 http://dbpedia.org/resource/alain_connes | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | http://dbpedia.org/ontology/Professor
 Alain Connes | is | a Professor at the Collège de IHÉS
@@ -131,12 +119,12 @@ The last week will be devoted to the construction of two simple web applications
 For more information please check the [repository][1] or the [source file of this coding week 8][2].
 
 [1]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF
-[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/cw8.py
+[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/codingweeks/cw8.py
 [3]: https://context.reverso.net/traduccion/ingles-espanol/
 [4]: https://www.thesaurus.com/browse/synonym
-[5]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/results/verb_prep_property_lookup.json
+[5]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/datasets/verb_prep_property_lookup.json
 [6]: https://databus.dbpedia.org/ontologies/dbpedia.org/ontology--DEV
 [7]: https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week7
-[8]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/results/classes_lookup.json
-[9]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/build_classes_lookup.py
-[10]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/results/generated_rdf_triples_cw8.md
+[8]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/datasets/classes_lookup.json
+[9]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/scripts/build_classes_lookup.py
+[10]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/results/generated_rdf_triples_cw8.txt

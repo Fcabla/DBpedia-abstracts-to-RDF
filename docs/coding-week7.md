@@ -102,12 +102,12 @@ In the following week we will focus on making some tweaks to the pipeline and cr
 For more information please check the [repository][1] or the [source file of this coding week 7][2].
 
 [1]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF
-[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/cw7.py
+[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/codingweeks/cw7.py
 [3]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/results/stats
 [4]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/results/stats/simple_sentences_common_verbs.json
-[5]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/cumsum_common_verbs_preps.py
-[6]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/results/verb_prep_property_lookup.json
-[7]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/build_lookup_table.py
+[5]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/scripts/cumsum_common_verbs_preps.py
+[6]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/datasets/verb_prep_property_lookup.json
+[7]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/scripts/build_lookup_table.py
 [8]: https://databus.dbpedia.org/ontologies/dbpedia.org/ontology--DEV
 [9]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/datasets/dbo_object_properties.txt
 [10]: http://dblexipedia.org/
