@@ -196,7 +196,7 @@ For more information please check the [repository][1] or the [source file of thi
 [2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/codingweeks/cw5.py
 [3]: https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week4
 [4]: https://universaldependencies.org/
-[5]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/tree/main/results/processed_sentences_cw5.md
+[5]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/tree/main/results/processed_sentences_cw5.txt
 
 
 
