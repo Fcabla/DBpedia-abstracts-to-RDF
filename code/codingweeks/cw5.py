@@ -1,25 +1,21 @@
-import coreferee
+"""
+Coding week 5
+Author: Fernando Casabán Blasco
+"""
+
+from logging import error
+from os import PRIO_PGRP, pipe
+from warnings import catch_warnings
 import spacy
 import re
 from spacy.symbols import nsubj, VERB, AUX, PUNCT
 from spacy import displacy
+from spacy.matcher import Matcher
 import pandas as pd
-import requests
-import json
-import copy
 
 ############
 # Examples #
 ############
-
-banned_subjects = ["he", "she", "it", "his", "hers"]
-SPOTLIGHT_LOCAL_URL = "http://localhost:2222/rest/annotate/"
-SPOTLIGHT_ONLINE_API = "https://api.dbpedia-spotlight.org/en/annotate"
-MODIFIERS = ["compound", "amod", "nummod", "nmod", "advmod", "npadvmod"]
-USE_COMPLEX_SENTENCES = False
-LEXICALIZATION_TABLE = "datasets/verb_prep_property_lookup.json"
-UNKOWN_VALUE = "UNK"
-DEFAULT_VERB = "DEF"
 
 test_examples = [
     "Alchemy (from Arabic: al-kīmiyā; from Ancient Greek: khumeía) is an ancient branch of natural philosophy, a philosophical and protoscientific tradition that was historically practiced in China, India, the Muslim world, and Europe. In its Western form, it is first attested in a number of pseudepigraphical texts written in Greco-Roman Egypt during the first few centuries CE. Alchemists attempted to purify, mature, and perfect certain materials. Common aims were chrysopoeia, the transmutation of \"base metals\" (e.g., lead) into \"noble metals\" (particularly gold); the creation of an elixir of immortality; and the creation of panaceas able to cure any disease. The perfection of the human body and soul was thought to result from the alchemical magnum opus (\"Great Work\"). The concept of creating the philosophers' stone was variously connected with all of these projects.Islamic and European alchemists developed a basic set of laboratory techniques, theories, and terms, some of which are still in use today. However, they did not abandon the ancients' belief that everything is composed of four elements, and they tended to guard their work in secrecy, often making use of cyphers and cryptic symbolism. In Europe, the 12th-century translations of medieval Islamic works on science and the rediscovery of Aristotelian philosophy gave birth to a flourishing tradition of Latin alchemy. This late medieval tradition of alchemy would go on to play a significant role in the development of early modern science (particularly chemistry and medicine). Modern discussions of alchemy are generally split into an examination of its exoteric practical applications and its esoteric spiritual aspects, despite criticisms by scholars such as Eric J. Holmyard and Marie-Louise von Franz that they should be understood as complementary. The former is pursued by historians of the physical sciences, who examine the subject in terms of early chemistry, medicine, and charlatanism, and the philosophical and religious contexts in which these events occurred. The latter interests historians of esotericism, psychologists, and some philosophers and spiritualists. The subject has also made an ongoing impact on literature and the arts.",
@@ -42,35 +38,31 @@ test_examples = [
 ################################
 
 class Triple:
-    def __init__(self, subj, pred, objct):
+    def __init__(self, subj, pred, obj):
         """list of tokens"""
         self.subj = subj
         self.pred = pred
-        self.objct = objct
+        self.objct = obj
     
-    def get_copy(self):
-        return Triple(self.subj.copy(), self.pred.copy(), self.objct.copy())
-
     def get_all_tokens(self):
         """
         Returs a list with all the tokens in the triple
         """
         return self.subj + self.pred + self.objct
 
-    def set_rdf_triples(self, subj, pred, objct):
-        self.subj_rdf = subj
-        self.pred_rdf = pred
-        self.objct_rdf = objct
-
-    def get_rdf_triples(self):
-        return f"{self.subj_rdf} | {self.pred_rdf} | {self.objct_rdf}"
-
     def __repr__(self):
-        return f"{' '.join([x.text for x in self.subj])} | {' '.join([x.text for x in self.pred])} | {' '.join([x.text for x in self.objct])}"
+        s = [x.text for x in self.subj]
+        p = [x.text for x in self.pred]
+        o = [x.text for x in self.objct]
+        #return f"{' '.join(self.subj)} | {' '.join(self.pred)} | {' '.join(self.objct)}"
+        return f"{' '.join(s)} | {' '.join(p)} | {' '.join(o)}"
 
     def __str__(self):
-        return f"{' '.join([x.text for x in self.subj])} {' '.join([x.text for x in self.pred])} {' '.join([x.text for x in self.objct])}"
-
+        s = [x.text for x in self.subj]
+        p = [x.text for x in self.pred]
+        o = [x.text for x in self.objct]
+        #return f"{' '.join(self.subj)} {' '.join(self.pred)} {' '.join(self.objct)}"
+        return f"{' '.join(s)} {' '.join(p)} {' '.join(o)}"
 
 def print_everything(doc):
     """
@@ -341,7 +333,7 @@ def get_all_triples(sentences):
     triples = []
     for sentence in sentences:
         # complex sentence
-        if get_num_verbs(sentence) > 1 and USE_COMPLEX_SENTENCES:
+        if get_num_verbs(sentence) > 1:
             simple_sentences = simplify_sentence(sentence)
             for sent in simple_sentences:
                 tps = get_simple_triples(sent)
@@ -356,6 +348,7 @@ def get_all_triples(sentences):
 ##################
 # Fixing triples #
 ##################
+
 def fix_subj_complex_sentences(triples):
     """
     Function that takes the simplified sentences (with a clause modifier in the predicate) and substitutes the subject of the triple with
@@ -365,91 +358,66 @@ def fix_subj_complex_sentences(triples):
     Results: Alchemy | was practiced | in China , India , the Muslim world , and Europe
     Returns a list of triples
     """
+
     new_triples = []
-    for triple in triples:
+    for i in range(len(triples)):
+        triple = triples[i]
         verbs = [tkn for tkn in triple.pred if tkn.pos == VERB]
         verbs = [verb for verb in verbs if (verb.dep_ in ["relcl", "acl", "advcl"] or verb.dep_ == "conj" and verb.head.pos == VERB)]
-
-        if verbs:
-            new_triple = triple.get_copy()
+        # care with conj
+        if verbs :
             clausule_verb = verbs.pop()
             previous_triple = [t for t in new_triples if clausule_verb.head in t.get_all_tokens()]
+            
             if not previous_triple:
-                    previous_triple = new_triples[-1]
+                previous_triple = new_triples[-1]
             else:
                 previous_triple = previous_triple[-1]
 
             subject = [tkn for tkn in triple.subj if tkn.dep_.find("subj")]
             previous_subject = [tkn for tkn in previous_triple.subj if tkn.dep_.find("subj")]
-            previous_object = [tkn for tkn in previous_triple.objct]
+
             if not subject or not previous_subject:
                 new_triples.append(triple)
                 continue
             else:
                 subject = subject.pop()
                 previous_subject = previous_subject.pop()
-            
-            chains = subject.doc._.coref_chains
-            better_subj = chains.resolve(subject)
-            if better_subj:
-                # coreferee has found coreferences between the current and other triple, check if is the previous one
-                if better_subj[0] in previous_triple.subj:
-                    new_subj = previous_triple.subj.copy()
-                    new_triple.subj = new_subj
-                    new_triples.append(new_triple)
-                elif better_subj[0] in previous_triple.objct:
-                    new_subj = [tkn for tkn in clausule_verb.head.subtree if tkn in previous_triple.objct]
-                    new_triple.subj = new_subj
-                    new_triples.append(new_triple)
-                else:
-                    new_triples.append(get_subj_complex_sentence_helper(previous_triple, triple, clausule_verb, previous_subject, subject))
+                
+            if clausule_verb.dep_ == "acl":
+                new_subj = [tkn for tkn in previous_triple.objct]
+                new_triples.append(Triple(new_subj, triple.pred, triple.objct))
+            elif clausule_verb.dep_ == "conj":
+                new_subj = previous_triple.subj.copy()
+                new_triples.append(Triple(new_subj, triple.pred, triple.objct))
             else:
-                new_triples.append(get_subj_complex_sentence_helper(previous_triple, triple, clausule_verb, previous_subject, subject))
+                if clausule_verb.dep_ == "advcl":
+                    #print(f"{triple} <> {previous_triple} <> {subject.dep_} <> {previous_subject.dep_}")
+                    pass
+                #relcl, advcl
+                if subject.dep_ == "nsubjpass" and previous_subject.dep_ == "nsubj":
+                    # take the subject of previous triplet as new subject
+                    new_subj = previous_triple.subj.copy()
+                    new_triples.append(Triple(new_subj, triple.pred, triple.objct))
+                elif subject.dep != previous_subject.dep:
+                    #subject.dep_ == "nsubj":
+                    #take the object of previous triplet as new subject
+                    new_subj = [tkn for tkn in clausule_verb.head.subtree if tkn in previous_triple.objct]
+                    #new_subj = [tkn for tkn in previous_triple.objct]
+                    if not new_subj:
+                        new_subj = [tkn for tkn in previous_triple.objct]
+                    new_triples.append(Triple(new_subj, triple.pred, triple.objct))
+                elif subject.dep_ == "nsubj" and previous_subject.dep_ == "nsubj":
+                    #subject.dep_ == "nsubjpass" or (
+                    # take the subject of previous triplet as new subject
+                    new_subj = previous_triple.subj.copy()
+                    new_triples.append(Triple(new_subj, triple.pred, triple.objct))
+                else:
+                    new_triples.append(triple)
         else:
             new_triples.append(triple)
+
     return new_triples
-
-def get_subj_complex_sentence_helper(previous_triple, triple, clausule_verb, previous_subject, subject):
-    """
-    Function that takes the simplified sentences (with a clause modifier in the predicate) and substitutes the subject of the triple with
-    the subject or object of the previous triple. This is because usually the simplified sentences has as subject terms like who, that, its, he.
-    For example: 
-    Original: Alchemy ...... that | was practiced | in China , India , the Muslim world , and Europe
-    Results: Alchemy | was practiced | in China , India , the Muslim world , and Europe
-    Returns a list of triples
-    """
-    if clausule_verb.dep_ == "acl":
-        new_subj = [tkn for tkn in previous_triple.objct]
-        result_triple = Triple(new_subj, triple.pred, triple.objct)
-    elif clausule_verb.dep_ == "conj":
-        new_subj = previous_triple.subj.copy()
-        result_triple = Triple(new_subj, triple.pred, triple.objct)
-    else:
-        if clausule_verb.dep_ == "advcl":
-            #print(f"{triple} <> {previous_triple} <> {subject.dep_} <> {previous_subject.dep_}")
-            pass
-        #relcl, advcl
-        if subject.dep_ == "nsubjpass" and previous_subject.dep_ == "nsubj":
-            # take the subject of previous triplet as new subject
-            new_subj = previous_triple.subj.copy()
-            result_triple = Triple(new_subj, triple.pred, triple.objct)
-        elif subject.dep != previous_subject.dep:
-            #subject.dep_ == "nsubj":
-            #take the object of previous triplet as new subject
-            new_subj = [tkn for tkn in clausule_verb.head.subtree if tkn in previous_triple.objct]
-            #new_subj = [tkn for tkn in previous_triple.objct]
-            if not new_subj:
-                new_subj = [tkn for tkn in previous_triple.objct]
-            result_triple = Triple(new_subj, triple.pred, triple.objct)
-        elif subject.dep_ == "nsubj" and previous_subject.dep_ == "nsubj":
-            #subject.dep_ == "nsubjpass" or (
-            # take the subject of previous triplet as new subject
-            new_subj = previous_triple.subj.copy()
-            result_triple = Triple(new_subj, triple.pred, triple.objct)
-        else:
-            result_triple = triple
-
-    return result_triple
 
 def fix_aux_verbs(triples):
     """
@@ -500,10 +468,7 @@ def fix_aux_verbs(triples):
                     
                     # Build new triples
                     for v in verb_mods:
-                        new_triple = triple.get_copy()
-                        new_triple.pred = new_triple.pred+v
-                        new_triple.objct = new_obj
-                        new_triples.append(new_triple)
+                        new_triples.append(Triple(triple.subj,triple.pred+v,new_obj))
             else:
                 # short frase with no more information (it is in shape)
                 new_triples.append(triple) 
@@ -545,10 +510,9 @@ def fix_xcomp_conj(triples):
 
             # Build new triples
             for conjunction in conjunctions:
-                new_triple = triple.get_copy()
-                new_triple.pred[xcomp_pred_idx] = conjunction
-                new_triple.objct = new_obj
-                new_triples.append(new_triple)
+                new_pred = triple.pred.copy()
+                new_pred[xcomp_pred_idx] = conjunction
+                new_triples.append(Triple(triple.subj, new_pred, new_obj))
         else:
             new_triples.append(triple)
     return new_triples
@@ -560,20 +524,11 @@ def append_preps_verbs(triples):
     Result: He | was awarded in | 1982
     Returns a list of triples
     """
-    new_triples=[]
     for triple in triples:
-        prepositions = [tkn for tkn in triple.objct if tkn.dep_ in ["prep","agent"] and tkn.head.pos_ == "VERB"]
-        if prepositions:
-            for prep in prepositions:
-                if prep in triple.objct:
-                    new_obj = [tkn for tkn in prep.subtree if tkn != prep]
-                    new_triple = triple.get_copy()
-                    new_triple.pred.append(prep)
-                    new_triple.objct = new_obj
-                    new_triples.append(new_triple)
-        else:
-            new_triples.append(triple)
-    return new_triples
+        if len(triple.objct)>0:
+            if(triple.objct[0].dep_ == "prep" or triple.objct[0].dep_ == "agent"):
+                triple.pred.append(triple.objct.pop(0))
+    return triples
 
 def split_conjunctions_subjs(triples):
     """
@@ -597,11 +552,8 @@ def split_conjunctions_subjs(triples):
             if head_conj.dep_ in ["compound", "amod", "nummod", "nmod", "advmod", "npadvmod"]:
                 ancestors = [tkn for tkn in head_conj.ancestors]
                 ancestors.insert(0,head_conj)
-                if main_subject in ancestors:
-                    subj_idx = ancestors.index(main_subject)+1
-                    new_subject.extend(ancestors[:subj_idx])
-                else:
-                    continue
+                subj_idx = ancestors.index(main_subject)+1
+                new_subject.extend(ancestors[:subj_idx])
             else:
                 # head_conj probably the subj
                 new_subject.append(head_conj)
@@ -629,9 +581,7 @@ def split_conjunctions_subjs(triples):
 
             # Build triples
             for s in subjects:
-                new_triple = triple.get_copy()
-                new_triple.subj = s
-                new_triples.append(new_triple)
+                new_triples.append(Triple(s, triple.pred, triple.objct))
         else:
             # There are no conjunctions, we store the triple without any operations
             new_triples.append(triple)
@@ -688,9 +638,7 @@ def split_conjunctions_obj(triples):
 
                 # Build triples
                 for o in objects:
-                    new_triple = triple.get_copy()
-                    new_triple.objct = o
-                    new_triples.append(new_triple)
+                    new_triples.append(Triple(triple.subj, triple.pred, o))
             else:
                 # The conjunction parent is the verb or some other token outside the object part of the tripelt
                 new_triples.append(triple)
@@ -699,161 +647,42 @@ def split_conjunctions_obj(triples):
             new_triples.append(triple)
     return new_triples
 
-def swap_subjects_correferences(triples, chains):
-    """
-    Description to do
-    """
-    new_triples = []
-    for triple in triples:
-        subj = triple.subj.copy()
-        better_subj = None
-        for token in subj:
-            better_subj = chains.resolve(token)
-            if better_subj:
-                break
-        if better_subj:
-            better_subj = [tkn for tkn in better_subj[0].subtree]
-            new_triple = triple.get_copy()
-            new_triple.subj = better_subj
-            new_triples.append(new_triple)
-        else:
-            # there arent correferences
-            new_triples.append(triple)
-
-    return new_triples
-
-###############
-# Text to RDF #
-###############
-
-def get_annotated_text_dict(text, service_url=SPOTLIGHT_ONLINE_API, confidence=0.3, support=0, dbpedia_only = True):
-    """
-    Function that query's the dbpedia spotlight api with the document text as input. Confidence level is the
-    confidence score for disambiguation / linking and support is how prominent is this entity in Lucene Model, i.e. number of inlinks in Wikipedia.
-    Returns a dictionary with term-URI and a dictionary with term-types (from an ontology)
-    """
-    headerinfo = {'Accept': 'application/json'}
-    parameters = {'text': text, 'confidence': confidence, 'support': support}
-    term_URI_dict = {}
-    term_types_dict = {}
-    try:
-        if "localhost" in service_url:
-            resp = requests.post(service_url, data=parameters, headers=headerinfo)
-        else:
-            resp = requests.get(service_url, params=parameters, headers=headerinfo)
-    except:
-        print("Error at dbpedia spotlight post/get")
-        return None
-
-    if resp.status_code != 200:
-        print(f"error, status code{resp.status_code}")
-        return None
-    else:
-        
-        decoded = json.loads(resp.text)
-
-        if 'Resources' in decoded:
-            for dec in decoded['Resources']:
-                term_URI_dict[dec['@surfaceForm'].lower()] = dec['@URI'].lower()
-                term_types_dict[dec['@surfaceForm'].lower()] = dec['@types'].lower()
-    return term_URI_dict, term_types_dict
-
-def replace_text_URI(triples, term_URI_dict, lexicalization_table):
-    """
-    Maybe this function should be inside the triple class
-    """
-    new_triples = []
-    for triple in triples:
-        subj = ' '.join([x.text.lower() for x in triple.subj])
-        orginal_pred = ' '.join([x.text.lower() for x in triple.pred])
-        objct = ' '.join([x.text.lower() for x in triple.objct])
-        
-        # NER the subject
-        s_candidates = []
-        for word in subj.split():
-            word = word.lower()
-            if word in term_URI_dict:
-                s_candidates.append(term_URI_dict[word])
-
-        # NER the object
-        o_candidates = []
-        for word in objct.split():
-            word = word.lower()
-            if word in term_URI_dict:
-                o_candidates.append(term_URI_dict[word])
-
-        # Lexicalization predicate
-        verb = [tkn for tkn in triple.pred if tkn.pos_ == "VERB" or (tkn.pos_ == "AUX" and tkn.dep_ not in ["aux","auxpass"])].pop()
-        verb = str(verb.lemma_)
-        prep = [tkn for tkn in triple.pred if tkn.dep_ == "prep"]
-        if prep:
-            prep = prep.pop()
-        else:
-            prep = DEFAULT_VERB
-
-        if verb in lexicalization_table:
-            if prep in lexicalization_table[verb]:
-                if lexicalization_table[verb][prep] == UNKOWN_VALUE:
-                    pred = lexicalization_table[verb][DEFAULT_VERB]
-                else:
-                    pred = lexicalization_table[verb][prep]
-            else:
-                pred = lexicalization_table[verb][DEFAULT_VERB]
-        else:
-            pred = orginal_pred
-            
-        # Build triple
-        for s in s_candidates:
-            for o in o_candidates:
-                if isinstance(pred,list):
-                    # temporal fix, to be changed
-                    pred = pred.pop()
-                new_triple = triple.get_copy()
-                new_triple.set_rdf_triples(s,pred,o)
-                new_triples.append(new_triple)
-    return new_triples
-
 # Main pipeline
+
 def pipeline(nlp, document):
     """
     Main sequence of steps to process certain input text into triples.a
     """
     text = clean_text(document)
     #d1,d2 = get_dates_first_sentence(document)
-    with open(LEXICALIZATION_TABLE) as json_file:
-        lexicalization_table = json.load(json_file)
+
     doc = nlp(text)
     sentences = get_sentences(doc)
     triples = get_all_triples(sentences)
     triples = fix_xcomp_conj(triples)
-    # triples = fix_aux_verbs(triples)
+    triples = fix_aux_verbs(triples)
     triples = append_preps_verbs(triples)
     triples = split_conjunctions_subjs(triples)
     triples = split_conjunctions_obj(triples)
-    triples = swap_subjects_correferences(triples, doc._.coref_chains)
-    term_URI_dict, term_types_dict = get_annotated_text_dict(text)
-    RDF_triples = replace_text_URI(triples, term_URI_dict,lexicalization_table)
-    for t in RDF_triples:
-        print(t.get_rdf_triples())
-    #print_triples(text,triples)
-    return triples
-
-def print_triples(text, triples):
-    RDF_triples = print(text)
+    # fix subject of complex sentences.
+    print(text)
     print("-"*64)
     print("\n"*2)
     for triple in triples:
         print(triple.__repr__())
         print("*"*64)
     print("\n"*2)
-
+    
 def main():
-    nlp = spacy.load("en_core_web_trf")
-    nlp.add_pipe('coreferee')
-    #test_spacy_ne(nlp(test_examples[0]))
+    nlp = spacy.load("en_core_web_sm")
     for example in test_examples:
         pipeline(nlp, example)
     exit()
 
+    #print_everything(nlp("Islamic and European alchemists developed a basic set of laboratory techniques, theories, and terms, some of which are still in use today."))
+    #print_everything(nlp("The former is pursued by historians of the physical sciences, who examine the subject in terms of early chemistry, medicine, and charlatanism, and the philosophical and religious contexts in which these events occurred."))
+    #print_everything(nlp("However, they did not abandon the ancients' belief that everything is composed of four elements, and they tended to guard their work in secrecy, often making use of cyphers and cryptic symbolism."))
+    
+    #print(get_simple_triples(nlp("Alchemy is an ancient branch of natural philosophy, a philosophical and protoscientific tradition that was historically practiced in China, India, the Muslim world, and Europe.")))
 if __name__ == "__main__":
     main()

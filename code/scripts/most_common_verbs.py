@@ -1,3 +1,8 @@
+""" 
+Script to extract the most common verbs, verbs + prepositions and complex phrasal verbs in a sample of DBpedia abstracts.
+Author: Fernando Casabán Blasco
+"""
+
 import spacy
 import pandas as pd
 from spacy.symbols import nsubj, VERB, AUX, PUNCT

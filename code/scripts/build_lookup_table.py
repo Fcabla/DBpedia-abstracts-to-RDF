@@ -2,6 +2,7 @@
 Script to create the structure of the lookup table verbs + prepositions -> property (dbpedia ontology)
 The idea is to take the first N most relevant prepositions and the first N most relevant verbs and combine them.
 Adding also UNK to the unknown values and DEF to the default verb (no preposition or not found)
+Author: Fernando Casabán Blasco
 """
 
 VERBS_FILE_PATH = "results/stats/simple_sentences_common_verbs.json"

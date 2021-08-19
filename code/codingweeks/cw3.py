@@ -1,3 +1,8 @@
+"""
+Coding week 3
+Author: Fernando Casabán Blasco
+"""
+
 # load all examples
 # trim better the phrases
 # subjs modifiers as new triplets red ballon | whatever | whatever --> ballon | property | red

@@ -1,7 +1,7 @@
 """
 Script to create the structure of the lookup table noun -> dbpedia class (dbpedia ontology)
+Author: Fernando Casabán Blasco
 """
-
 CLASSES_FILE_PATH = "datasets/dbo_classes.txt"
 CLASS_PREFIX = "http://dbpedia.org/ontology/"
 OUTPUT_FILE = "datasets/classes_lookup.json"

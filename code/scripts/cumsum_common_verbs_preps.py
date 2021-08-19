@@ -1,3 +1,8 @@
+""" 
+Computes the cumulative sum of the most common verbs and prepositions, then plot it
+Author: Fernando Casabán Blasco
+"""
+
 import pandas as pd
 import json
 import matplotlib.pyplot as plt

@@ -1,3 +1,8 @@
+"""
+Contains the first approach of extracting the clauses using ClausIE
+Author: Fernando Casabán Blasco
+"""
+
 from pyclausie.Triples import Triple
 import spacy
 """

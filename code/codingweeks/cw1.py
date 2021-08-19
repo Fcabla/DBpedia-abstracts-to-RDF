@@ -1,3 +1,7 @@
+"""
+Coding week 1
+Author: Fernando Casabán Blasco
+"""
 import spacy
 from collections import Counter
 from pyclausie import ClausIE

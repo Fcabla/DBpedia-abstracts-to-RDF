@@ -1,7 +1,9 @@
 """
 A script that takes N random abstracts from a TTL file (RDF) and creates a csv file with
 those n random abstracts.
+Author: Fernando Casabán Blasco
 """
+
 from rdflib import Graph
 import pandas as pd
 import os
