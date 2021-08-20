@@ -1,12 +1,12 @@
 {
     "be": {
         "in": ["http://dbpedia.org/ontology/locationCity", "http://dbpedia.org/ontology/locationCountry","http://dbpedia.org/ontology/location"],
-        "on": "UNK",
+        "on": "UNKk",
         "at": "https://dbpedia.org/ontology/place",
         "as": "http://dbpedia.org/ontology/similar",
-        "for": "UNK",
+        "for": "UNKk",
         "from": ["http://dbpedia.org/ontology/birthPlace", "https://dbpedia.org/ontology/place"],
-        "to": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "to": "UNKk",
         "with": "https://dbpedia.org/ontology/relation",
         "during": ["http://dbpedia.org/ontology/event", "http://dbpedia.org/ontology/period"],
         "after": ["https://dbpedia.org/ontology/previousEvent", "https://dbpedia.org/ontology/mainInterest"],
