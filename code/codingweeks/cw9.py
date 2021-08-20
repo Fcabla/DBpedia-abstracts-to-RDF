@@ -1027,12 +1027,15 @@ def main():
             errors_be.extend(get_missclassified_objects(rdf_triples))
     print(f"Num of abstracts {num_abstracts}")
     print(f"Simple sentences: {s_sentences_count}, from each text avg of {s_sentences_count/num_abstracts} simple sentences")
-    print(f"Simple sentences: {c_senteces_count}, from each text avg of {c_senteces_count/num_abstracts} complex sentences")
+    print(f"Complex sentences: {c_senteces_count}, from each text avg of {c_senteces_count/num_abstracts} complex sentences")
     print(f"Total number of sentences {tot}")
     print(f"Number of normal text triples {nt_count}, from each text avg of {nt_count/num_abstracts} triplets")
     print(f"Number of normal text triples {rt_count}, from each text avg of {rt_count/num_abstracts} triplets")
+    print(f"Number of errors with the verb to be (literals as object): {len(errors_be)}")
+    print(f"Number of predicate as literals: {0}")
+    print(f"Number of literals as objects {0}")
+    print(f"Total num of triplets containing a literal{0}")
     
-    print(len(errors_be))
     print(errors_be[:5])
     
     exit()

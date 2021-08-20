@@ -24,6 +24,20 @@ How many simple sentences, complex sentences, rdf triplets, how many times class
 
 To fix: Token indices sequence length is longer than the specified maximum sequence length for this model (620 > 512). Running this sequence through the model will result in indexing errors
 
+```
+Run with 10000 abstracts, only simple sentences:
+
+Num of abstracts 9938
+Simple sentences: 21817, from each text avg of 2.195310927752063 simple sentences
+Complex sentences: 17116, from each text avg of 1.7222781243711007 complex sentences
+Total number of sentences 38933
+Number of normal text triples 28783, from each text avg of 2.896256792111089 triplets
+Number of normal text triples 43231, from each text avg of 4.350070436707587 triplets
+4122
+
+[The 2018 Cotton Bowl Classic | was | one of the 2018–19 bowl games concluding the 2018 FBS football season, a public secondary school located in Lavender Hill in the Cape Flats district of Cape Town , Western Cape , South Africa | are | Afrikaans, a public secondary school located in Lavender Hill in the Cape Flats district of Cape Town , Western Cape , South Africa | are | English, Bhomita Talukdar ( Assamese : ভমিতা তালুকদাৰ ) , alias Deepali , | was | the organisational secretary of the women 's wing of ULFA, Bhomita Talukdar ( Assamese : ভমিতা তালুকদাৰ ) , alias Deepali , | is | the wife of Arun Mahanta , a hardcore ULFA militant of Barpeta]
+```
+
 ## Conclusions
 In conclusion, during this week... 
 
