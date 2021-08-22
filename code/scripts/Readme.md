@@ -16,3 +16,5 @@ those n random abstracts.
 
 **build_classes_lookup.py** Script to create the structure of the lookup table noun -> dbpedia class (dbpedia ontology). More info in the [coding week 8 blog](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week8)
 
+**plots_cw9.py** Helper script to generate the plots of the coding week 9
+

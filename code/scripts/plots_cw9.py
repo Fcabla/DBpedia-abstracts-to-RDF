@@ -1,3 +1,7 @@
+""" 
+Helper script to generate the plots of the coding week 9
+Author: Fernando Casabán Blasco
+"""
 import matplotlib.pyplot as plt
 import numpy as np
 
