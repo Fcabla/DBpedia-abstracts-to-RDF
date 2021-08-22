@@ -962,6 +962,7 @@ def print_rdf_results(triples):
                 print("\n")
             print(t.__repr__())
             print(t.get_rdf_triple())
+            print(type(t.pred_rdf),t.pred_rdf)
 
 def print_triples(text, triples):
     print(text)

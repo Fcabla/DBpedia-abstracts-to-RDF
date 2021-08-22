@@ -3,7 +3,6 @@ Coding week 9
 Author: Fernando Casabán Blasco
 """
 
-from logging import error
 import coreferee
 from numpy.lib.arraysetops import isin
 import spacy
@@ -15,6 +14,7 @@ import requests
 import json
 import copy
 from rdflib import Graph, OWL, RDFS, RDF, URIRef, Literal
+import time
 
 ############
 # Examples #
@@ -382,8 +382,8 @@ def fix_subj_complex_sentences(triples):
     for triple in triples:
         verbs = [tkn for tkn in triple.pred if tkn.pos == VERB]
         verbs = [verb for verb in verbs if (verb.dep_ in ["relcl", "acl", "advcl"] or verb.dep_ == "conj" and verb.head.pos == VERB)]
-
-        if verbs:
+        previous_triple = []
+        if verbs and (previous_triple or new_triples):
             new_triple = triple.get_copy()
             clausule_verb = verbs.pop()
             previous_triple = [t for t in new_triples if clausule_verb.head in t.get_all_tokens()]
@@ -541,7 +541,7 @@ def fix_xcomp_conj(triples):
     new_triples = []
     for triple in triples:
         # any([tkn for tkn in triple.pred if tkn.dep_ == "xcomp"]) and 
-        if any([tkn for tkn in triple.objct if tkn.dep_ == "conj" and tkn.head.dep_ == "xcomp"]):
+        if any([tkn for tkn in triple.objct if tkn.dep_ == "conj" and (tkn.head.dep_ == "xcomp" and tkn.head in triple.pred)]):
             
             new_obj = triple.objct.copy()
             xcomp = [tkn for tkn in triple.pred if tkn.dep_ == "xcomp"].pop()
@@ -560,7 +560,8 @@ def fix_xcomp_conj(triples):
             for conjunction in conjunctions:
                 for child in conjunction.children:
                     if child.dep_ == "cc" or child.dep_ == "punct":
-                        new_obj.remove(child)
+                        if child in new_obj:
+                            new_obj.remove(child)
 
             # Build new triples
             for conjunction in conjunctions:
@@ -608,7 +609,13 @@ def split_conjunctions_subjs(triples):
     new_triples = []
     for triple in triples:
         conjunctions = [token for token in triple.subj if token.dep_ == "conj"]
-        main_subject = [token for token in triple.subj if token.dep_.find("subj")].pop()
+        main_subject = [token for token in triple.subj if token.dep_.find("subj")]
+        if main_subject:
+            main_subject = main_subject.pop()
+        else:
+            # some error when finding the subj in the triple
+            new_triples.append(triple)
+            continue
 
         if conjunctions:
             #there is at least one conjunction.
@@ -904,7 +911,7 @@ def get_best_candidate(subj, objct, candidates, term_types_dict, dbo_graph):
     
 def get_dbo_class(objct, cla_lex_table):
     """ Function that returns a dbo class given a text, for the to be case """
-    
+    objct = objct.lower()
     if objct in cla_lex_table.keys():
         return URIRef(cla_lex_table[objct])
     else:
@@ -989,7 +996,26 @@ def get_missclassified_objects(rdf_triples):
             if isinstance(triple.objct_rdf, Literal):
                 errors.append(triple)
     return errors
-        
+
+def count_literals(rdf_triples):
+    be = URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
+    preds = 0
+    objcts = 0
+
+    for triple in rdf_triples:
+        if isinstance(triple.pred_rdf, Literal):
+            preds += 1
+        if isinstance(triple.objct_rdf, Literal) and triple.pred_rdf != be:
+            objcts +=1
+    return preds, objcts
+
+def count_tobe(rdf_triples):
+    be = URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
+    count = 0
+    for triple in rdf_triples:
+        if triple.pred_rdf == be:
+            count += 1
+    return count
 def main():
     # Load dependency model and add coreferee support
     nlp = spacy.load("en_core_web_trf")
@@ -1006,11 +1032,17 @@ def main():
     rt_count = 0
     s_sentences_count = 0
     c_senteces_count = 0
-    tot = 0
+    total_sentences = 0
+    literals_pred = 0
+    literals_objct = 0
+    tobe_count = 0
     errors_be = []
+    elap_time = 0
     num_abstracts = len(test_examples)
-
+    
     for example in test_examples:
+        start = time.time()
+
         sentences, normal_triples, rdf_triples = pipeline(nlp, example, dbo_graph ,prop_lex_table, cla_lex_table)
         if sentences == [] and normal_triples == [] and rdf_triples == []:
             #error
@@ -1020,25 +1052,39 @@ def main():
             rt_count += len(rdf_triples)
             for sentence in sentences:
                 if get_num_verbs(sentence) > 1:
-                    s_sentences_count += 1
-                else:
                     c_senteces_count += 1
-            tot += len(sentences)
+                else:
+                    s_sentences_count += 1
+            total_sentences += len(sentences)
             errors_be.extend(get_missclassified_objects(rdf_triples))
+            l_pred, l_objct = count_literals(rdf_triples)
+            tobe_count += count_tobe(rdf_triples)
+            literals_pred += l_pred
+            literals_objct += l_objct
+            end = time.time()
+            elap_time += end - start
     print(f"Num of abstracts {num_abstracts}")
     print(f"Simple sentences: {s_sentences_count}, from each text avg of {s_sentences_count/num_abstracts} simple sentences")
     print(f"Complex sentences: {c_senteces_count}, from each text avg of {c_senteces_count/num_abstracts} complex sentences")
-    print(f"Total number of sentences {tot}")
+    print(f"Total number of sentences {total_sentences}")
     print(f"Number of normal text triples {nt_count}, from each text avg of {nt_count/num_abstracts} triplets")
-    print(f"Number of normal text triples {rt_count}, from each text avg of {rt_count/num_abstracts} triplets")
+    print(f"Number of RDF text triples {rt_count}, from each text avg of {rt_count/num_abstracts} triplets")
+    print(f"Triplets with tobe as pred {tobe_count}")
     print(f"Number of errors with the verb to be (literals as object): {len(errors_be)}")
-    print(f"Number of predicate as literals: {0}")
-    print(f"Number of literals as objects {0}")
-    print(f"Total num of triplets containing a literal{0}")
-    
+    print(f"Number of predicate as literals: {literals_pred}")
+    print(f"Number of literals as objects {literals_objct}")
+    print(f"Total num of triplets containing a literal {literals_pred+literals_objct} + the to be cases {len(errors_be)}")
+    print(f"total time: {elap_time}, avg time {elap_time/num_abstracts}")
     print(errors_be[:5])
     
+    textfile = open("results/errors_object_tobe_s2.txt", "w")
+    for element in errors_be:
+        textfile.write(element.__repr__())
+        textfile.write("\n")
+    textfile.close()
     exit()
 
 if __name__ == "__main__":
     main()
+
+

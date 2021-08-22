@@ -39,20 +39,24 @@ def plot_cumsum_labels(df, tick_freq=20, topic = "Elem", save_plots=False):
     df = df.set_index("elem")
     ts = df["cumsum"]
     ts.plot()
-    xticks = np.arange(0, len(df)+1, tick_freq)
+    xticks = np.arange(0, len(df), tick_freq)
+    print(xticks)
     labels = labels[xticks]
     plt.xticks(xticks, labels, rotation=45)
     plt.title(f"Cumulative sum for {topic}")
     plt.xlabel(f"{topic} (index)")
     plt.ylabel("% Cases covered")
     if save_plots:
-        plt.savefig(f"{SAVE_PATH}cumsum_{topic}.png".lower(),  dpi=300)
+        plt.savefig(f"{SAVE_PATH}cumsum_{topic}_top.png".lower(),  dpi=300)
     plt.show()
 
 
 def main():
     verbs = get_cumsum_df(VERBS_FILE_PATH)
     prepositions = get_cumsum_df(PREPOSITIONS_FILE_PATH)
+    print(sum(verbs["count"]))
+    verbs = verbs[:10]
+    #plot_cumsum_labels(verbs, tick_freq=1, topic = "Elem", save_plots=True)
     plot_cumsum(verbs, tick_freq=25, topic="Verbs", save_plots=False)
     plot_cumsum(prepositions, tick_freq=10, topic="Prepositions", save_plots=False)
     print(verbs.head(30))
