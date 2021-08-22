@@ -29,10 +29,10 @@ def mult_bars(labels, vals1,vals2, titl):
     plt.ylabel('Occurrences')
     
     width = 0.40
-    plt.bar(x_pos-0.2, vals1, width, label="RDF triples with any kind of errors")
-    plt.bar(x_pos+0.2, vals2, width, label="Total RDF triples")
+    plt.bar(x_pos-0.2, vals1, width, label="Normal text triples")
+    plt.bar(x_pos+0.2, vals2, width, label="RDF triples")
     plt.legend()
-    plt.savefig("results/total_num_errors.png",  dpi=300)
+    plt.savefig("results/num_triples.png",  dpi=300)
     plt.show()
 
 def main():
@@ -41,9 +41,9 @@ def main():
     #baars(labels, vals, "Number of sentences by type")
 
     labels = ["simple sentences", "all sentences"]
-    vals1 = [29524, 44778]
-    vals2 = [77296, 127010]
-    #mult_bars(labels, vals1, vals2, "Number of extracted triples")
+    vals1 = [29524, 77296]
+    vals2 = [44778, 127010]
+    mult_bars(labels, vals1, vals2, "Number of extracted triples")
 
     labels = ["simple sentences", "all sentences"]
     vals1 = [18871, 68529]
@@ -58,6 +58,6 @@ def main():
     labels = ["simple sentences", "all sentences"]
     vals1 = [22976, 77912]
     vals2 = [44778, 127010]
-    mult_bars(labels, vals1, vals2, "Total number of errors in RDF triples")
+    #mult_bars(labels, vals1, vals2, "Total number of errors in RDF triples")
 if __name__ == "__main__":
     main()
