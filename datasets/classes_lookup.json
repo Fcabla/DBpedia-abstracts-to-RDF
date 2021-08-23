@@ -852,5 +852,6 @@
     "fjord": "http://dbpedia.org/ontology/NaturalPlace",
     "composer": "http://dbpedia.org/ontology/MusicComposer",
     "hamlet": "https://dbpedia.org/ontology/Village",
-    "reporter": "http://dbpedia.org/ontology/Journalist"
+    "reporter": "http://dbpedia.org/ontology/Journalist",
+    "philosophy": "http://dbpedia.org/ontology/PhilosophicalConcept"
 }

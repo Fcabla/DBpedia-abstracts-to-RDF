@@ -6,4 +6,9 @@ This is a Gsoc project in colaboration with DBpedia, more information can be fou
 ## License
 
 ## Requirements
-
+import re
+import spacy
+nlp = spacy.load("en_core_web_trf")
+nlp.add_pipe('coreferee')
+pandas
+streamlit

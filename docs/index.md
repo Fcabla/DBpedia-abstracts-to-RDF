@@ -37,7 +37,7 @@ This week we have focused on the construction of the lookup table that will allo
 In this eighth week we have dedicated ourselves to build the necessary functions to correctly convert text triples into RDF triples. In addition, we have filled in the lexicalization table a bit more and fixed some bugs. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week8)
 
 ## Coding week 9 (02/08/2021 - 09/08/2021)
-WIP. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week9)
+During the ninth week we have been testing the performance of the application by testing it with 10000 DBpedia abstracts. With this we intend to obtain several metrics such as the number of simple sentences, complex sentences, number of lexicalization failures, etc. In addition, the local DBpedia spotlight server has been installed to use it instead of the online API. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week9)
 
 ## Coding week 10 (09/08/2021 - 16/08/2021)
 WIP. Explained in detail [here](https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week10)

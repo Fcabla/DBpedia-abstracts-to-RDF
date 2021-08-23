@@ -4,7 +4,6 @@ Author: Fernando Casabán Blasco
 """
 
 import coreferee
-from numpy.lib.arraysetops import isin
 import spacy
 import re
 from spacy.symbols import nsubj, VERB, AUX, PUNCT
@@ -997,6 +996,14 @@ def get_missclassified_objects(rdf_triples):
                 errors.append(triple)
     return errors
 
+def get_preds_literals(rdf_triples):
+    errors = []
+
+    for triple in rdf_triples:
+        if isinstance(triple.pred_rdf, Literal):
+                errors.append(triple)
+    return errors
+
 def count_literals(rdf_triples):
     be = URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
     preds = 0
@@ -1016,6 +1023,7 @@ def count_tobe(rdf_triples):
         if triple.pred_rdf == be:
             count += 1
     return count
+
 def main():
     # Load dependency model and add coreferee support
     nlp = spacy.load("en_core_web_trf")
@@ -1037,6 +1045,7 @@ def main():
     literals_objct = 0
     tobe_count = 0
     errors_be = []
+    errors_pred = []
     elap_time = 0
     num_abstracts = len(test_examples)
     
@@ -1057,12 +1066,14 @@ def main():
                     s_sentences_count += 1
             total_sentences += len(sentences)
             errors_be.extend(get_missclassified_objects(rdf_triples))
+            errors_pred.extend(get_preds_literals(rdf_triples))
             l_pred, l_objct = count_literals(rdf_triples)
             tobe_count += count_tobe(rdf_triples)
             literals_pred += l_pred
             literals_objct += l_objct
             end = time.time()
             elap_time += end - start
+
     print(f"Num of abstracts {num_abstracts}")
     print(f"Simple sentences: {s_sentences_count}, from each text avg of {s_sentences_count/num_abstracts} simple sentences")
     print(f"Complex sentences: {c_senteces_count}, from each text avg of {c_senteces_count/num_abstracts} complex sentences")
@@ -1077,8 +1088,8 @@ def main():
     print(f"total time: {elap_time}, avg time {elap_time/num_abstracts}")
     print(errors_be[:5])
     
-    textfile = open("results/errors_object_tobe_s2.txt", "w")
-    for element in errors_be:
+    textfile = open("results/errors_pred.txt", "w")
+    for element in errors_pred:
         textfile.write(element.__repr__())
         textfile.write("\n")
     textfile.close()

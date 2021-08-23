@@ -94,6 +94,13 @@ The errors that have been commented so far are only in reference to the triple f
 
 This is a question of how permissive we are in generating the triples. If we were stricter, the number of range and domain errors might disappear at the cost of generating far fewer triples. We have decided to be more flexible since the lexicalization table for verbs and prepositions does not contain a large number of alternative lexicalizations or properties for each combination.
 
+To improve the pipeline we would have to add many additional lexicalizations to both lookup tables since our maximum accuracy is conditioned by the number of cases we are able to cover with the lookup tables. We should also consider if the parameters we are using in each Spotlight query are correct or should be fine tuned (confidence and support level) or if the parameters of . Finally, the simplification of the phrases should also be reviewed, since by optimally simplifying the phrases, Spotlight should only identify one resource (in the text triplet object).
+
+## Update (23/08/2021)
+In order to better identify which verbs we are not covering in the verb+preposition lexicalization table we have generated a list of cases where the lexicalization has failed. This is very similar to what we did with the lexicalization errors of the DBpedia classes (errors with the verb to be).
+
+This table of examples of errors can be consulted [here][8].
+
 ## Conclusions
 In conclusion, during this week we have been able to check the functioning of the pipeline developed so far as well as get an idea of what things are going wrong and how we could fix them.
 
@@ -102,9 +109,10 @@ In the next week we will focus on creating a web tool to build a small demo that
 For more information please check the [repository][1] or the [source file of this coding week 9][2].
 
 [1]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF
-[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/cw9.py
+[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/codingweeks/cw9.py
 [3]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/tree/main/spotlight
 [4]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/spotlight/Readme.md
 [5]: https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week7
 [6]: https://fcabla.github.io/DBpedia-abstracts-to-RDF/coding-week8
 [7]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/tree/main/results/errors_object_tobe.txt
+[8]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/tree/main/results/errors_pred.txt
