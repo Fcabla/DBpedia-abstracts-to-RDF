@@ -22,7 +22,7 @@ As can be seen in the image, the main graphical component is the text area where
 
 2. Show simplified sentences: If true the text triples will be printed on the web page as extra output.
 
-3. Get only the triples without literals: If true only the triples that have no errors in the structure will be selected, those triples that follow the pattern resource | property | resource.
+3. Get only the triples without literals: If true only the triples that have no errors in the structure will be selected, those triples that follow the pattern `resource | property | resource`.
 
 4. Print debugging information: If true, each sentence will be printed at the end of the web page with the triples generated from it.
 
