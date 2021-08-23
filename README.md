@@ -5,7 +5,8 @@ This is a Gsoc project in colaboration with DBpedia, more information can be fou
 
 ## License
 
-## Requirements
+## Requirements / How to run
+Las librerias utilizadas en 
 import re
 import spacy
 nlp = spacy.load("en_core_web_trf")
