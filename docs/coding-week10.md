@@ -17,23 +17,23 @@ Using the default streamlit theme we have managed to build the following user in
 
 ![webapp_main_view](https://raw.githubusercontent.com/Fcabla/DBpedia-abstracts-to-RDF/main/docs/webapp_main_view.png)
 
-Como se puede observar en la imagen, el principal componente gráfico es el área de texto donde el usuario introduce un texto (por ejemplo un abstract de una página de DBpedia). Además, existen cuatro casillas de verificación:
-1. Utilizar todas las frases: Si es verdadera se utilizarán todas las frases para generar las triplas (no sólo las frases simples), se aconseja a los usuarios que dejen esta opción sin marcar ya que la calidad de las triplas de las frases complejas es peor que la de las triples de las simples.
+As can be seen in the image, the main graphical component is the text area where the user enters a text (for example an abstract from a DBpedia page). In addition, there are four check boxes:
+1. use all sentences: if true all sentences will be used to generate triples (not only simple sentences), users are advised to leave this option unchecked as the quality of triples for complex sentences is worse than triples for simple sentences.
 
-2. Mostrar las frases simplificadas: Si es verdadero los triples de texto se imprimirán en la página web como una salida extra.
+2. Show simplified sentences: If true the text triples will be printed on the web page as extra output.
 
-3. Obtener sólo las triplas sin literales: Si es true sólo se seleccionarán las triplas que no tengan errores en la estructura, aquellas triplas que sigan el patrón recurso | propiedad | recurso.
+3. Get only the triples without literals: If true only the triples that have no errors in the structure will be selected, those triples that follow the pattern resource | property | resource.
 
-4. Imprimir información de depuración: Si es true se imprimirá al final de la página web cada sentencia con las triplas generadas a partir de ella.
+4. Print debugging information: If true, each sentence will be printed at the end of the web page with the triples generated from it.
 
-En las siguientes dos imágenes se muestra el output de las tripletas RDF, las tripletas de texto (sentencias simplificadas) y la información de debug:
+The following two images show the output of RDF triples, text triples (simplified statements) and debug information:
 
 ![webapp_output1](https://raw.githubusercontent.com/Fcabla/DBpedia-abstracts-to-RDF/main/docs/webapp_output1.png)
 
 ![webapp_output2](https://raw.githubusercontent.com/Fcabla/DBpedia-abstracts-to-RDF/main/docs/webapp_output2.png)
 
-Una vez que un usuario hace click en el botón **submit** se genera al principio de los outputs un enlace para descargar el archivo ttl generado. Aunque he insistido con que esta herramienta facilita mucho la construcción de páginas web, he encotrado muchas dificultades a la hora de generar una forma de descargar el fichero.
-Por defecto streamlit no incluye ninguna función para que los usuarios descarguen archivos, por lo que se ha tenido que hacer manualmente. Para más información sobre este problema consulte la siguiente [función][5]
+Once a user clicks on the **submit** button a link to download the generated ttl file is generated at the top of the outputs. Although I have insisted that this tool makes it very easy to build web pages, I have encountered many difficulties in generating a way to download the file.
+By default streamlit does not include any function for users to download files, so it had to be done manually. For more information about this problem see the following [function][5]
 
 ## Final evaluation period
 Being this the last week, I have dedicated some time to generate documentation, test the application, prepare the github repository and evaluate both my mentor and DBpedia. During this evaluation I also had to give my opinion about certain aspects of Google Summer of Code as well as explain what I found the most difficult and the most enjoyable aspects of this journey.
