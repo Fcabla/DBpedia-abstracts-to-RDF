@@ -18,7 +18,7 @@ The tool performs the following steps to translate from text to RDF:
 11. If the verb of the predicate is the verb `to be` the property will be `rdf:type` and the object will be a DBpedia class. For this another lexicalization table is needed.
 12. Finally the RDF triples with the structure `resource | property | resource` are obtained if there has not been any lexicalization problem. In the case in which a valid lexicalization is not found we will find a `literal` in the triple.
 
-This is a brief summary, if you want more information visit the [blog][2] where the whole development is reflected.
+This is a brief summary, if you want more information visit the [blog][2] where the whole development is described.
 
 ## License
 Copyright (C) Fernando Casabñan Blasco, 2021
