@@ -3,7 +3,9 @@ Web application to convert DBpedia abstracts into a set of RDF triples.
 
 This is a Gsoc project in colaboration with DBpedia, more information can be found [here][1].
 
-During the development of the GSoC project, a blog has been created with weekly entries explaining how the tool has been built and what difficulties we have encountered along the way. This blog can be accessed [here][2]. In addition, there is a folder [codingweeks][3] where there is a python script for each week with the pipeline developed so far.
+During the development of the GSoC project, a blog has been created with weekly entries explaining how the tool has been built and what difficulties we have encountered along the way. **This blog can be accessed [here][2].**
+
+In addition, there is a folder [codingweeks][3] where there is a python script for each week with the pipeline developed so far.
 
 The tool performs the following steps to translate from text to RDF:
 1.  Clean up the text superficially (remove some parenthesis and special characters).
