@@ -85,7 +85,6 @@ def init():
     # Load dependency model and add coreferee support
     nlp = spacy.load("en_core_web_trf")
     nlp.add_pipe('coreferee')
-    print("houlas")
     # Load datastructures
     prop_lex_table = brt.load_lexicalization_table(PROP_LEXICALIZATION_TABLE)
     cla_lex_table = brt.load_lexicalization_table(CLA_LEXICALIZATION_TABLE)

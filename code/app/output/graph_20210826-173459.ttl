@@ -1,0 +1,10 @@
+@prefix ns1: <http://dbpedia.org/ontology/> .
+
+<http://dbpedia.org/resource/barack_obama> a ns1:Politician,
+        ns1:President,
+        <http://dbpedia.org/resource/juris_doctor>,
+        "the 44th",
+        "the first african american" ;
+    ns1:occupation <http://dbpedia.org/resource/civil_and_political_rights>,
+        <http://dbpedia.org/resource/lawyer> .
+

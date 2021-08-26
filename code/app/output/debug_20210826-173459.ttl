@@ -1,0 +1,33 @@
+--------------------------------------------------  
+**Barack Hussein Obama II is an American politician**  
+Barack Hussein Obama II | is | an American politician  
+http://dbpedia.org/resource/barack_obama | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | http://dbpedia.org/ontology/Politician  
+  
+--------------------------------------------------  
+**who is the 44th and current President of the United States**  
+Barack Hussein Obama II | is | the 44th  
+http://dbpedia.org/resource/barack_obama | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | the 44th  
+Barack Hussein Obama II | is | the current President  
+http://dbpedia.org/resource/barack_obama | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | http://dbpedia.org/ontology/President  
+  
+--------------------------------------------------  
+**He is the first African American**  
+Barack Hussein Obama II | is | the first African American  
+http://dbpedia.org/resource/barack_obama | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | the first african american  
+  
+--------------------------------------------------  
+**where he was president of the Harvard Law Review**  
+Barack Hussein Obama II | was | president of the Harvard Law Review  
+http://dbpedia.org/resource/barack_obama | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | http://dbpedia.org/ontology/President  
+  
+--------------------------------------------------  
+**He was a community organizer in Chicago before earning his law degree.**  
+Obama | was before | earning his law degree  
+http://dbpedia.org/resource/barack_obama | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | http://dbpedia.org/resource/juris_doctor  
+  
+--------------------------------------------------  
+**He worked as a civil rights attorney and taught constitutional law at the University of Chicago Law School between 1992 and 2004.**  
+Obama | worked as | a civil rights attorney  
+http://dbpedia.org/resource/barack_obama | http://dbpedia.org/ontology/occupation | http://dbpedia.org/resource/civil_and_political_rights  
+Obama | worked as | a civil rights attorney  
+http://dbpedia.org/resource/barack_obama | http://dbpedia.org/ontology/occupation | http://dbpedia.org/resource/lawyer  

@@ -207,3 +207,17 @@ def build_result_graph(triples):
         g.add((triple.subj_rdf, triple.pred_rdf, triple.objct_rdf))
     result = g.serialize(format='ttl')
     return result
+
+def save_result_graph(triples, fpath):
+    """ Builds a rdf graph with the result triples """
+    g = Graph()
+    for triple in triples:
+        triple.get_rdf_triple()
+        g.add((triple.subj_rdf, triple.pred_rdf, triple.objct_rdf))
+    try:
+        g.serialize(fpath,format='ttl')
+    except:
+        print(f"Error while saving the graph in{fpath}")
+        exit()
+    result = g.serialize(format='ttl')
+    return result
