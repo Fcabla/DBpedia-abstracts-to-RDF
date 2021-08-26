@@ -7,6 +7,7 @@ During the development of the GSoC project, a blog has been created with weekly 
 
 In addition, there is a folder [codingweeks][3] where there is a python script for each week with the pipeline developed so far.
 
+## Pipeline overview 
 The tool performs the following steps to translate from text to RDF:
 1.  Clean up the text superficially (remove some parenthesis and special characters).
 2.  Apply the dependency parse tree to the original text.
