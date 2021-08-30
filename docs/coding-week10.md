@@ -96,7 +96,7 @@ Note: Although the project is formally finished (according to the schedule estab
 For more information please check the [repository][1] or the [folder containing the web app][2].
 
 [1]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF
-[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/codingweeks/webapp
+[2]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/main/code/webapp
 [3]: https://flask.palletsprojects.com/en/2.0.x/
 [4]: https://streamlit.io/
 [5]: https://github.com/Fcabla/DBpedia-abstracts-to-RDF/blob/c8ac79a5b26f0d11ae326b034260140bd958a0f8/code/webapp/app.py#L66
