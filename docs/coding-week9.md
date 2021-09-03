@@ -101,6 +101,9 @@ In order to better identify which verbs we are not covering in the verb+preposit
 
 This table of examples of errors can be consulted [here][8].
 
+## Update (03/09/2021)
+When a literal appears in the triplet, these are not really errors, but rather patterns that are not covered by the current lookuptables.
+
 ## Conclusions
 In conclusion, during this week we have been able to check the functioning of the pipeline developed so far as well as get an idea of what things are going wrong and how we could fix them.
 
