@@ -43,8 +43,8 @@ If all sentences (simple + complex) are used, **77296** text triples and **12701
 
 From these numbers you can see that about 1.5 RDF triples are generated for each text triple. Although we thought that the opposite would be true, this makes a lot of sense since one RDF triple is generated for each resource identified by Spotligh in a text triple object. This can mean two things, either we need to raise the confidence level of each Spotlight query so that fewer candidates are generated or we are doing a bad job of simplifying the sentences to generate the text triples.
 
-### Errors in predicate (lexicalization of verbs+prepositions)
-Next we will check the number of errors generated during the abstract processing, starting with the failures to lexicalize verbs and prepositions. These errors occur when a triple contains a verb + preposition that is not in the lexicalization table. For more information about this lookuptable see [blog post 7][5].
+### Elements non-captured in predicate (lexicalization of verbs+prepositions)
+Next we will check the number of errors (pattern not covered) generated during the abstract processing, starting with the failures to lexicalize verbs and prepositions. These errors occur when a triple contains a verb + preposition that is not in the lexicalization table. For more information about this lookuptable see [blog post 7][5].
 
 ![num_predicate_errors](https://raw.githubusercontent.com/Fcabla/DBpedia-abstracts-to-RDF/main/results/num_predicate_errors.png)
 
@@ -68,8 +68,8 @@ Total count = 17530
 ```
 These last two outputs have been calculated to make sure of the large number of cases covered by the verb to be on its own.
 
-### Errors in objects when predicate is the verb to be (lexicalization of DBpedia classes)
-Another type of error that can occur when generating RDF triples from text triples is when the verb of the triple is the verb **to be**. When this case occurs, the text triple object must be replaced by a DBpedia ontology class instead of a resource identified by Spotlight. Failures related to this case occur when no valid lexicalization (ontology class) is found in the text triplet object. For more information about this lookup table see [blog post 8][6].
+### Elements non-captured in objects when predicate is the verb to be (lexicalization of DBpedia classes)
+Another type of error (pattern not covered) that can occur when generating RDF triples from text triples is when the verb of the triple is the verb **to be**. When this case occurs, the text triple object must be replaced by a DBpedia ontology class instead of a resource identified by Spotlight. Failures related to this case occur when no valid lexicalization (ontology class) is found in the text triplet object. For more information about this lookup table see [blog post 8][6].
 
 ![num_tobe_errors](https://raw.githubusercontent.com/Fcabla/DBpedia-abstracts-to-RDF/main/results/num_tobe_errors.png)
 
@@ -77,7 +77,7 @@ In the simple sentences **4105** errors have been committed for the **8323** tri
 
 To try to reduce this number, a list of the triples in which this error has occurred has been generated in order to identify and add more cases to the table of lexicalization of classes of the DBpedia ontology. 83 new lexicalizations have been added to the lookup table (before 772 vs 855 now). This can be consulted [here][7].
 
-### Total number of errors (any literals in triple)
+### Total number of not covered patterns (any literals in triple)
 The following graph shows the number of triples containing any of the two errors shown above vs the total number of RDF triples generated.
 
 ![total_num_errors](https://raw.githubusercontent.com/Fcabla/DBpedia-abstracts-to-RDF/main/results/total_num_errors.png)

@@ -72,7 +72,8 @@ Being this the last week, I have dedicated some time to generate documentation, 
 ## Future work (what is left to do)
 As this is the last week of development I thought it is a good idea to indicate to the users what will be the next steps in the development of this project.
 
-The main problem of the pipeline right now is that of all the triples it can generate, only half of them are free of errors in their structure. This kind of errors occur when the pipeline is unable to find a valid lexicalization for the predicate (verb+preposition) or for the object, leaving these elements as Literals instead of as resources or properties.
+The main problem of the pipeline right now is that of all the triples it can generate, only half of them are free of errors in their structure. This kind of errors occur when the pipeline is unable to find a valid lexicalization for the predicate (verb+preposition) or for the object, leaving these elements as Literals instead of as resources or properties. They are not really errors, they are more like non-capture patterns since the elements that failed during lexicalization are just not covered by the lookuptables.
+
 When we mention lexicalization we refer to the translation of text to URIs using tables (json files).
 As already seen during [blog post 9][6] the origin of most of these errors is when lexicalizing verbs and prepositions, since the current state of the lookup table does not cover the estimated number of cases.
 
