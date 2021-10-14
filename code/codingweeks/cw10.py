@@ -1039,8 +1039,10 @@ def get_only_triples_URIs(rdf_triples):
 def get_only_not_UNK(rdf_triples):
     new_triples = []
     to_avoid = Literal(UNKOWN_VALUE)
+    to_avoid2 = URIRef(UNKOWN_VALUE)
     for t in rdf_triples:
-        if t != to_avoid:
+        if t.pred_rdf not in [UNKOWN_VALUE, to_avoid, to_avoid2]:
+            #if (t.pred_rdf != to_avoid) and (t.pred_rdf != UNKOWN_VALUE) and (t.pred_rdf != URIRef(UNKOWN_VALUE)):
             new_triples.append(t)
     return new_triples
 
@@ -1064,7 +1066,9 @@ def main():
         rdf_triples = get_only_not_UNK(rdf_triples)
         for t in rdf_triples:
             benchmark_df = benchmark_df.append({'sent': t.sent, 'text_triple': t.__repr__(), 'rdf_triple': t.get_rdf_triple(), 'lexicalizations': str(t.lex_dict) ,'label': 'UNK'}, ignore_index=True)
-    benchmark_df.to_csv("datasets/benchmark2.csv", index=False)
+            #debug
+            #print(t.pred_rdf, t.objct_rdf)
+    benchmark_df.to_csv("datasets/benchmark3.csv", index=False)
 if __name__ == "__main__":
     main()
 
