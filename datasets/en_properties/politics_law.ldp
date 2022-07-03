@@ -1,0 +1,108 @@
+@prefix dbpedia: <http://dbpedia.org/ontology/> .
+@prefix resource: <http://dbpedia.org/resource/> .
+@prefix lex: <http://github.com/cunger/lemon.dbpedia/target/dbpedia_all#> .
+
+Lexicon(<http://github.com/cunger/lemon.dbpedia/target/dbpedia_en_11#>,"en",
+
+  //// Classes
+
+  ClassNoun("election",dbpedia:Election),
+  ClassNoun("legislature",dbpedia:Legislature),
+
+  ClassNoun(["government"/noun "type"/noun],dbpedia:GovernmentType),
+  ClassNoun("monarch",dbpedia:Monarch),
+  ClassNoun("noble",dbpedia:Noble),
+  ClassNoun("royalty",dbpedia:Royalty),
+  ClassNoun(["British"/adjective "royalty"/noun],dbpedia:BritishRoyalty),
+  ClassNoun(["Polish"/adjective "king"/noun],dbpedia:PolishKing),
+
+  ObjectPropertyNoun("monarchy",dbpedia:governmentType,resource:Monarchy),
+  ObjectPropertyNoun("constitutional monarchy",dbpedia:governmentType,resource:ConstitutionalMonarchy),
+  ObjectPropertyNoun("republic",dbpedia:governmentType,resource:Republic),
+
+  ClassNoun("office holder",dbpedia:OfficeHolder),
+  ClassNoun("member of parliament",dbpedia:MemberOfParliament),
+  DataPropertyNoun("member of parliament",dbpedia:office,"Member of Parliament"),
+  DataPropertyNoun("member of the European parliament",dbpedia:office,"Member of the European Parliament"),
+  DataPropertyNoun("minister of foreign affairs",dbpedia:office,"Minister of Foreign Affairs"),
+  DataPropertyNoun("minister of justice",dbpedia:office,"Minister of Justice"),
+  DataPropertyNoun("minister of defence",dbpedia:office,"Minister of Defence"),
+  DataPropertyNoun("minister of education",dbpedia:office,"Minister of education"),
+  ClassNoun("congress man",dbpedia:Congressman) with plural "congress men",
+  ClassNoun("politician",dbpedia:Politician),
+  ClassNoun("governor",dbpedia:Governor),
+  DataPropertyNoun("governor",dbpedia:leaderTitle,"Governor"),
+  ClassNoun("president",dbpedia:President),
+  DataPropertyNoun("president",dbpedia:leaderTitle,"President"),
+  ClassNoun("vice president",dbpedia:VicePresident),
+  ClassNoun("prime minister",dbpedia:PrimeMinister),
+  ClassNoun("premier",dbpedia:PrimeMinister),
+  ClassNoun("vice prime minister",dbpedia:VicePrimeMinister),
+  ClassNoun("lieutenant",dbpedia:Lieutenant),
+  ClassNoun("chancellor",dbpedia:Chancellor),
+  ClassNoun("mayor",dbpedia:Mayor),
+  DataPropertyNoun("mayor",dbpedia:leaderTitle,"Mayor"),
+  ClassNoun("senator",dbpedia:Senator),
+  DataPropertyNoun("senator",dbpedia:office,"Senator"),
+  ClassNoun("ambassador",dbpedia:Ambassador),
+
+  ClassNoun(["law"/noun "firm"/noun],dbpedia:LawFirm),
+  ClassNoun("case",dbpedia:Case),
+  ClassNoun(["legal"/adjective "case"/noun],dbpedia:LegalCase),
+  ClassNoun(["court"/noun "case"/noun],dbpedia:LegalCase),
+  ClassNoun(["law"/noun "case"/noun],dbpedia:LegalCase),
+  ClassNoun(["legal"/adjective "matter"/noun],dbpedia:LegalCase),
+  ClassNoun(["Supreme Court of the United States"/noun "case"/noun],dbpedia:SupremeCourtOfTheUnitedStatesCase),
+  ClassNoun(["system"/noun "of"/preposition "law"/noun],dbpedia:SystemOfLaw),
+
+  ClassNoun("criminal",dbpedia:Criminal),
+  ClassNoun("thug",dbpedia:Criminal),
+  ClassNoun("murderer",dbpedia:Murderer),
+  ClassNoun("killer",dbpedia:Murderer),
+  ClassNoun("judge",dbpedia:Judge),
+  ClassNoun("magistrate",dbpedia:Judge), 
+  ClassNoun("deputy",dbpedia:Deputy),
+
+
+  //// Properties
+
+  // mayor, president, governor
+
+  RelationalNoun("mayor",dbpedia:leader,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg restrictedTo lex:Mayor),
+
+  RelationalNoun("president",dbpedia:leader,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg restrictedTo lex:President),
+
+  RelationalNoun("governor",dbpedia:leader,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg restrictedTo lex:Governor),
+
+  // viceChancellor, runningMate, president
+
+  RelationalNoun(["vice"/noun "chancellor"/noun],dbpedia:viceChancellor,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  RelationalNoun(["running"/noun "mate"/noun],dbpedia:runningMate,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),
+
+  StateVerb("serve",dbpedia:president,
+     propObj  = PrepositionalObject("under")), 
+
+  // board 
+
+  RelationalNoun(["board"/noun "member"/noun],dbpedia:board,
+     propSubj = PrepositionalObject("at"),
+     propObj  = CopulativeArg), 
+
+  // office
+
+  RelationalNoun("position",dbpedia:office,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg)
+
+)

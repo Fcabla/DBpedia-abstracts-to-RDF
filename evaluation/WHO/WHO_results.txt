@@ -1,0 +1,335 @@
++>>COMPLEX The poor start to the season led to the early dismissal of newly appointed manager Fatih Terim, who was replaced by Carlo Ancelotti on 5 November 2001.
+SIMPLE The poor start to the season led to the early dismissal of newly appointed manager Fatih Terim
+SIMPLE newly appointed manager Fatih Terim, was replaced by Carlo Ancelotti on 5 November 2001
++>>COMPLEX Burgher Recreation Club replaced Sri Lanka Ports Authority Cricket Club, who were relegated from the previous years' tournament, after finishing bottom of the Plate League.
+SIMPLE Burgher Recreation Club replaced Sri Lanka Ports Authority Cricket Club
+SIMPLE Sri Lanka Ports Authority Cricket Club, were relegated from the previous years' tournament, after finishing bottom of the Plate League
++>>COMPLEX David Rubinson, who produced most of the band's Columbia albums, was back as producer here, as well as serving as the band's manager.
+SIMPLE David Rubinson , was back as producer here, as well as serving as the band's manager
+SIMPLE David Rubinson produced most of the band's Columbia albums
++>>COMPLEX Artists who are featured on A Very Trainor Christmas include Earth, Wind & Fire, Seth MacFarlane, Trainor's cousins Jayden, Jenna & Marcus Toney, and father Gary Trainor.
+SIMPLE Artists include Earth, Wind & Fire, Seth MacFarlane, Trainor's cousins Jayden, Jenna & Marcus Toney, and father Gary Trainor. 
+SIMPLE Artists are featured on A Very Trainor Christmas 
++>>COMPLEX The highway was initially built by a joint venture between Entreprise Jean Lefebvre, a French company, and several Saudi partners, who appealed to hundreds of expatriate men to do the job.
+SIMPLE The highway was initially built by a joint venture between Entreprise Jean Lefebvre, a French company, and several Saudi partners
+SIMPLE Entreprise Jean Lefebvre, a French company, and several Saudi partners, appealed to hundreds of expatriate men to do the job
++>>COMPLEX Abu Mansur Muwaffaq Harawi flourished in Herat, under the Samanid prince Mansur I, who ruled from 961 to 976.
+SIMPLE Abu Mansur Muwaffaq Harawi flourished in Herat, under the Samanid prince Mansur I
+SIMPLE the Samanid prince Mansur I, ruled from 961 to 976
++>>COMPLEX Adelaide Ametis Frassati was an Italian painter who had paintings commissioned by the King of Italy Victor Emmanuel III.
+SIMPLE Adelaide Ametis Frassati was an Italian painter . 
+SIMPLE Adelaide Ametis Frassati had paintings commissioned by the King of Italy Victor Emmanuel III
++>>COMPLEX The contemporary settlement was originally a village founded by Greek refugees who resettled there after fleeing from various areas of Asia Minor after the Asia Minor Campaign.
+SIMPLE The contemporary settlement was originally a village founded by Greek refugees . 
+SIMPLE Greek refugees resettled there after fleeing from various areas of Asia Minor after the Asia Minor Campaign
++>>COMPLEX Atikaya and his uncle Kumbhakarana are believed to be incarnations of the demons Madhu and Kaitabha, who were tricked and killed by Vishnu at the creation of the world.
+SIMPLE Atikaya and his uncle Kumbhakarana are believed to be incarnations of the demons Madhu and Kaitabha
+SIMPLE the demons Madhu and Kaitabha, were tricked and killed by Vishnu at the creation of the world
++>>COMPLEX The village is administrated by a sarpanch who is an elected representative of village as per Panchayati raj.
+SIMPLE The village is administrated by a sarpanch . 
+SIMPLE a sarpanch is an elected representative of village as per Panchayati raj
++>>COMPLEX Barbara A. Hildt is an American politician who represented the 1st Essex District in the Massachusetts House of Representatives from 1983 to 1993.
+SIMPLE Barbara A. Hildt is an American politician . 
+SIMPLE Barbara A. Hildt represented the 1st Essex District in the Massachusetts House of Representatives from 1983 to 1993
++>>COMPLEX Barry Thornton is a former Australian rules footballer who played for the Footscray Football Club in the Victorian Football League.
+SIMPLE Barry Thornton is a former Australian rules footballer . 
+SIMPLE Barry Thornton played for the Footscray Football Club in the Victorian Football League
++>>COMPLEX Benjamin Camden John Funnell is a New Zealand rugby union player who currently plays as a hooker for Canterbury in New Zealand's domestic Mitre 10 Cup and the Crusaders in the international Super Rugby competition.
+SIMPLE Benjamin Camden John Funnell is a New Zealand rugby union player . 
+SIMPLE Benjamin Camden John Funnell currently plays as a hooker for Canterbury in New Zealand's domestic Mitre 10 Cup and the Crusaders in the international Super Rugby competition
++>>COMPLEX Captain Benjamin John Legge Rogers-Tillstone was a British Royal Navy officer and philatelist who was added to the Roll of Distinguished Philatelists in 1970.
+SIMPLE Captain Benjamin John Legge Rogers-Tillstone was a British Royal Navy officer and philatelist . 
+SIMPLE Captain Benjamin John Legge Rogers-Tillstone was added to the Roll of Distinguished Philatelists in 1970
++>>COMPLEX William Regan was an English professional football wing half who appeared in the Football League for The Wednesday.
+SIMPLE William Regan was an English professional football wing half . 
+SIMPLE William Regan appeared in the Football League for The Wednesday
++>>COMPLEX Robert George Cowan was an American football halfback who played three seasons in the All-America Football Conference between 1947 and 1949.
+SIMPLE Robert George Cowan was an American football halfback . 
+SIMPLE Robert George Cowan played three seasons in the All-America Football Conference between 1947 and 1949
++>>COMPLEX Branko Vrgoc is a Croatian professional footballer who plays as a centre-back for Greek Super League club Panetolikos.
+SIMPLE Branko Vrgoc is a Croatian professional footballer . 
+SIMPLE Branko Vrgoc plays as a centre-back for Greek Super League club Panetolikos
++>>COMPLEX Bruno Dreossi is an Italian sprint canoer who competed from the mid-1980s to the early 1990s.
+SIMPLE Bruno Dreossi is an Italian sprint canoer . 
+SIMPLE Bruno Dreossi competed from the mid-1980s to the early 1990s
++>>COMPLEX Burleydam benefited from the patronage of the Cotton family, later the Viscounts Combermere, who gained the abbey and its estates after its dissolution.
+SIMPLE Burleydam benefited from the patronage of the Cotton family, later the Viscounts Combermere
+SIMPLE the Cotton family, later the Viscounts Combermere, gained the abbey and its estates after its dissolution
++>>COMPLEX The driver who uses the consignment should be familiar with the consignment, and with the waybill, able to inform the recipient about the importance of the various topics on the waybill.
+SIMPLE The driver should be familiar with the consignment, and with the waybill, able to inform the recipient about the importance of the various topics on the waybill. 
+SIMPLE The driver uses the consignment 
+->>COMPLEX In 1906, who had been at Gorton locomotive works became Locomotive Superintendent and appointed as Works Foreman.
+SIMPLE In 1906, who had been at Gorton locomotive works became Locomotive Superintendent and appointed as Works Foreman.
++>>COMPLEX Carlos D. Arguelles was a Filipino architect who was known for being a leading proponent of the International Style of architecture in the Philippines in the 1960s.
+SIMPLE Carlos D. Arguelles was a Filipino architect . 
+SIMPLE Carlos D. Arguelles was known for being a leading proponent of the International Style of architecture in the Philippines in the 1960s
++>>COMPLEX Charles Richard Mead was a professional outfielder who played for the New York Giants of Major League Baseball from 1943 to 1945.
+SIMPLE Charles Richard Mead was a professional outfielder . 
+SIMPLE Charles Richard Mead played for the New York Giants of Major League Baseball from 1943 to 1945
++>>COMPLEX The Cyrus Fogg Brackett Chair of Physics is an endowed professorship established at Princeton University in 1927 by a donation from Thomas D. Jones in honor of, who was a professor of physics at Princeton University and founder of Princeton University's electrical engineering department.
+SIMPLE The Cyrus Fogg Brackett Chair of Physics is an endowed professorship established at Princeton University in 1927 by a donation from Thomas D. Jones in honor of who was a professor of physics at Princeton University and founder of Princeton University's electrical engineering department
+SIMPLE The Cyrus Fogg Brackett Chair of Physics was a professor of physics at Princeton University and founder of Princeton University's electrical engineering department
++>>COMPLEX Music was composed by Vasant Desai with lyrics by Shams Lucknavi, who also wrote the story and dialogues.
+SIMPLE Music was composed by Vasant Desai with lyrics by Shams Lucknavi
+SIMPLE Shams Lucknavi, also wrote the story and dialogues
++>>COMPLEX The film is about a young bride who faces suffering and humiliation for not bringing a dowry and then makes the "ultimate sacrifice" with her death.
+SIMPLE The film is about a young bride . 
+SIMPLE a young bride faces suffering and humiliation for not bringing a dowry and then makes the "ultimate sacrifice" with her death
+->>COMPLEX Daniel Foster, also known by the nickname of "Fozzie", is a Tonga international rugby league footballer who plays for the Easts Tigers in the Queensland Cup.
+SIMPLE Daniel Foster, also known by the nickname of "Fozzie", is a Tonga international rugby league footballer . 
+SIMPLE Daniel Foster, also known by the nickname of "Fozzieplays for the Easts Tigers in the Queensland Cup
++>>COMPLEX Deborah Ruth Whitten is a former field hockey goalkeeper from Canada who represented her native country at the 1992 Summer Olympics in Barcelona, Spain.
+SIMPLE Deborah Ruth Whitten is a former field hockey goalkeeper from Canada . 
+SIMPLE Deborah Ruth Whitten represented her native country at the 1992 Summer Olympics in Barcelona, Spain
++>>COMPLEX Among the school's notable faculty members was Arthur Shores, a polymath who taught science, history, civics and literature.
+SIMPLE Among the school's notable faculty members was Arthur Shores, a polymath . 
+SIMPLE a polymath taught science, history, civics and literature
++>>COMPLEX According to local tradition, the cairn marked the burial of a king named Dunmail who was slain by Saxons.
+SIMPLE According to local tradition, the cairn marked the burial of a king named Dunmail . 
+SIMPLE a king named Dunmail was slain by Saxons
++>>COMPLEX Edmund William Tobin was a lumber merchant and manufacturer who was President of the Lotbiniere Lumber Company in and President of the Trois-Pistoles Pulp Company in Trois-Pistoles, Quebec.
+SIMPLE Edmund William Tobin was a lumber merchant and manufacturer . 
+SIMPLE Edmund William Tobin was President of the Lotbiniere Lumber Company in and President of the Trois-Pistoles Pulp Company in Trois-Pistoles, Quebec
++>>COMPLEX Edward William Dowell was an English cricketer who played in five matches for Cambridge University in 1844 and 1845.
+SIMPLE Edward William Dowell was an English cricketer . 
+SIMPLE Edward William Dowell played in five matches for Cambridge University in 1844 and 1845
++>>COMPLEX Ensign Stover Cottrell was a Major League Baseball pitcher who played from 1911 to 1915 with the Pittsburgh Pirates, Chicago Cubs, Philadelphia Athletics, Boston Braves and New York Yankees.
+SIMPLE Ensign Stover Cottrell was a Major League Baseball pitcher . 
+SIMPLE Ensign Stover Cottrell played from 1911 to 1915 with the Pittsburgh Pirates, Chicago Cubs, Philadelphia Athletics, Boston Braves and New York Yankees
++>>COMPLEX Often the industry became more closely controlled by national governments, who believed that a supportive home front was crucial to victory.
+SIMPLE Often the industry became more closely controlled by national governments
+SIMPLE national governments, believed that a supportive home front was crucial to victory
++>>COMPLEX Esteban Edward Torres was an American politician who served as member of the United States House of Representatives for California's 34th congressional district from 1983 to 1999.
+SIMPLE Esteban Edward Torres was an American politician . 
+SIMPLE Esteban Edward Torres served as member of the United States House of Representatives for California's 34th congressional district from 1983 to 1999
++>>COMPLEX Fisherville was originally named Curreys after Edward Currey, who opened a post office in 1833.
+SIMPLE Fisherville was originally named Curreys after Edward Currey
+SIMPLE Edward Currey, opened a post office in 1833
++>>COMPLEX In 1847, Fisherville was renamed after Robert Fisher who had died two years earlier.
+SIMPLE In 1847, Fisherville was renamed after Robert Fisher . 
+SIMPLE Robert Fisher had died two years earlier
++>>COMPLEX Fisherville is also home of one of Louisville's great Basketball coaches, Denny Crum, who coached for the University of Louisville for 30 years.
+SIMPLE Fisherville is also home of one of Louisville's great Basketball coaches, Denny Crum
+SIMPLE one of Louisville's great Basketball coaches, Denny Crum, coached for the University of Louisville for 30 years
++>>COMPLEX Krishnakumar Ramakumar, also credited as Five Star Krishna, is an Indian actor who has appeared in Tamil films in supporting roles.
+SIMPLE Krishnakumar Ramakumar, also credited as Five Star Krishna, is an Indian actor . 
+SIMPLE Krishnakumar Ramakumar, also credited as Five Star Krishna, has appeared in Tamil films in supporting roles
++>>COMPLEX Francis Murphy was an Irish athlete, who specialised in middle-distance running.
+SIMPLE Francis Murphy was an Irish athlete
+SIMPLE Francis Murphy specialised in middle-distance running
++>>COMPLEX Franklin Clovis Anzite Touadere is a Central African footballer who currently plays as defender for Malaysian club Selangor United in the Malaysia Super League and the Central African Republic national team.
+SIMPLE Franklin Clovis Anzite Touadere is a Central African footballer . 
+SIMPLE Franklin Clovis Anzite Touadere currently plays as defender for Malaysian club Selangor United in the Malaysia Super League and the Central African Republic national team
++>>COMPLEX Gareth Michael Grant is an English former footballer who played as a striker.
+SIMPLE Gareth Michael Grant is an English former footballer . 
+SIMPLE Gareth Michael Grant played as a striker
++>>COMPLEX Gerard Hallock III was an American ice hockey player who competed in the 1932 Winter Olympics.
+SIMPLE Gerard Hallock III was an American ice hockey player . 
+SIMPLE Gerard Hallock III competed in the 1932 Winter Olympics
++>>COMPLEX Giada Wiltshire is an Italian beauty pageant contestant of partial English descent through her father, who won Miss World Italy 2007 and represented Italy in Miss World 2007 in China.
+SIMPLE Giada Wiltshire is an Italian beauty pageant contestant of partial English descent through her father
+SIMPLE her father, won Miss World Italy 2007 and represented Italy in Miss World 2007 in China
++>>COMPLEX Golan is a retired Thoroughbred racehorse and active sire who was bred in Ireland.
+SIMPLE Golan is a retired Thoroughbred racehorse and active sire . 
+SIMPLE Golan was bred in Ireland
++>>COMPLEX Gonzalo Jose Jaque is an Argentine professional footballer who plays as a midfielder for San Lorenzo.
+SIMPLE Gonzalo Jose Jaque is an Argentine professional footballer . 
+SIMPLE Gonzalo Jose Jaque plays as a midfielder for San Lorenzo
++>>COMPLEX Macartney was married to Jane Macartney who helped establish and manage various charitable institutions in Melbourne, often with Bishop Charles Perry's wife, Frances Perry.
+SIMPLE Macartney was married to Jane Macartney . 
+SIMPLE Jane Macartney helped establish and manage various charitable institutions in Melbourne, often with Bishop Charles Perry's wife, Frances Perry
++>>COMPLEX A grandson, Hussey Burgh George Macartney, was a captain in the Royal Fusiliers who was injured in the Boer War and died in the Great War.
+SIMPLE A grandson, Hussey Burgh George Macartney, was a captain in the Royal Fusiliers . 
+SIMPLE A grandson, Hussey Burgh George Macartney, was injured in the Boer War and died in the Great War
++>>COMPLEX Isabella Tobias is an American-born Israeli ice dancer who competes with Ilia Tkachenko.
+SIMPLE Isabella Tobias is an American-born Israeli ice dancer . 
+SIMPLE Isabella Tobias competes with Ilia Tkachenko
++>>COMPLEX Each year, a Board of Electors selects one or two Jenkinson Lecturers who are invited to Oxford to present a lecture in the broad area of developmental biology.
+SIMPLE Each year, a Board of Electors selects one or two Jenkinson Lecturers . 
+SIMPLE one or two Jenkinson Lecturers are invited to Oxford to present a lecture in the broad area of developmental biology
++>>COMPLEX James Herbert Garfield was an English footballer who played in the Football League for Aston Villa.
+SIMPLE James Herbert Garfield was an English footballer . 
+SIMPLE James Herbert Garfield played in the Football League for Aston Villa
++>>COMPLEX Jasper Stuyven is a Belgian professional racing cyclist, who currently rides for UCI WorldTeam Trek–Segafredo.
+SIMPLE Jasper Stuyven is a Belgian professional racing cyclist
+SIMPLE Jasper Stuyven currently rides for UCI WorldTeam Trek–Segafredo
++>>COMPLEX Jay and Seth Versus the Apocalypse follows fictionalized versions of the two actors who have shut themselves in their apartment and argue over their predicament during some unspecified end-of-the-world event.
+SIMPLE Jay and Seth Versus the Apocalypse follows fictionalized versions of the two actors . 
+SIMPLE the two actors have shut themselves in their apartment and argue over their predicament during some unspecified end-of-the-world event
++>>COMPLEX Joseph Leiper was a Scottish professional footballer who played as a full-back.
+SIMPLE Joseph Leiper was a Scottish professional footballer . 
+SIMPLE Joseph Leiper played as a full-back
++>>COMPLEX Joseph Oliver is a Canadian politician who served as Minister of Finance from 2014 to 2015.
+SIMPLE Joseph Oliver is a Canadian politician . 
+SIMPLE Joseph Oliver served as Minister of Finance from 2014 to 2015
++>>COMPLEX John Carpenter is a former Australian rules footballer who played with Essendon in the Victorian Football League.
+SIMPLE John Carpenter is a former Australian rules footballer . 
+SIMPLE John Carpenter played with Essendon in the Victorian Football League
++>>COMPLEX John Cooper is one of only nineteen people who have received the Medal of Honor twice.
+SIMPLE John Cooper is one of only nineteen people . 
+SIMPLE only nineteen people have received the Medal of Honor twice 
++>>COMPLEX Kagemusha tells the story of a lower-class criminal who is taught to impersonate a dying daimyo to dissuade opposing lords from attacking the newly vulnerable clan.
+SIMPLE Kagemusha tells the story of a lower-class criminal . 
+SIMPLE a lower-class criminal is taught to impersonate a dying daimyo to dissuade opposing lords from attacking the newly vulnerable clan
++>>COMPLEX Kevin Pay was an Australian rules footballer who played with Collingwood in the Victorian Football League.
+SIMPLE Kevin Pay was an Australian rules footballer . 
+SIMPLE Kevin Pay played with Collingwood in the Victorian Football League
++>>COMPLEX Hilarion Cuenca Silva was a Filipino comedian, film actor, television personality, boxer and politician who briefly held the post as the acting Vice Mayor of Manila in 1998.
+SIMPLE Hilarion Cuenca Silva was a Filipino comedian, film actor, television personality, boxer and politician . 
+SIMPLE Hilarion Cuenca Silva briefly held the post as the acting Vice Mayor of Manila in 1998
++>>COMPLEX Leighton Parks became rector of St. Bartholomew's Church, New York, succeeding David H. Greer, who had been elected Bishop of the diocese.
+SIMPLE Leighton Parks became rector of St. Bartholomew's Church, New York, succeeding David H. Greer
+SIMPLE David H. Greer, had been elected Bishop of the diocese
++>>COMPLEX He was a militant defender of theological modernism who denied the Virgin birth and defied the Bishops of his church.
+SIMPLE He was a militant defender of theological modernism . 
+SIMPLE He denied the Virgin birth and defied the Bishops of his church
++>>COMPLEX Palgyigon was a son of Kyide Nyimagon, a descendant of the Old Tibetan dynasty, who unified the Western Tibet during the Tibetan Era of Fragmentation.
+SIMPLE Palgyigon was a son of Kyide Nyimagon, a descendant of the Old Tibetan dynasty
+SIMPLE Kyide Nyimagon, a descendant of the Old Tibetan dynasty, unified the Western Tibet during the Tibetan Era of Fragmentation
++>>COMPLEX The fault itself was first inferred by Chilean government agent Hans Steffen around 1900 who referred to it as a "tectonic furrow".
+SIMPLE The fault itself was first inferred by Chilean government agent Hans Steffen around 1900 ". 
+SIMPLE The fault itself referred to it as a "tectonic furrow
++>>COMPLEX This is a list of all cricketers who have played first-class.
+SIMPLE This is a list of all cricketers . 
+SIMPLE all cricketers have played first-class
++>>COMPLEX The Soviet Union entered teams of athletes who were all nominally students, soldiers, or working in a profession.
+SIMPLE The Soviet Union entered teams of athletes . 
+SIMPLE athletes were all nominally students, soldiers, or working in a profession
++>>COMPLEX Besides the United States, Argentina is the only nation still in existence who has won either the men's or women's tournament.
+SIMPLE Besides the United States, Argentina is the only nation . 
+SIMPLE Argentina has won either the men's or women's tournament
++>>COMPLEX The Soviet Union, Yugoslavia and the Unified Team are the countries no longer in existence who have won the tournament.
+SIMPLE The Soviet Union, Yugoslavia and the Unified Team are the countries . 
+SIMPLE The Soviet Union, Yugoslavia and the Unified Team have won the tournament
++>>COMPLEX The 1960 U.S. Olympic team featured four players who would eventually enter the Hall of Fame.
+SIMPLE The 1960 U.S. Olympic team featured four players . 
+SIMPLE four players would eventually enter the Hall of Fame
++>>COMPLEX The 1992 U.S. Olympic team had 11 future Hall of Fame players, along with three coaches who were inducted to the Hall as coaches.
+SIMPLE The 1992 U.S. Olympic team had 11 future Hall of Fame players, along with three coaches . 
+SIMPLE three coaches were inducted to the Hall as coaches
++>>COMPLEX Brooks's total of 18 weeks at number one with his three chart-toppers was exceeded by a single week by Canadian singer Shania Twain, who spent 19 non-consecutive weeks atop the chart with her album Come On Over.
+SIMPLE Brooks's total of 18 weeks at number one with his three chart-toppers was exceeded by a single week by Canadian singer Shania Twain
+SIMPLE Canadian singer Shania Twain, spent 19 non-consecutive weeks atop the chart with her album Come On Over
++>>COMPLEX In August, Vince Gill, who had first entered the Top Country Albums chart in 1984, gained his first number one with The Key.
+SIMPLE In August, Vince Gill , gained his first number one with The Key
+SIMPLE Vince Gill had first entered the Top Country Albums chart in 1984
++>>COMPLEX He is one of four acts to top the chart in 1998 who are members of the Country Music Hall of Fame, along with Brooks, George Strait and Alan Jackson.
+SIMPLE He is one of four acts . 
+SIMPLE four acts are members of the Country Music Hall of Fame, along with Brooks, George Strait and Alan Jackson
++>>COMPLEX ABBA, Barry White, Eric Clapton, Queen and Showaddywaddy were among the many artists who achieved their first UK charting top 10 single in 1974.
+SIMPLE ABBA, Barry White, Eric Clapton, Queen and Showaddywaddy were among the many artists . 
+SIMPLE the many artists achieved their first UK charting top 10 single in 1974
+->>COMPLEX This is an incomplete list of co-drivers who have entered a World Rally Championship event.
+SIMPLE This is an incomplete list of co-drivers . 
+SIMPLE drivers have entered a World Rally Championship event
+->>COMPLEX Active co-drivers are those who have entered a WRC event within the past twelve months.
+SIMPLE Active co-drivers are those . 
+SIMPLE Active cohave entered a WRC event within the past twelve months
++>>COMPLEX Lynn Carol Rainbow-Reid is an Australian-based former theatre and television actor who was educated at Ascham School, The Sorbonne and Dante Alighieri in Italy.
+SIMPLE Lynn Carol Rainbow-Reid is an Australian-based former theatre and television actor . 
+SIMPLE Lynn was educated at Ascham School, The Sorbonne and Dante Alighieri in Italy
++>>COMPLEX Marc Nierga Martí is a Spanish footballer who plays for CD Calahorra as a forward.
+SIMPLE Marc Nierga Martí is a Spanish footballer . 
+SIMPLE Marc Nierga Martí plays for CD Calahorra as a forward
++>>COMPLEX Mario Luis Fuentes Alcalá is a Mexican politician and economist who served as Director-General of the Mexican Social Security Institute in 2000.
+SIMPLE Mario Luis Fuentes Alcalá is a Mexican politician and economist . 
+SIMPLE Mario Luis Fuentes Alcalá served as Director-General of the Mexican Social Security Institute in 2000
++>>COMPLEX Martha Joan Hart is a Canadian philanthropist and researcher who is the widow of professional wrestler Owen Hart.
+SIMPLE Martha Joan Hart is a Canadian philanthropist and researcher . 
+SIMPLE Martha Joan Hart is the widow of professional wrestler Owen Hart
++>>COMPLEX María Pérez García is a Spanish race walker who competes for Spain internationally.
+SIMPLE María Pérez García is a Spanish race walker . 
+SIMPLE María Pérez García competes for Spain internationally
++>>COMPLEX The film was Siddalingaiah's debut as a director and actor Dwarkish's first independent production venture who had earlier co- produced the 1966 movie Mamatheya Bandhana with 2 other people under Thunga Pictures.
+SIMPLE The film was Siddalingaiah's debut as a director and actor Dwarkish's first independent production venture . 
+SIMPLE first independent production venture had earlier co- produced the 1966 movie Mamatheya Bandhana with 2 other people under Thunga Pictures
++>>COMPLEX Eric Norman Craigie was an Australian rugby league footballer who played in the 1940s.
+SIMPLE Eric Norman Craigie was an Australian rugby league footballer . 
+SIMPLE Eric Norman Craigie played in the 1940s
++>>COMPLEX Michael John Fuller, APM is a retired police officer who served as the 22nd Commissioner of the New South Wales Police Force.
+SIMPLE Michael John Fuller, APM is a retired police officer . 
+SIMPLE Michael John Fuller, APM served as the 22nd Commissioner of the New South Wales Police Force
++>>COMPLEX Oke Akpoveta is a Nigerian footballer who plays as a forward for Saudi club Al-Thoqbah.
+SIMPLE Oke Akpoveta is a Nigerian footballer . 
+SIMPLE Oke Akpoveta plays as a forward for Saudi club Al-Thoqbah
++>>COMPLEX Osman Hadzikic is an Austrian professional footballer of Bosnian descent, who plays as a goalkeeper for FC Admira Wacker Mödling.
+SIMPLE Osman Hadzikic is an Austrian professional footballer of Bosnian descent
+SIMPLE Osman Hadzikic plays as a goalkeeper for FC Admira Wacker Mödling
++>>COMPLEX Patrick Bienert is a German photographer who works on long-term projects of portrait, landscape and documentary photography.
+SIMPLE Patrick Bienert is a German photographer . 
+SIMPLE Patrick Bienert works on long-term projects of portrait, landscape and documentary photography
++>>COMPLEX Peter Timothy Dusman is a South Sudanese footballer who plays as a midfielder for Ugandan club Doves All Stars and the South Sudan national team.
+SIMPLE Peter Timothy Dusman is a South Sudanese footballer . 
+SIMPLE Peter Timothy Dusman plays as a midfielder for Ugandan club Doves All Stars and the South Sudan national team
++>>COMPLEX Pratima Kazmi is an Indian television actress who has worked in many Bollywood movies and Hindi television drama series.
+SIMPLE Pratima Kazmi is an Indian television actress . 
+SIMPLE Pratima Kazmi has worked in many Bollywood movies and Hindi television drama series
++>>COMPLEX Ramon Machado de Macedo is a Brazilian professional footballer who plays as a striker.
+SIMPLE Ramon Machado de Macedo is a Brazilian professional footballer . 
+SIMPLE Ramon Machado de Macedo plays as a striker
++>>COMPLEX Ras Dumisani is a South African reggae musician originally from Durban who has been living and performings in France since 1992.
+SIMPLE Ras Dumisani is a South African reggae musician . 
+SIMPLE Ras Dumisani has been living and performings in France since 1992
++>>COMPLEX The network is named for his wife Alba Elvira Lorenzana, who is from Guatemala.
+SIMPLE The network is named for his wife Alba Elvira Lorenzana
+SIMPLE his wife Alba Elvira Lorenzana, is from Guatemala
++>>COMPLEX Richard Dennis is a former Australian rules footballer who played for Carlton and North Melbourne in the VFL/AFL.
+SIMPLE Richard Dennis is a former Australian rules footballer . 
+SIMPLE Richard Dennis played for Carlton and North Melbourne in the VFL/AFL
++>>COMPLEX Richard William Scobee is the son of Dick Scobee, an American test pilot and astronaut who perished in the Space Shuttle Challenger disaster.
+SIMPLE Richard William Scobee is the son of Dick Scobee, an American test pilot and astronaut . 
+SIMPLE an American test pilot and astronaut perished in the Space Shuttle Challenger disaster
++>>COMPLEX Roger Hverven is a retired Norwegian handball ving-player who competed in the 1972 Summer Olympics.
+SIMPLE Roger Hverven is a retired Norwegian handball ving-player . 
+SIMPLE Roger Hverven competed in the 1972 Summer Olympics
++>>COMPLEX Sachiko Eto was a Japanese serial killer who claimed to have psychic abilities.
+SIMPLE Sachiko Eto was a Japanese serial killer . 
+SIMPLE Sachiko Eto claimed to have psychic abilities
++>>COMPLEX Shamsur Rahman Sherif was a Bangladesh Awami League politician who served as Ministry of Land.
+SIMPLE Shamsur Rahman Sherif was a Bangladesh Awami League politician . 
+SIMPLE Shamsur Rahman Sherif served as Ministry of Land
++>>COMPLEX Sin was a successful general who also gained renown for protecting the borders of Joseon against the Jurchen.
+SIMPLE Sin was a successful general . 
+SIMPLE Sin also gained renown for protecting the borders of Joseon against the Jurchen
++>>COMPLEX Sin was joined at Chungju by Gyeongsang Provincial Governor Kim Su, who had previously collected a large force at Daegu while waiting for a general to be sent from the capital, Hanseong.
+SIMPLE Sin was joined at Chungju by Gyeongsang Provincial Governor Kim Su
+SIMPLE Gyeongsang Provincial Governor Kim Su, had previously collected a large force at Daegu while waiting for a general to be sent from the capital, Hanseong
++>>COMPLEX Skatebard is also a notable electronic artist who generally fits into the Italo disco genre.
+SIMPLE Skatebard is also a notable electronic artist . 
+SIMPLE Skatebard generally fits into the Italo disco genre
++>>COMPLEX Soren Lyng Christiansen is a Danish former professional football forward who won the 1993 Danish football championship with F.C. Copenhagen and made two international caps.
+SIMPLE Soren Lyng Christiansen is a Danish former professional football forward . 
+SIMPLE Soren Lyng Christiansen won the 1993 Danish football championship with F.C. Copenhagen and made two international caps
++>>COMPLEX The plot involves a group of aliens disguised as humans who take over an airport in preparation for an invasion of Earth.
+SIMPLE The plot involves a group of aliens disguised as humans . 
+SIMPLE a group of aliens disguised as humans take over an airport in preparation for an invasion of Earth
++>>COMPLEX Anthony O'Brien is an Irish retired hurler who played as a corner-back and full-back with the Limerick senior team.
+SIMPLE Anthony O'Brien is an Irish retired hurler . 
+SIMPLE Anthony O'Brien played as a corner-back and full-back with the Limerick senior team
++>>COMPLEX Tyler Feeley is a Serbian-American soccer player who plays for FC Arizona in the National Premier Soccer League.
+SIMPLE Tyler Feeley is a Serbian-American soccer player . 
+SIMPLE Tyler Feeley plays for FC Arizona in the National Premier Soccer League
++>>COMPLEX Vitaly Shulakov is a Russian professional ice hockey defenceman who currently plays for Olimp Riga in the Latvian Hockey League (LHL).
+SIMPLE Vitaly Shulakov is a Russian professional ice hockey defenceman . 
+SIMPLE Vitaly Shulakov currently plays for Olimp Riga in the Latvian Hockey League (LHL)
++>>COMPLEX Wang Chin-Fang is a Taiwanese judoka, who competed for the light middleweight category at the 2008 Summer Olympics in Beijing.
+SIMPLE Wang Chin-Fang is a Taiwanese judoka
+SIMPLE Wang Chin-Fang competed for the light middleweight category at the 2008 Summer Olympics in Beijing
++>>COMPLEX At the 2008 Summer Olympics, Wang was lost to Cuba's Driulis González, who scored a yuko within the closing time of five minutes.
+SIMPLE At the 2008 Summer Olympics, Wang was lost to Cuba's Driulis González
+SIMPLE Cuba's Driulis González, scored a yuko within the closing time of five minutes
++>>COMPLEX Warners Bay was named after Jonathan Warner, who settled the area.
+SIMPLE Warners Bay was named after Jonathan Warner
+SIMPLE Jonathan Warner, settled the area
++>>COMPLEX They encountered the Nez Perce, who were attracted to the area by the abundant hunting, as well as the fields of camas flowers.
+SIMPLE They encountered the Nez Perce
+SIMPLE the Nez Perce, were attracted to the area by the abundant hunting, as well as the fields of camas flowers
++>>COMPLEX The positive stories told by a young woman of their tribe who had been stolen and sold into slavery.
+SIMPLE The positive stories told by a young woman of their tribe . 
+SIMPLE a young woman of their tribe had been stolen and sold into slavery
++>>COMPLEX William M. Runyan was a Christian composer from the United States who wrote the music to the well-known hymn Great Is Thy Faithfulness.
+SIMPLE William M. Runyan was a Christian composer from the United States . 
+SIMPLE William M. Runyan wrote the music to the well-known hymn Great Is Thy Faithfulness
++>>COMPLEX Yianis Group owned by property magnate John Christodoulou who according to the Times Rich List 2007 is the 82nd wealthiest person in Britain with an estimated personal fortune of £835 m.
+SIMPLE Yianis Group owned by property magnate John Christodoulou
+SIMPLE property magnate John Christodoulou according to the Times Rich List 2007 is the 82nd wealthiest person in Britain with an estimated personal fortune of £835 m.

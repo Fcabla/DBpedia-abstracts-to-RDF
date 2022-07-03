@@ -1,0 +1,330 @@
+->>COMPLEX The 1933-34 Lancashire Cup was the twenty-sixth occasion on which the completion had been held.
+SIMPLE The 1933-34 Lancashire Cup was the twenty-sixth occasion .
+SIMPLE on The 1933-34 Lancashire Cup the completion had been held
++>>COMPLEX The 2018 Kaveri River water sharing protests are a series of ongoing protests on the issue of water sharing problems from the River Kaveri between Tamil Nadu and Karnataka which are two states in India.
+SIMPLE The 2018 Kaveri River water sharing protests are a series of ongoing protests on the issue of water sharing problems from the River Kaveri between Tamil Nadu and Karnataka .
+SIMPLE Tamil Nadu and Karnataka are two states in India
++>>COMPLEX Several film makers of the Tamil film industry has also criticised and threatened to postpone the IPL matches involving Chennai Super Kings which are to be held in Chennai.
+SIMPLE Several film makers of the Tamil film industry has also criticised and threatened to postpone the IPL matches involving Chennai Super Kings .
+SIMPLE the IPL matches involving Chennai Super Kings are to be held in Chennai
++>>COMPLEX This situation in Tamil Nadu has been a major concern along with the Nadigar Sangam's strike against the increase of VPF charges which has left the South Indian state vulnerable with no new film releases for about 50 days.
+SIMPLE This situation in Tamil Nadu has been a major concern along with the Nadigar Sangam's strike against the increase of VPF charges .
+SIMPLE the Nadigar Sangam's strike against the increase of VPF charges has left the South Indian state vulnerable with no new film releases for about 50 days
++>>COMPLEX The APEH gene encodes the enzyme, which catalyzes the hydrolysis of the terminal acetylated amino acid preferentially from small acetylated peptides.
+SIMPLE The APEH gene encodes the enzyme .
+SIMPLE the enzyme, catalyzes the hydrolysis of the terminal acetylated amino acid preferentially from small acetylated peptides
++>>COMPLEX The first example in the world was the Southeast Airports Disaster Operations Group (SEADOG), which was founded in 2004-2005 under the leadership of Savannah-Hilton Head International Airport and Orlando International Airport.
+SIMPLE The first example in the world was the Southeast Airports Disaster Operations Group (SEADOG)
+SIMPLE The first example in the world was founded in 2004-2005 under the leadership of Savannah-Hilton Head International Airport and Orlando International Airport
++>>COMPLEX Alcolea is significant for its 19-arch bridge crossing the Guadalquivir, which was the site of two battles in the 19th century.
+SIMPLE Alcolea is significant for its 19-arch bridge crossing the Guadalquivir
+SIMPLE the Guadalquivir, was the site of two battles in the 19th century
++>>COMPLEX Andranovorivato is a town and commune in Madagascar which is a part of Haute Matsiatra Region.
+SIMPLE Andranovorivato is a town and commune in Madagascar .
+SIMPLE Andranovorivato is a part of Haute Matsiatra Region
++>>COMPLEX In Apteronotus rostratus and some others, such as Compsaraia samueli, mature males grow extremely elongated snouts and oral jaws which are used in agonistic interactions with other males.
+SIMPLE In Apteronotus rostratus and some others, such as Compsaraia samueli, mature males grow extremely elongated snouts and oral jaws .
+SIMPLE extremely elongated snouts and oral jaws are used in agonistic interactions with other males
++>>COMPLEX Arbanitis robertsi is a species of tube spider which builds a tube of web that extends from the burrow.
+SIMPLE Arbanitis robertsi is a species of tube spider .
+SIMPLE tube spider builds a tube of web that extends from the burrow
++>>COMPLEX Ayra Starr spawned the hit song \"Away,\" which charted at 4 on the TurnTable Top 50.
+SIMPLE Ayra Starr spawned the hit song \"Away,\" .
+SIMPLE the hit song \"Away,\" charted at 4 on the TurnTable Top 50
++>>COMPLEX The Baoding Military Academy served as a model for the Whampoa Military Academy, which was founded in Guangzhou in 1924.
+SIMPLE The Baoding Military Academy served as a model for the Whampoa Military Academy
+SIMPLE the Whampoa Military Academy, was founded in Guangzhou in 1924
++>>COMPLEX Some of the largest species of catfish, including the piraiba, B. filamentosum, which reaches up to the region of 3.6 metres in length.
+SIMPLE Some of the largest species of catfish, including the piraiba, B. filamentosum
+SIMPLE the piraiba, B. filamentosum, reaches up to the region of 3.6 metres in length
++>>COMPLEX Chickney has a church called St Mary's Church which is Grade I listed and is a redundant church in the care of the Churches Conservation Trust.
+SIMPLE Chickney has a church called St Mary's Church .
+SIMPLE a church called St Mary's Church is Grade I listed and is a redundant church in the care of the Churches Conservation Trust
++>>COMPLEX Yoctangee Park was chosen specifically in order to beautify the park as well as to have a location near other elements of the city's first waterworks, which were built at the same time as the pumping station.
+SIMPLE Yoctangee Park was chosen specifically in order to beautify the park as well as to have a location near other elements of the city's first waterworks
+SIMPLE the city's first waterworks, were built at the same time as the pumping station
++>>COMPLEX Yamaha Entertainment Group is the succession of Yamaha Corporate Artist Affairs, which Gero also founded in 2001.
+SIMPLE Yamaha Entertainment Group is the succession of Yamaha Corporate Artist Affairs
+SIMPLE Yamaha Corporate Artist Affairs, Gero also founded in 2001
+->>COMPLEX Floods may be more frequent, and droughts may be longer, which would increase the difficulty of meeting the competing demands for water in the Ohio, Tennessee, and Cumberland rivers\".
+SIMPLE Floods may be more frequent, and droughts may be longer, which would increase the difficulty of meeting the competing demands for water in the Ohio, Tennessee, and Cumberland rivers\".
++>>COMPLEX The Deputy Secretary-General of the Commonwealth assists the Secretary-General in managing the operations of the Commonwealth Secretariat, which is the central institution of the Commonwealth.
+SIMPLE The Deputy Secretary-General of the Commonwealth assists the Secretary-General in managing the operations of the Commonwealth Secretariat
+SIMPLE the Commonwealth Secretariat, is the central institution of the Commonwealth
+->>COMPLEX An index normally includes a \"key\" or direct link to the original row of data from which was copied.
+SIMPLE An index normally includes a \"key\" or direct link to the original row of data .
+SIMPLE from the original row of data was copied
++>>COMPLEX An index could be created on upper (last_name), which would only store the upper-case versions of the last_name field in the index.
+SIMPLE An index could be created on upper (last_name)
+SIMPLE upper (last_name), would only store the upper-case versions of the last_name field in the index
++>>COMPLEX Despite a huge fundraising effort from fans which raised tens of thousands of pounds to pay an overdue tax bill.
+SIMPLE Despite a huge fundraising effort from fans .
+SIMPLE a huge fundraising effort from fans raised tens of thousands of pounds to pay an overdue tax bill
++>>COMPLEX The Defence Forces Training Centre also encompasses Glen of Imaal in County Wicklow which is the primary artillery and anti-tank firing range for the army.
+SIMPLE The Defence Forces Training Centre also encompasses Glen of Imaal in County Wicklow .
+SIMPLE Glen of Imaal in County Wicklow is the primary artillery and anti-tank firing range for the army
++>>COMPLEX Don Robert Hankey is an American billionaire businessman, the founder of the Hankey Group, which makes most of its income from subprime car loans.
+SIMPLE Don Robert Hankey is an American billionaire businessman, the founder of the Hankey Group
+SIMPLE the Hankey Group, makes most of its income from subprime car loans
++>>COMPLEX The flower has two long, narrow, pointed upper lobes which may be blue or purple.
+SIMPLE The flower has two long, narrow, pointed upper lobes .
+SIMPLE two long, narrow, pointed upper lobes may be blue or purple
++>>COMPLEX The three lower lobes are fused into one three-lobed surface, which is blue or purple with two bright yellow blotches rimmed with white in the center.
+SIMPLE The three lower lobes are fused into one three-lobed surface
+SIMPLE one three-lobed surface, is blue or purple with two bright yellow blotches rimmed with white in the center
++>>COMPLEX Dyckesville is bypassed by Wisconsin Highway 57, which ran through the community until 2006.
+SIMPLE Dyckesville is bypassed by Wisconsin Highway 57
+SIMPLE Wisconsin Highway 57, ran through the community until 2006
++>>COMPLEX Ekaterina Panikanova is known for her large installations of ink drawings, which Ekaterina Panikanova paints across the pages of vintage books.
+SIMPLE Ekaterina Panikanova is known for her large installations of ink drawings
+SIMPLE ink drawings, Ekaterina Panikanova paints across the pages of vintage books
++>>COMPLEX Emmanuel Kwasi Adjei was featured as co-director and creative collaborator of Black Is King, the acclaimed musical film and visual album by American singer Beyoncé, which premiered on Disney+.
+SIMPLE Emmanuel Kwasi Adjei was featured as co-director and creative collaborator of Black Is King, the acclaimed musical film and visual album by American singer Beyoncé
+SIMPLE Emmanuel Kwasi Adjei premiered on Disney+
++>>COMPLEX Adjei directed the music video for Don't Judge Me, released on January 26, 2021, which featured the Tate Modern commissioned sculpture Fons Americanus by American contemporary artist Kara Walker.
+SIMPLE Adjei directed the music video for Don't Judge Me, released on January 26, 2021
+SIMPLE the music video for Don't Judge Me, released on January 26, 2021, featured the Tate Modern commissioned sculpture Fons Americanus by American contemporary artist Kara Walker
++>>COMPLEX Adjei was appointed to direct the film to the global campaign About Love, which premiered on September 13, 2021.
+SIMPLE Adjei was appointed to direct the film to the global campaign About Love
+SIMPLE the global campaign About Love, premiered on September 13, 2021
++>>COMPLEX Ephrins are divided into the ephrin-A class, which are anchored to the membrane by a glycosylphosphatidylinositol linkage.
+SIMPLE Ephrins are divided into the ephrin-A class
+SIMPLE the ephrin-A class, are anchored to the membrane by a glycosylphosphatidylinositol linkage
++>>COMPLEX Ewa Tomaszewska was arrested after attempting to place a plaque up at the Wujek Coal Mine, which was under martial law at the time as a result of the Pacification of Wujek.
+SIMPLE Ewa Tomaszewska was arrested after attempting to place a plaque up at the Wujek Coal Mine
+SIMPLE the Wujek Coal Mine, was under martial law at the time as a result of the Pacification of Wujek
++>>COMPLEX FC Roskilde play at Roskilde Idrotspark in Roskilde on Zealand, which has a capacity of 6,000.
+SIMPLE FC Roskilde play at Roskilde Idrotspark in Roskilde on Zealand
+SIMPLE FC Roskilde has a capacity of 6,000
++>>COMPLEX Heard also owned a studio, which Heard called Fingerprint Recorders.
+SIMPLE Heard also owned a studio
+SIMPLE a studio, Heard called Fingerprint Recorders
++>>COMPLEX Gary Glenn coauthored a 2004 amendment to the state constitution which prohibited same-sex couples from marrying, until was invalidated by the Supreme Court.
+SIMPLE Gary Glenn coauthored a 2004 amendment to the state constitution .
+SIMPLE a 2004 amendment to the state constitution prohibited same-sex couples from marrying, until was invalidated by the Supreme Court
++>>COMPLEX George Allen Gilreath was killed during the charge, which became known as the high-water mark of the Confederacy.
+SIMPLE George Allen Gilreath was killed during the charge
+SIMPLE the charge, became known as the high-water mark of the Confederacy
++>>COMPLEX Giovanni Orsina was also involved in the Luigi Einaudi exhibition, which opened at the Quirinal Palace on May 12, 2008.
+SIMPLE Giovanni Orsina was also involved in the Luigi Einaudi exhibition
+SIMPLE the Luigi Einaudi exhibition, opened at the Quirinal Palace on May 12, 2008
+->>COMPLEX Rationality and conscience are regarded as the necessary means by which one can approach the finding of the origin, character and destiny.
+SIMPLE Rationality and conscience are regarded as the necessary means .
+SIMPLE by the necessary means one can approach the finding of the origin, character and destiny
++>>COMPLEX CurrantC began to grow black currants on his 135-acre (55 ha), farm and Quinn sought to interest consumers and New York farmers in the fruit, which was then being supplied to the United States by Europe.
+SIMPLE CurrantC began to grow black currants on his 135-acre (55 ha), farm and Quinn sought to interest consumers and New York farmers in the fruit
+SIMPLE the fruit, was then being supplied to the United States by Europe
++>>COMPLEX A gregueria is a short statement, usually one sentence, in which the author expresses a philosophical, pragmatic, or humorous idea in a witty and original way.
+SIMPLE A gregueria is a short statement, usually one sentence
+SIMPLE in A gregueria the author expresses a philosophical, pragmatic, or humorous idea in a witty and original way
++>>COMPLEX In wildfires, a holdover fire, zombie fire or overwintering fire is a peat fire which persists from year to year.
+SIMPLE In wildfires, a holdover fire, zombie fire or overwintering fire is a peat fire .
+SIMPLE a holdover fire, zombie fire or overwintering fire persists from year to year
++>>COMPLEX In 2020 hydropower generated one sixth of the world's electricity, almost 4500 TWh, which was more than all other renewables combined and also more than nuclear power.
+SIMPLE In 2020 hydropower generated one sixth of the world's electricity, almost 4500 TWh
+SIMPLE one sixth of the world's electricity, almost 4500 TWh, was more than all other renewables combined and also more than nuclear power
++>>COMPLEX The series is produced by Original Media, which also produced the reality show Miami Ink.
+SIMPLE The series is produced by Original Media
+SIMPLE Original Media, also produced the reality show Miami Ink
++>>COMPLEX JWH-007 is an analgesic chemical from the naphthoylindole family, which acts as a cannabinoid agonist at both the CB1 and CB2 receptors.
+SIMPLE JWH-007 is an analgesic chemical from the naphthoylindole family
+SIMPLE JWH-007 acts as a cannabinoid agonist at both the CB1 and CB2 receptors
+->>COMPLEX Dependent on which parish a club is located in, is a member of a specific confederation.
+SIMPLE Dependent on which parish a club is located in, is a member of a specific confederation.
++>>COMPLEX The Eliots raised their family in Guilford (formerly known as Menunkatucket), which was settled by Europeans in 1639.
+SIMPLE The Eliots raised their family in Guilford (formerly known as Menunkatucket)
+SIMPLE Guilford (formerly known as Menunkatucket), was settled by Europeans in 1639
+->>COMPLEX Turturro's mainstream breakthrough came with Lee's Do the Right Thing and the Coens' Miller's Crossing and Barton Fink (1991), for which won the Best Actor Award at the Cannes Film Festival.
+SIMPLE Turturro's mainstream breakthrough came with Lee's Do the Right Thing and the Coens' Miller's Crossing and Barton Fink (1991)
+SIMPLE for Lee's Do the Right Thing and the Coens' Miller's Crossing and Barton Fink (1991), won the Best Actor Award at the Cannes Film Festival
+->>COMPLEX He directed Mac (1992), which won the Golden Camera Award at the Cannes Film Festival, Illuminata (1998), and Romance and Cigarettes (2005).
+SIMPLE He directed Mac (1992) , Illuminata (1998), and Romance and Cigarettes (2005).
+SIMPLE Mac (1992), , Illuminata (1998), and Romance and Cigarettes (2005)won the Golden Camera Award at the Cannes Film Festival
++>>COMPLEX He is most noted for leading colonial militia in the Pequot War and Kieft's War which the colonists mounted against two different groups of Native Americans.
+SIMPLE He is most noted for leading colonial militia in the Pequot War and Kieft's War .
+SIMPLE the Pequot War and Kieft's War the colonists mounted against two different groups of Native Americans
++>>COMPLEX The kasbah is hosting a circus school called \"Shemsy's\", which is the national Moroccan circus school, and the only circus school in Morocco and the whole of Africa.
+SIMPLE The kasbah is hosting a circus school called \"Shemsy's\"
+SIMPLE a circus school called \"Shemsy's\", is the national Moroccan circus school, and the only circus school in Morocco and the whole of Africa
++>>COMPLEX Keep Away is a children's game in which two or more players must pass a ball to one another.
+SIMPLE Keep Away is a children's game .
+SIMPLE in Keep Away two or more players must pass a ball to one another
++>>COMPLEX The Kilwa Chronicle is a text which describes the origins of the Swahili city-state of Kilwa, on an Indian Ocean island near the East African coast.
+SIMPLE The Kilwa Chronicle is a text .
+SIMPLE The Kilwa Chronicle describes the origins of the Swahili city-state of Kilwa, on an Indian Ocean island near the East African coast
++>>COMPLEX King magazine is mainly characterized by its lavish photoshoots, which usually feature scantily-clad women, often complete with an interview from the featured model.
+SIMPLE King magazine is mainly characterized by its lavish photoshoots
+SIMPLE its lavish photoshoots, usually feature scantily-clad women, often complete with an interview from the featured model
+->>COMPLEX Kyrgyzstan planned to participate in the first Asian Championship, a tournament which was to be held in 2016 but in the end did not take place.
+SIMPLE Kyrgyzstan planned to participate in the first Asian Championship, a tournament .
+SIMPLE a tournament was to be held in 2016 but in the end did not take place
++>>COMPLEX The listing includes a historic brick church named St. Mary's Chapel and a building from 1835 to 1840 which was a parsonage for the church.
+SIMPLE The listing includes a historic brick church named St. Mary's Chapel and a building from 1835 to 1840 .
+SIMPLE a historic brick church named St. Mary's Chapel and a building from 1835 to 1840 was a parsonage for the church
++>>COMPLEX Such playful scenery usually had flirtatious connotations, which is famously depicted by Fragonard in his painting Le Collin-Maillard.
+SIMPLE Such playful scenery usually had flirtatious connotations
+SIMPLE flirtatious connotations, is famously depicted by Fragonard in his painting Le Collin-Maillard
++>>COMPLEX DeVotchKa provides the majority of the music on the soundtrack, and also the score, which did with Mychael Danna.
+SIMPLE DeVotchKa provides the majority of the music on the soundtrack, and also the score
+SIMPLE the majority of the music on the soundtrack, and also the score, did with Mychael Danna
+->>COMPLEX At the public burial with which he was honored, the historian Tacitus delivered the funeral oration.
+SIMPLE At the public burial , the historian Tacitus delivered the funeral oration.
+SIMPLE with the public burial he was honored
++>>COMPLEX Lum v. Rice, 275 U.S. 78 (1927), is a United States Supreme Court case in which the Court held that the exclusion on account of race of a child of Chinese ancestry from a public school.
+SIMPLE Lum v. Rice, 275 U.S. 78 (1927), is a United States Supreme Court case .
+SIMPLE in Lum v. Rice, 275 U.S. 78 (1927), the Court held that the exclusion on account of race of a child of Chinese ancestry from a public school
++>>COMPLEX The school district appealed to the Mississippi Supreme Court, which heard the case.
+SIMPLE The school district appealed to the Mississippi Supreme Court
+SIMPLE the Mississippi Supreme Court, heard the case
++>>COMPLEX Maaya Uchida debuted as a singer under Pony Canyon with the song \"Soushou Innocence\", which is produced by Tomita Akihiro.
+SIMPLE Maaya Uchida debuted as a singer under Pony Canyon with the song \"Soushou Innocence\"
+SIMPLE the song \"Soushou Innocence\", is produced by Tomita Akihiro
++>>COMPLEX Fahem joined several local groups before joining the group Radio Bemba in 2000, which accompanies singer-songwriter Manu Chao.
+SIMPLE Fahem joined several local groups before joining the group Radio Bemba in 2000
+SIMPLE the group Radio Bemba accompanies singer-songwriter Manu Chao
++>>COMPLEX In archaeology and anthropology, a manuport is a natural object which has been moved from its original context by human agency but otherwise remains unmodified.
+SIMPLE In archaeology and anthropology, a manuport is a natural object .
+SIMPLE a manuport has been moved from its original context by human agency but otherwise remains unmodified
++>>COMPLEX Maria Sterk announced to attack the women's world hour speed skating record, which was held by another woman.
+SIMPLE Maria Sterk announced to attack the women's world hour speed skating record
+SIMPLE the women's world hour speed skating record, was held by another woman
++>>COMPLEX In the end her average laptime was 39.5 seconds, which was enough to break the record.
+SIMPLE In the end her average laptime was 39.5 seconds
+SIMPLE her average laptime was enough to break the record
++>>COMPLEX She also managed to claim one second and two third positions at the Essent Cup 2006-07, which is still running.
+SIMPLE She also managed to claim one second and two third positions at the Essent Cup 2006-07
+SIMPLE the Essent Cup 2006-07, is still running
++>>COMPLEX Michael Kelly gained popularity due to their Dragonfly II acoustic bass, which has been used by Duff McKagan of Guns N' Roses, Shavo Odadjian of System of a Down, and Tony Bigley of Souls Harbor.
+SIMPLE Michael Kelly gained popularity due to their Dragonfly II acoustic bass
+SIMPLE their Dragonfly II acoustic bass, has been used by Duff McKagan of Guns N' Roses, Shavo Odadjian of System of a Down, and Tony Bigley of Souls Harbor
++>>COMPLEX This board is often referred to as the \"mother\" of all components attached to , which often include peripherals, interface cards, and daughterboards.
+SIMPLE This board is often referred to as the \"mother\" of all components attached to
+SIMPLE all components attached to , often include peripherals, interface cards, and daughterboards
++>>COMPLEX The first language is usually acquired without formal education, by mechanisms about which scholars disagree.
+SIMPLE The first language is usually acquired without formal education, by mechanisms .
+SIMPLE about mechanisms scholars disagree
+->>COMPLEX Interns can choose a variety of locations in which to live.
+SIMPLE Interns can choose a variety of locations .
+SIMPLE in locations to live
++>>COMPLEX Comparable to a compressor, which attenuates signals above a threshold, such as loud attacks from the start of musical notes.
+SIMPLE Comparable to a compressor
+SIMPLE a compressor, attenuates signals above a threshold, such as loud attacks from the start of musical notes
++>>COMPLEX Oleg Viktorovich Novitskiy has participated in multiple expeditions, during which Oleg Viktorovich Novitskiy has spent over 531 days in space.
+SIMPLE Oleg Viktorovich Novitskiy has participated in multiple expeditions
+SIMPLE during multiple expeditions, Oleg Viktorovich Novitskiy has spent over 531 days in space
++>>COMPLEX Salmonid fish was considered a subspecies of Oncorhynchus rhodurus, which has a restricted distribution within the range of the amago.
+SIMPLE Salmonid fish was considered a subspecies of Oncorhynchus rhodurus
+SIMPLE Oncorhynchus rhodurus, has a restricted distribution within the range of the amago
++>>COMPLEX The raion was abolished and its territory was merged into Lubny Raion on 18 July 2020 as part of the administrative reform of Ukraine, which reduced the number of raions of Poltava Oblast to four.
+SIMPLE The raion was abolished and its territory was merged into Lubny Raion on 18 July 2020 as part of the administrative reform of Ukraine
+SIMPLE the administrative reform of Ukraine, reduced the number of raions of Poltava Oblast to four
++>>COMPLEX Delfshaven put few demands on ground operators, which became a neighborhood filled with speculators construction.
+SIMPLE Delfshaven put few demands on ground operators
+SIMPLE ground operators, became a neighborhood filled with speculators construction
+->>COMPLEX The municipality of Rotterdam applied a systemic approach regarding urban expansion of Delfshaven, which, among other things, caused paved roads and sewers in the neighborhood.
+SIMPLE The municipality of Rotterdam applied a systemic approach regarding urban expansion of Delfshaven
+SIMPLE a systemic approach regarding urban expansion of Delfshaven, , among other things, caused paved roads and sewers in the neighborhood
+->>COMPLEX Her most notable publication is Shiris Ko Phool for which won the prestigious Madan Puraskar.
+SIMPLE Her most notable publication is Shiris Ko Phool .
+SIMPLE for Her most notable publication won the prestigious Madan Puraskar
++>>COMPLEX It exploits the commutativity of concurrently executed transitions, which result in the same state when executed in different orders.
+SIMPLE It exploits the commutativity of concurrently executed transitions
+SIMPLE concurrently executed transitions, result in the same state when executed in different orders
++>>COMPLEX Solomon Northup wrote about her in his book Twelve Years a Slave, which is the source for most of the information known about her.
+SIMPLE Solomon Northup wrote about her in his book Twelve Years a Slave
+SIMPLE his book Twelve Years a Slave, is the source for most of the information known about her
++>>COMPLEX The book was later adapted into a film, in which she was portrayed by Lupita Nyong'o.
+SIMPLE The book was later adapted into a film
+SIMPLE in a film, she was portrayed by Lupita Nyong'o
++>>COMPLEX Paul John Sweeney was elected as Member of Parliament for Glasgow North East at the 2017 general election, after which Paul John Sweeney was appointed Shadow Minister for Scotland by Jeremy Corbyn.
+SIMPLE Paul John Sweeney was elected as Member of Parliament for Glasgow North East at the 2017 general election
+SIMPLE after the 2017 general election, Paul John Sweeney was appointed Shadow Minister for Scotland by Jeremy Corbyn
++>>COMPLEX The airport is 10 km from the previous Phu Quoc Airport, which replaced.
+SIMPLE The airport is 10 km from the previous Phu Quoc Airport
+SIMPLE the previous Phu Quoc Airport, replaced
++>>COMPLEX The star-shaped calyx of sepals at the base of the flower enlarges as the fruit develops, becoming an inflated, ribbed lantern-shaped structure about 2 cm long which contains the berry.
+SIMPLE The star-shaped calyx of sepals at the base of the flower enlarges as the fruit develops, becoming an inflated, ribbed lantern-shaped structure about 2 cm long .
+SIMPLE an inflated, ribbed lantern-shaped structure about 2 cm long contains the berry
++>>COMPLEX The borough of Warwick remembers him as the founder of the Hospital of S. Michael for lepers which endowed with the tithes of Wedgnock.
+SIMPLE The borough of Warwick remembers him as the founder of the Hospital of S. Michael for lepers .
+SIMPLE the Hospital of S. Michael for lepers endowed with the tithes of Wedgnock
++>>COMPLEX He also built the Chapel of St James the Great in Warwick which is now part of the Lord Leycester Hospital.
+SIMPLE He also built the Chapel of St James the Great in Warwick .
+SIMPLE the Chapel of St James the Great in Warwick is now part of the Lord Leycester Hospital
++>>COMPLEX The shell contains grains of sediment, which are obtained selectively by a manner also observed in foramanifera.
+SIMPLE The shell contains grains of sediment
+SIMPLE grains of sediment, are obtained selectively by a manner also observed in foramanifera
++>>COMPLEX Saunders Park is often considered to be a part of the city, which extends out to 42nd Street.
+SIMPLE Saunders Park is often considered to be a part of the city
+SIMPLE the city, extends out to 42nd Street
++>>COMPLEX The Syrian Orphanage was born out of South German Pietism, which combined Biblicism, idealism, and religious individualism.
+SIMPLE The Syrian Orphanage was born out of South German Pietism
+SIMPLE South German Pietism, combined Biblicism, idealism, and religious individualism
+->>COMPLEX A source port allows the game to be played on operating systems or computing platforms with which the game was not originally compatible.
+SIMPLE A source port allows the game to be played on operating systems or computing platforms .
+SIMPLE with operating systems or computing platforms the game was not originally compatible
+->>COMPLEX Unlike the Portuguese bowline, each loop is separately fixed, which is a nice feature.
+SIMPLE Unlike the Portuguese bowline, each loop is separately fixed, which is a nice feature.
++>>COMPLEX A fireman's chair knot is another double loop knot which is more practical, easier to tie and less prone to slipping.
+SIMPLE A fireman's chair knot is another double loop knot .
+SIMPLE A fireman's chair knot is more practical, easier to tie and less prone to slipping
++>>COMPLEX The Standard Model is a paradigm of a quantum field theory, which exhibits a wide range of phenomena including spontaneous symmetry breaking, anomalies and non-perturbative behavior.
+SIMPLE The Standard Model is a paradigm of a quantum field theory
+SIMPLE a quantum field theory, exhibits a wide range of phenomena including spontaneous symmetry breaking, anomalies and non-perturbative behavior
++>>COMPLEX The stop was formerly Stretford railway station, a regional rail station which was opened by the Manchester South Junction and Altrincham Railway.
+SIMPLE The stop was formerly Stretford railway station, a regional rail station .
+SIMPLE a regional rail station was opened by the Manchester South Junction and Altrincham Railway
++>>COMPLEX Svealandsbanan is the Swedish name of the Svealand Railway, which runs between Sodertalje and Valskog via Mariefred Laggesta, Strangnas and Eskilstuna.
+SIMPLE Svealandsbanan is the Swedish name of the Svealand Railway
+SIMPLE the Svealand Railway, runs between Sodertalje and Valskog via Mariefred Laggesta, Strangnas and Eskilstuna
++>>COMPLEX His prenomen or royal name was Bakare, which means \"Glorious is the Soul of Re.\"
+SIMPLE His prenomen or royal name was Bakare, "
+SIMPLE His prenomen or royal name means \"Glorious is the Soul of Re.\
++>>COMPLEX Shyama dharaniyil from the 1981 Malayalam movie Sanchari was the first recorded song in Tharangini studio, which was composed and sung by Yesudas.
+SIMPLE Shyama dharaniyil from the 1981 Malayalam movie Sanchari was the first recorded song in Tharangini studio
+SIMPLE Shyama dharaniyil from the 1981 Malayalam movie Sanchari was composed and sung by Yesudas
++>>COMPLEX The Curse of Peladon is the second serial of the ninth season of the British science fiction television series Doctor Who, which was first broadcast in four weekly parts on BBC1 from 29 January to 19 February 1972.
+SIMPLE The Curse of Peladon is the second serial of the ninth season of the British science fiction television series Doctor Who
+SIMPLE the British science fiction television series Doctor Who, was first broadcast in four weekly parts on BBC1 from 29 January to 19 February 1972
++>>COMPLEX A Topfield Application Program is a software application which extends the standard functionality of the Topfield products designed for digital TV.
+SIMPLE A Topfield Application Program is a software application .
+SIMPLE A Topfield Application Program extends the standard functionality of the Topfield products designed for digital TV
++>>COMPLEX Topfield have specified an open API which allows TAPs to be created using the C or C++ programming languages.
+SIMPLE Topfield have specified an open API .
+SIMPLE an open API allows TAPs to be created using the C or C++ programming languages
+->>COMPLEX Atma-energy was a new religious movement active mainly on the island of Tenerife and in Germany known for a police and media scare in which an alleged attempt to commit ritual suicide took place in Teide National Park in Tenerife.
+SIMPLE Atma-energy was a new religious movement active mainly on the island of Tenerife and in Germany known for a police and media scare .
+SIMPLE in a police and media scare an alleged attempt to commit ritual suicide took place in Teide National Park in Tenerife
++>>COMPLEX USV Eschen/Mauren play at the Sportpark Eschen-Mauren, which used to be the national football stadium.
+SIMPLE USV Eschen/Mauren play at the Sportpark Eschen-Mauren
+SIMPLE the Sportpark Eschen-Mauren, used to be the national football stadium
+->>COMPLEX In promotion to the 2-part episodes 13 and 14 of Ultraman X, which features the crossover with the cast of Ultraman Ginga S.
+SIMPLE In promotion to the 2-part episodes 13 and 14 of Ultraman X,
+SIMPLE Ultraman X, features the crossover with the cast of Ultraman Ginga S.
++>>COMPLEX Unizibira was an ancient town and bishopric in Roman North Africa which remains a Latin Catholic titular see.
+SIMPLE Unizibira was an ancient town and bishopric in Roman North Africa .
+SIMPLE Unizibira remains a Latin Catholic titular see
++>>COMPLEX Uprhythm includes the band's most successful single in the U.S., \"Working Girl\", and the single \"Radio\", which was a major chart hit in Australia.
+SIMPLE Uprhythm includes the band's most successful single in the U.S., \"Working Girl\", and the single \"Radio\"
+SIMPLE the band's most successful single in the U.S., \"Working Girl\", and the single \"Radio\", was a major chart hit in Australia
++>>COMPLEX The WSHF calls were resurrected for use on 92.3 FM, a station which originally signed on the air in Muscle Shoals on October 31, 2007.
+SIMPLE The WSHF calls were resurrected for use on 92.3 FM, a station .
+SIMPLE a station originally signed on the air in Muscle Shoals on October 31, 2007
++>>COMPLEX State Route 31 is a Washington state highway which is 26.79 miles long.
+SIMPLE State Route 31 is a Washington state highway .
+SIMPLE State Route 31 is 26.79 miles long
++>>COMPLEX The route from Newport to BC 6 was the northernmost section of Primary State Highway 6, which ran from Spokane to BC 6.
+SIMPLE The route from Newport to BC 6 was the northernmost section of Primary State Highway 6
+SIMPLE Primary State Highway 6, ran from Spokane to BC 6
++>>COMPLEX SR 31 had one auxiliary route, SR 311, which became SR 211 after SR 20 was extended.
+SIMPLE SR 31 had one auxiliary route, SR 311
+SIMPLE one auxiliary route, SR 311, became SR 211 after SR 20 was extended
++>>COMPLEX Wayoro is a moribund Tuparian language (Tupian family), which is spoken in the state of Rondonia, in the Amazon region of Brazil.
+SIMPLE Wayoro is a moribund Tuparian language (Tupian family)
+SIMPLE Wayoro is spoken in the state of Rondonia, in the Amazon region of Brazil
++>>COMPLEX Between these records, Krakowski himself also released the CD Unbounded (on Kamea Media), on which Krakowski sings some of his own songs in English.
+SIMPLE Between these records, Krakowski himself also released the CD Unbounded (on Kamea Media)
+SIMPLE on the CD Unbounded (on Kamea Media), Krakowski sings some of his own songs in English
++>>COMPLEX In the Marvel Universe, mutants are born with a genetic trait which grants them natural superhuman abilities
+SIMPLE In the Marvel Universe, mutants are born with a genetic trait
+SIMPLE a genetic trait grants them natural superhuman abilities

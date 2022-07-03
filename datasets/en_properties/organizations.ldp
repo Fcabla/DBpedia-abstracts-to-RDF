@@ -1,0 +1,259 @@
+@prefix dbpedia:  <http://dbpedia.org/ontology/> .
+@prefix resource: <http://dbpedia.org/resource/> .
+@prefix lex: <http://github.com/cunger/lemon.dbpedia/target/dbpedia_all#> .
+
+Lexicon(<http://github.com/cunger/lemon.dbpedia/target/dbpedia_en_8#>,"en",
+
+  //// Classes
+
+  ClassNoun("organisation",dbpedia:Organisation),
+  ClassNoun(["organisation"/noun "member"/noun],dbpedia:OrganisationMember),
+  ClassNoun(["non-profit"/adjective "organisation"/noun],<http://dbpedia.org/ontology/Non-ProfitOrganisation>),
+  ClassNoun(["geopolitical"/adjective "organisation"/noun],<http://dbpedia.org/ontology/GeopoliticalOrganisation>),
+  ClassNoun(["government"/noun "agency"/noun],dbpedia:GovernmentAgency),
+
+  ClassNoun("group",dbpedia:Group),
+  ClassNoun("company",dbpedia:Company),
+  ClassNoun("airline",dbpedia:Airline),
+
+  ClassNoun(["educational"/adjective "institution"/noun],dbpedia:EducationalInstitution),
+  ClassNoun("school",dbpedia:School),
+  ClassNoun(["samba"/noun "school"/noun],dbpedia:SambaSchool),
+  ClassNoun("college",dbpedia:College),
+  ClassNoun("university",dbpedia:University),
+  ClassNoun("library",dbpedia:Library),
+
+  ClassNoun(["political"/adjective "party"/noun],dbpedia:PoliticalParty),
+  ClassNoun("party",dbpedia:PoliticalParty),
+  ClassNoun(["trade"/noun "union"/noun],dbpedia:TradeUnion),
+  ClassNoun(["labor"/noun "union"/noun],dbpedia:TradeUnion),
+
+  ClassNoun(["clerical"/adjective "order"/noun],dbpedia:ClericalOrder),
+
+
+  //// Properties 
+
+  RelationalAdjective("located",dbpedia:locationCity,
+    relationalArg = PrepositionalObject("in")),
+  RelationalAdjective("located",dbpedia:locationCountry,
+    relationalArg = PrepositionalObject("in")),
+  RelationalAdjective("based",dbpedia:locationCountry,
+    relationalArg = PrepositionalObject("in")),
+
+  // numberOfStudents, facultySize
+
+  RelationalNoun("enrollment",dbpedia:numberOfStudents,
+     propSubj = PrepositionalObject("of"),
+     propObj  = CopulativeArg),
+  RelationalNoun(["student"/noun "population"/noun],dbpedia:numberOfStudents,
+    propSubj = PossessiveAdjunct,
+    propObj  = CopulativeArg),
+
+  StateVerb("serve",dbpedia:numberOfStudents),
+
+  StateVerb("employ",dbpedia:facultySize),
+
+  RelationalNoun(["faculty"/noun "size"/noun],dbpedia:facultySize,
+    propSubj = PossessiveAdjunct,
+    propObj  = CopulativeArg),
+
+  // manufacturer, company 
+
+  RelationalNoun("manufacturer",dbpedia:manufacturer,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  StateVerb("manufacture",dbpedia:manufacturer,
+     propSubj = DirectObject,
+     propObj  = Subject), 
+  StateVerb("produce",dbpedia:manufacturer,
+     propSubj = DirectObject,
+     propObj  = Subject), 
+
+  StateVerb("construct",dbpedia:company,
+     propSubj = DirectObject restrictedTo dbpedia:Canal,
+     propObj  = Subject), 
+  StateVerb("build",dbpedia:company,
+     propSubj = DirectObject restrictedTo dbpedia:Canal,
+     propObj  = Subject),
+
+
+  // formationDate, formationYear, foundingDate, foundingYear, activeYears{Start|End}{Date|Year}
+
+  RelationalNoun(["formation"/noun "date"/noun],dbpedia:formationDate,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+  RelationalNoun(["formation"/noun "year"/noun],dbpedia:formationYear,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),
+
+  RelationalNoun(["founding"/noun "date"/noun],dbpedia:foundingDate,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+  RelationalNoun(["founding"/noun "year"/noun],dbpedia:foundingYear,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),
+
+  RelationalAdjective("formed",dbpedia:formationDate,
+     relationalArg = PrepositionalObject("on")),
+  RelationalAdjective("formed",dbpedia:formationYear,
+     relationalArg = PrepositionalObject("in")),
+
+  RelationalAdjective("founded",dbpedia:foundingDate,
+     relationalArg = PrepositionalObject("on")),
+  RelationalAdjective("founded",dbpedia:foundingYear,
+     relationalArg = PrepositionalObject("in")),
+
+  RelationalAdjective("established",dbpedia:formationDate,
+     relationalArg = PrepositionalObject("on")),
+  RelationalAdjective("established",dbpedia:formationYear,
+     relationalArg = PrepositionalObject("in")),
+  RelationalAdjective("established",dbpedia:foundingDate,
+     relationalArg = PrepositionalObject("on")),
+  RelationalAdjective("established",dbpedia:foundingYear,
+     relationalArg = PrepositionalObject("in")),
+
+  RelationalAdjective("active",dbpedia:activeYearsStartDate, 
+     relationalArg = PrepositionalObject("since")), 
+  RelationalAdjective("active",dbpedia:activeYearsStartYear, 
+     relationalArg = PrepositionalObject("since")), 
+  RelationalAdjective("active",dbpedia:activeYearsEndDate, 
+     relationalArg = PrepositionalObject("until")), 
+  RelationalAdjective("active",dbpedia:activeYearsEndYear, 
+     relationalArg = PrepositionalObject("until")), 
+
+  // foundingPerson, foundedBy
+
+  StateVerb("found",dbpedia:foundingPerson,
+     propSubj = DirectObject,
+     propObj  = Subject),
+  StateVerb("establish",dbpedia:foundingPerson,
+     propSubj = DirectObject,
+     propObj  = Subject),
+  StateVerb("found",dbpedia:foundedBy,
+     propSubj = DirectObject,
+     propObj  = Subject),
+  StateVerb("establish",dbpedia:foundedBy,
+     propSubj = DirectObject,
+     propObj  = Subject),
+  RelationalNoun("founder",dbpedia:foundedBy,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),
+  RelationalNoun("founder",dbpedia:foundingPerson,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),
+
+  // foundationPlace 
+
+  RelationalNoun(["foundation"/noun "place"/noun],dbpedia:foundationPlace,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  ConsequenceVerb("found",dbpedia:foundationPlace,
+     propObj  = PrepositionalObject("in")),
+
+  // mascot, slogan, title
+
+  RelationalNoun("mascot",dbpedia:mascot,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+  RelationalNoun("slogan",dbpedia:slogan,
+    propSubj = PossessiveAdjunct,
+    propObj  = CopulativeArg), 
+
+  RelationalAdjective("known",dbpedia:title,
+    relationalArg = PrepositionalObject("as")),
+
+
+  // affiliation
+
+  RelationalAdjective("affiliated",dbpedia:affiliation, 
+     relationalArg = PrepositionalObject("with")),
+  RelationalAdjective("affiliated",dbpedia:affiliation, 
+     relationalArg = PrepositionalObject("to")), 
+
+  // frequency 
+
+  RelationalNoun("frequency",dbpedia:frequency,
+    propSubj = PossessiveAdjunct,
+    propObj  = CopulativeArg), 
+
+  StateVerb("broadcast",dbpedia:frequency,
+    propObj = PrepositionalObject("on")),
+
+
+  // status 
+
+  RelationalNoun("status",dbpedia:status,
+    propSubj = PossessiveAdjunct,
+    propObj  = CopulativeArg), 
+  IntersectiveDataPropertyAdjective("active",dbpedia:status,"Active"),
+  IntersectiveDataPropertyAdjective("retired",dbpedia:status,"Retired"),
+  IntersectiveDataPropertyAdjective("operational",dbpedia:status,"Operational"),
+  IntersectiveDataPropertyAdjective("scrapped",dbpedia:status,"Scrapped"), 
+
+  // product 
+
+  RelationalNoun("product",dbpedia:product,
+    propSubj = PossessiveAdjunct,
+    propObj  = CopulativeArg),
+  StateVerb("produce",dbpedia:product),
+
+  StateVerb("create",dbpedia:product),
+
+  StateVerb("develop",dbpedia:product), 
+
+  // {owning|parent}Company, owner
+
+  RelationalNoun("owner",dbpedia:owner,
+    propSubj = PossessiveAdjunct,
+    propObj  = CopulativeArg),
+  StateVerb("own",dbpedia:owner,
+     propSubj = DirectObject,
+     propObj  = Subject), 
+  StateVerb("own",dbpedia:owningCompany,
+     propSubj = DirectObject,
+     propObj  = Subject), 
+  StateVerb("own",dbpedia:owningOrganization,
+     propSubj = DirectObject,
+     propObj  = Subject), 
+  RelationalNoun(["parent"/noun "company"/noun],dbpedia:owningCompany,
+    propSubj = PossessiveAdjunct,
+    propObj  = CopulativeArg),
+  RelationalNoun(["daughter"/noun "company"/noun],dbpedia:owningCompany,
+    propObj  = PossessiveAdjunct),
+  RelationalNoun("subsidiary",dbpedia:owningCompany,
+    propObj  = PossessiveAdjunct), 
+  RelationalNoun(["parent"/noun "company"/noun],dbpedia:parentCompany,
+    propSubj = PossessiveAdjunct,
+    propObj  = CopulativeArg),
+  RelationalNoun(["daughter"/noun "company"/noun],dbpedia:parentCompany,
+    propObj  = PossessiveAdjunct),
+  RelationalNoun("subsidiary",dbpedia:parentCompany,
+    propObj  = PossessiveAdjunct), 
+
+
+  // others
+
+  RelationalNoun("revenue",dbpedia:revenue,
+    propSubj = PossessiveAdjunct,
+    propObj  = CopulativeArg), 
+
+  RelationalNoun(["official"/adjective "color"/noun],dbpedia:officialSchoolColour,
+    propSubj = PossessiveAdjunct,
+    propObj  = CopulativeArg), 
+
+  StateVerb("operate",dbpedia:regionServed, 
+    propObj  = PrepositionalObject("in")), 
+
+  IntersectiveObjectPropertyAdjective("social-democratic",dbpedia:ideology,resource:Social_democracy), 
+  IntersectiveObjectPropertyAdjective("conservatist",dbpedia:ideology,resource:Conservatism), 
+  IntersectiveObjectPropertyAdjective("liberal",dbpedia:ideology,resource:Liberalism), 
+  IntersectiveObjectPropertyAdjective("communist",dbpedia:ideology,resource:Communism), 
+  IntersectiveObjectPropertyAdjective("socialist",dbpedia:ideology,resource:Socialism), 
+  IntersectiveObjectPropertyAdjective("christian democratic",dbpedia:ideology,resource:Christian_democracy), 
+  IntersectiveObjectPropertyAdjective("nationalistic",dbpedia:ideology,resource:Nationalism), 
+  IntersectiveObjectPropertyAdjective("Marxist-Leninist",dbpedia:ideology,resource:Marxism_Leninism), 
+  IntersectiveObjectPropertyAdjective("Marxist",dbpedia:ideology,resource:Marxism)
+
+)
