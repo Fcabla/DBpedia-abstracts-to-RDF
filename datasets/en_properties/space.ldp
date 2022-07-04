@@ -1,0 +1,79 @@
+@prefix dbpedia: <http://dbpedia.org/ontology/> .
+@prefix lex: <http://github.com/cunger/lemon.dbpedia/target/dbpedia_all#> .
+
+Lexicon(<http://github.com/cunger/lemon.dbpedia/target/dbpedia_en_12#>,"en",
+
+  //// Classes
+
+  ClassNoun(["celestial"/adjective "body"/noun],dbpedia:CelestialBody) with plural "celestial bodies",
+  ClassNoun("star",dbpedia:Star) with plural "stars",
+  ClassNoun("sun",dbpedia:Star) with plural "suns",
+  ClassNoun("planet",dbpedia:Planet) with plural "planets",
+  ClassNoun("galaxy",dbpedia:Galaxy) with plural "galaxies",
+  ClassNoun("asteroid",dbpedia:Asteroid) with plural "asteroids",
+  ClassNoun("constellation",dbpedia:Constellation) with plural "constellations",
+
+  ClassNoun(["lunar"/adjective "crater"/noun],dbpedia:LunarCrater) with plural "lunar craters",
+  ClassNoun(["moon"/noun "crater"/noun],dbpedia:LunarCrater) with plural "moon craters",
+  ClassNoun("rocket",dbpedia:Rocket) with plural "rockets",
+  ClassNoun(["launch"/noun "pad"/noun],dbpedia:LaunchPad) with plural "launch pads",
+  ClassNoun(["launchpad"/noun],dbpedia:LaunchPad) with plural "launchpads",
+  ClassNoun("spacecraft",dbpedia:Spacecraft) with plural "spacecrafts",
+  ClassNoun("spaceship",dbpedia:Spacecraft) with plural "spaceships",
+  ClassNoun(["space"/noun "station"/noun],dbpedia:SpaceStation) with plural "space stations",
+  ClassNoun(["space"/noun "shuttle"/noun],dbpedia:SpaceShuttle) with plural "space shuttles",
+  ClassNoun(["space"/noun "mission"/noun],dbpedia:SpaceMission) with plural "space missions",
+  ClassNoun(["year"/noun "in"/preposition "spaceflight"/noun],dbpedia:YearInSpaceflight) with plural "years in spaceflight",
+  ClassNoun("astronaut",dbpedia:Astronaut) with plural "astronauts",
+  ClassNoun("cosmonaut",lex:Cosmonaut) with plural "cosmonauts",
+  ClassNoun("taikonaut",lex:Taikonaut) with plural "taikonauts",
+
+  //// Properties 
+
+  RelationalNoun(["mean"/adjective "temperature"/noun],dbpedia:meanTemperature,
+       propSubj = PrepositionalObject("on"),
+       propObj  = CopulativeArg) with plural "mean temperatures",
+
+  RelationalNoun("density",dbpedia:density,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg) with plural "densities",
+
+  RelationalNoun(["orbital"/adjective "period"/noun],dbpedia:orbitalPeriod,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg) with plural "orbital periods",
+
+  RelationalNoun("periapsis",dbpedia:periapsis,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg) with plural "periapsides",
+  RelationalNoun("periapse",dbpedia:periapsis,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg) with plural "periapses",
+  RelationalNoun("apoapsis",dbpedia:apoapsis,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg) with plural "apoapsides",
+
+  RelationalNoun("epoch",dbpedia:epoch,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg) with plural "epochs",
+
+  RelationalNoun(["absolute"/adjective "magnitude"/noun],dbpedia:absoluteMagnitude,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg) with plural "absolute magnitudes",
+  RelationalNoun("magnitude",dbpedia:magnitude,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg) with plural "magnitudes",
+
+  StateVerb(["launch"/verb "off"/particle],dbpedia:associatedRocket,
+       propSubj = PrepositionalObject("from"),
+       propObj  = Subject),
+  StateVerb(["take"/verb "off"/particle],dbpedia:associatedRocket,
+       propSubj = PrepositionalObject("from"),
+       propObj  = Subject),
+  StateVerb(["blast"/verb "off"/particle],dbpedia:associatedRocket,
+       propSubj = PrepositionalObject("from"),
+       propObj  = Subject),
+
+  RelationalAdjective("launched",dbpedia:launchDate,
+       relationalArg = PrepositionalObject("on"))
+
+)

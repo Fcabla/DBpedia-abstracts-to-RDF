@@ -1,0 +1,755 @@
+{
+    "belong": {
+        "to": [
+            "http://dbpedia.org/ontology/kingdom",
+            "http://dbpedia.org/ontology/phylum",
+            "http://dbpedia.org/ontology/class",
+            "http://dbpedia.org/ontology/genus",
+            "http://dbpedia.org/ontology/family",
+            "http://dbpedia.org/ontology/order",
+            "http://dbpedia.org/ontology/division",
+            "http://dbpedia.org/ontology/languageFamily"
+        ]
+    },
+    "contain": {
+        "DEF": [
+            "http://dbpedia.org/ontology/kingdom",
+            "http://dbpedia.org/ontology/phylum",
+            "http://dbpedia.org/ontology/class",
+            "http://dbpedia.org/ontology/family",
+            "http://dbpedia.org/ontology/order"
+        ]
+    },
+    "name": {
+        "DEF": [
+            "http://dbpedia.org/ontology/binomialAuthority"
+        ]
+    },
+    "record": {
+        "DEF": [
+            "http://dbpedia.org/ontology/artist",
+            "http://dbpedia.org/ontology/musicalBand",
+            "http://dbpedia.org/ontology/musicalArtist"
+        ],
+        "on": [
+            "http://dbpedia.org/ontology/recordDate"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/recordedIn"
+        ],
+        "before": [
+            "http://dbpedia.org/ontology/previousWork"
+        ],
+        "after": [
+            "http://dbpedia.org/ontology/subsequentWork"
+        ]
+    },
+    "make": {
+        "DEF": [
+            "http://dbpedia.org/ontology/genre",
+            "http://dbpedia.org/ontology/gross"
+        ],
+        "of": [
+            "http://dbpedia.org/ontology/structuralSystem"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/origin"
+        ]
+    },
+    "write": {
+        "DEF": [
+            "http://dbpedia.org/ontology/genre",
+            "http://dbpedia.org/ontology/writer",
+            "http://dbpedia.org/ontology/composer",
+            "http://dbpedia.org/ontology/musicalBand",
+            "http://dbpedia.org/ontology/musicalArtist"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/language",
+            "http://dbpedia.org/ontology/programmingLanguage"
+        ],
+        "before": [
+            "http://dbpedia.org/ontology/previousWork"
+        ],
+        "after": [
+            "http://dbpedia.org/ontology/subsequentWork"
+        ]
+    },
+    "publish": {
+        "DEF": [
+            "http://dbpedia.org/ontology/publisher"
+        ]
+    },
+    "distribute": {
+        "DEF": [
+            "http://dbpedia.org/ontology/distributor"
+        ]
+    },
+    "create": {
+        "DEF": [
+            "http://dbpedia.org/ontology/creator",
+            "http://dbpedia.org/ontology/product",
+            "http://dbpedia.org/ontology/designer"
+        ]
+    },
+    "compose": {
+        "DEF": [
+            "http://dbpedia.org/ontology/composer"
+        ]
+    },
+    "star": {
+        "DEF": [
+            "http://dbpedia.org/ontology/starring"
+        ]
+    },
+    "feature": {
+        "DEF": [
+            "http://dbpedia.org/ontology/starring",
+            "http://dbpedia.org/ontology/guest"
+        ]
+    },
+    "play": {
+        "in": [
+            "http://dbpedia.org/ontology/starring",
+            "http://dbpedia.org/ontology/league",
+            "http://dbpedia.org/ontology/tenant"
+        ],
+        "DEF": [
+            "http://dbpedia.org/ontology/instrument",
+            "http://dbpedia.org/ontology/programmeFormat",
+            "http://dbpedia.org/ontology/team"
+        ],
+        "for": [
+            "http://dbpedia.org/ontology/college"
+        ],
+        "with": [
+            "http://dbpedia.org/ontology/computingInput"
+        ]
+    },
+    "appear": {
+        "in": [
+            "http://dbpedia.org/ontology/guest"
+        ]
+    },
+    "fuse": {
+        "into": [
+            "http://dbpedia.org/ontology/musicFusionGenre"
+        ]
+    },
+    "require": {
+        "DEF": [
+            "http://dbpedia.org/ontology/requirement"
+        ]
+    },
+    "release": {
+        "on": [
+            "http://dbpedia.org/ontology/releaseDate",
+            "http://dbpedia.org/ontology/computingMedia"
+        ]
+    },
+    "air": {
+        "DEF": [
+            "http://dbpedia.org/ontology/completionDate"
+        ],
+        "on": [
+            "http://dbpedia.org/ontology/channel",
+            "http://dbpedia.org/ontology/network"
+        ]
+    },
+    "produce": {
+        "DEF": [
+            "http://dbpedia.org/ontology/company",
+            "http://dbpedia.org/ontology/manufacturer",
+            "http://dbpedia.org/ontology/product"
+        ]
+    },
+    "win": {
+        "DEF": [
+            "http://dbpedia.org/ontology/award"
+        ]
+    },
+    "receive": {
+        "DEF": [
+            "http://dbpedia.org/ontology/award"
+        ]
+    },
+    "award": {
+        "DEF": [
+            "http://dbpedia.org/ontology/award"
+        ]
+    },
+    "review": {
+        "at": [
+            "http://dbpedia.org/ontology/review"
+        ]
+    },
+    "shoot": {
+        "DEF": [
+            "http://dbpedia.org/ontology/cinematographer"
+        ]
+    },
+    "edit": {
+        "DEF": [
+            "http://dbpedia.org/ontology/editing"
+        ]
+    },
+    "broadcast": {
+        "in": [
+            "http://dbpedia.org/ontology/broadcastArea"
+        ],
+        "on": [
+            "http://dbpedia.org/ontology/network",
+            "http://dbpedia.org/ontology/frequency"
+        ]
+    },
+    "cover": {
+        "DEF": [
+            "http://dbpedia.org/ontology/broadcastArea"
+        ]
+    },
+    "operate": {
+        "DEF": [
+            "http://dbpedia.org/ontology/broadcastNetwork",
+            "http://dbpedia.org/ontology/operatedBy",
+            "http://dbpedia.org/ontology/operator"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/regionServed"
+        ]
+    },
+    "mean": {
+        "DEF": [
+            "http://dbpedia.org/ontology/callsignMeaning"
+        ]
+    },
+    "stand": {
+        "for": [
+            "http://dbpedia.org/ontology/callsignMeaning"
+        ],
+        "at": [
+            "http://dbpedia.org/ontology/elevation"
+        ]
+    },
+    "precede": {
+        "DEF": [
+            "http://dbpedia.org/ontology/precursor"
+        ]
+    },
+    "develop": {
+        "from": [
+            "http://dbpedia.org/ontology/precursor"
+        ],
+        "DEF": [
+            "http://dbpedia.org/ontology/product",
+            "http://dbpedia.org/ontology/developer",
+            "http://dbpedia.org/ontology/designer"
+        ],
+        "for": [
+            "http://dbpedia.org/ontology/computingPlatform"
+        ]
+    },
+    "locate": {
+        "in": [
+            "http://dbpedia.org/ontology/address",
+            "http://dbpedia.org/ontology/locationCity",
+            "http://dbpedia.org/ontology/locationCountry",
+            "http://dbpedia.org/ontology/country",
+            "http://dbpedia.org/ontology/range",
+            "http://dbpedia.org/ontology/city",
+            "http://dbpedia.org/ontology/location",
+            "http://dbpedia.org/ontology/locatedInArea",
+            "http://dbpedia.org/ontology/region",
+            "http://dbpedia.org/ontology/state",
+            "http://dbpedia.org/ontology/county",
+            "http://dbpedia.org/ontology/district",
+            "http://dbpedia.org/ontology/province",
+            "http://dbpedia.org/ontology/department",
+            "http://dbpedia.org/ontology/arrondissement",
+            "http://dbpedia.org/ontology/canton"
+        ],
+        "near": [
+            "http://dbpedia.org/ontology/closestCity"
+        ]
+    },
+    "design": {
+        "DEF": [
+            "http://dbpedia.org/ontology/architect",
+            "http://dbpedia.org/ontology/designer"
+        ]
+    },
+    "build": {
+        "DEF": [
+            "http://dbpedia.org/ontology/architect",
+            "http://dbpedia.org/ontology/company",
+            "http://dbpedia.org/ontology/builder"
+        ]
+    },
+    "construct": {
+        "in": [
+            "http://dbpedia.org/ontology/yearOfConstruction"
+        ],
+        "DEF": [
+            "http://dbpedia.org/ontology/company"
+        ]
+    },
+    "fight": {
+        "in": [
+            "http://dbpedia.org/ontology/battle"
+        ]
+    },
+    "serve": {
+        "in": [
+            "http://dbpedia.org/ontology/battle",
+            "http://dbpedia.org/ontology/militaryBranch",
+            "http://dbpedia.org/ontology/militaryUnit"
+        ],
+        "DEF": [
+            "http://dbpedia.org/ontology/numberOfStudents",
+            "http://dbpedia.org/ontology/servingRailwayLine"
+        ],
+        "under": [
+            "http://dbpedia.org/ontology/president"
+        ]
+    },
+    "command": {
+        "during": [
+            "http://dbpedia.org/ontology/commander"
+        ],
+        "DEF": [
+            "http://dbpedia.org/ontology/militaryCommand"
+        ]
+    },
+    "subordinate": {
+        "to": [
+            "http://dbpedia.org/ontology/commandStructure"
+        ]
+    },
+    "base": {
+        "at": [
+            "http://dbpedia.org/ontology/garrison"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/garrison",
+            "http://dbpedia.org/ontology/locationCountry",
+            "http://dbpedia.org/ontology/headquarter",
+            "http://dbpedia.org/ontology/ground"
+        ],
+        "on": [
+            "http://dbpedia.org/ontology/relatedMeanOfTransportation"
+        ]
+    },
+    "similar": {
+        "to": [
+            "http://dbpedia.org/ontology/similar"
+        ]
+    },
+    "abbreviate": {
+        "DEF": [
+            "http://dbpedia.org/ontology/abbreviation"
+        ],
+        "as": [
+            "http://dbpedia.org/ontology/abbreviation"
+        ]
+    },
+    "sublime": {
+        "at": [
+            "http://dbpedia.org/ontology/sublimationPoint"
+        ]
+    },
+    "melt": {
+        "at": [
+            "http://dbpedia.org/ontology/meltingPoint"
+        ]
+    },
+    "boil": {
+        "at": [
+            "http://dbpedia.org/ontology/boilingPoint"
+        ]
+    },
+    "speak": {
+        "in": [
+            "http://dbpedia.org/ontology/spokenIn"
+        ]
+    },
+    "employ": {
+        "DEF": [
+            "http://dbpedia.org/ontology/facultySize"
+        ]
+    },
+    "manufacture": {
+        "DEF": [
+            "http://dbpedia.org/ontology/manufacturer"
+        ]
+    },
+    "form": {
+        "on": [
+            "http://dbpedia.org/ontology/formationDate"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/formationYear"
+        ]
+    },
+    "found": {
+        "on": [
+            "http://dbpedia.org/ontology/foundingDate"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/foundingYear"
+        ]
+    },
+    "establish": {
+        "on": [
+            "http://dbpedia.org/ontology/formationDate",
+            "http://dbpedia.org/ontology/foundingDate"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/formationYear",
+            "http://dbpedia.org/ontology/foundingYear"
+        ],
+        "DEF": [
+            "http://dbpedia.org/ontology/foundingPerson",
+            "http://dbpedia.org/ontology/foundedBy"
+        ]
+    },
+    "active": {
+        "since": [
+            "http://dbpedia.org/ontology/activeYearsStartDate",
+            "http://dbpedia.org/ontology/activeYearsStartYear"
+        ],
+        "until": [
+            "http://dbpedia.org/ontology/activeYearsEndDate",
+            "http://dbpedia.org/ontology/activeYearsEndYear"
+        ]
+    },
+    "find": {
+        "DEF": [
+            "http://dbpedia.org/ontology/foundingPerson",
+            "http://dbpedia.org/ontology/foundedBy"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/foundationPlace"
+        ]
+    },
+    "know": {
+        "as": [
+            "http://dbpedia.org/ontology/title"
+        ]
+    },
+    "affiliate": {
+        "with": [
+            "http://dbpedia.org/ontology/affiliation"
+        ],
+        "to": [
+            "http://dbpedia.org/ontology/affiliation"
+        ]
+    },
+    "own": {
+        "DEF": [
+            "http://dbpedia.org/ontology/owner",
+            "http://dbpedia.org/ontology/owningCompany",
+            "http://dbpedia.org/ontology/owningOrganization"
+        ]
+    },
+    "bear": {
+        "on": [
+            "http://dbpedia.org/ontology/birthDate"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/birthYear",
+            "http://dbpedia.org/ontology/birthPlace",
+            "http://dbpedia.org/ontology/stateOfOrigin"
+        ]
+    },
+    "come": {
+        "from": [
+            "http://dbpedia.org/ontology/stateOfOrigin",
+            "http://dbpedia.org/ontology/hometown",
+            "http://dbpedia.org/ontology/nationality"
+        ]
+    },
+    "die": {
+        "on": [
+            "http://dbpedia.org/ontology/deathDate"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/deathYear",
+            "http://dbpedia.org/ontology/deathPlace"
+        ]
+    },
+    "bury": {
+        "in": [
+            "http://dbpedia.org/ontology/restingPlace"
+        ]
+    },
+    "relate": {
+        "to": [
+            "http://dbpedia.org/ontology/relative",
+            "http://dbpedia.org/ontology/related"
+        ]
+    },
+    "marry": {
+        "DEF": [
+            "http://dbpedia.org/ontology/spouse"
+        ]
+    },
+    "influence": {
+        "DEF": [
+            "http://dbpedia.org/ontology/influenced",
+            "http://dbpedia.org/ontology/influencedBy"
+        ]
+    },
+    "succeed": {
+        "DEF": [
+            "http://dbpedia.org/ontology/successor",
+            "http://dbpedia.org/ontology/predecessor"
+        ]
+    },
+    "preceed": {
+        "DEF": [
+            "http://dbpedia.org/ontology/successor",
+            "http://dbpedia.org/ontology/predecessor"
+        ]
+    },
+    "live": {
+        "in": [
+            "http://dbpedia.org/ontology/populationPlace"
+        ]
+    },
+    "study": {
+        "at": [
+            "http://dbpedia.org/ontology/university",
+            "http://dbpedia.org/ontology/almaMater",
+            "http://dbpedia.org/ontology/education"
+        ]
+    },
+    "graduate": {
+        "from": [
+            "http://dbpedia.org/ontology/almaMater",
+            "http://dbpedia.org/ontology/college"
+        ]
+    },
+    "attend": {
+        "DEF": [
+            "http://dbpedia.org/ontology/education",
+            "http://dbpedia.org/ontology/college"
+        ]
+    },
+    "go": {
+        "to": [
+            "http://dbpedia.org/ontology/education"
+        ]
+    },
+    "work": {
+        "on": [
+            "http://dbpedia.org/ontology/field"
+        ],
+        "as": [
+            "http://dbpedia.org/ontology/profession",
+            "http://dbpedia.org/ontology/occupation"
+        ]
+    },
+    "canonize": {
+        "in": [
+            "http://dbpedia.org/ontology/canonizedPlace"
+        ]
+    },
+    "call": {
+        "DEF": [
+            "http://dbpedia.org/ontology/pseudonym",
+            "http://dbpedia.org/ontology/alias",
+            "http://dbpedia.org/ontology/commonName"
+        ]
+    },
+    "weigh": {
+        "DEF": [
+            "http://dbpedia.org/ontology/weight"
+        ]
+    },
+    "situate": {
+        "in": [
+            "http://dbpedia.org/ontology/region",
+            "http://dbpedia.org/ontology/state",
+            "http://dbpedia.org/ontology/county",
+            "http://dbpedia.org/ontology/district",
+            "http://dbpedia.org/ontology/province",
+            "http://dbpedia.org/ontology/department",
+            "http://dbpedia.org/ontology/arrondissement",
+            "http://dbpedia.org/ontology/canton"
+        ],
+        "near": [
+            "http://dbpedia.org/ontology/closestCity"
+        ]
+    },
+    "close": {
+        "to": [
+            "http://dbpedia.org/ontology/nearestCity"
+        ]
+    },
+    "cross": {
+        "DEF": [
+            "http://dbpedia.org/ontology/crosses",
+            "http://dbpedia.org/ontology/routeJunction"
+        ]
+    },
+    "traverse": {
+        "DEF": [
+            "http://dbpedia.org/ontology/crosses"
+        ]
+    },
+    "bridge": {
+        "DEF": [
+            "http://dbpedia.org/ontology/crosses"
+        ]
+    },
+    "span": {
+        "DEF": [
+            "http://dbpedia.org/ontology/crosses"
+        ]
+    },
+    "originate": {
+        "in": [
+            "http://dbpedia.org/ontology/source",
+            "http://dbpedia.org/ontology/sourceCountry"
+        ],
+        "DEF": [
+            "http://dbpedia.org/ontology/origin"
+        ]
+    },
+    "flow": {
+        "into": [
+            "http://dbpedia.org/ontology/riverMouth",
+            "http://dbpedia.org/ontology/mouthMountain",
+            "http://dbpedia.org/ontology/mouthPlace"
+        ]
+    },
+    "run": {
+        "into": [
+            "http://dbpedia.org/ontology/riverMouth",
+            "http://dbpedia.org/ontology/mouthMountain",
+            "http://dbpedia.org/ontology/mouthPlace"
+        ],
+        "under": [
+            "http://dbpedia.org/ontology/operatingSystem"
+        ]
+    },
+    "border": {
+        "DEF": [
+            "http://dbpedia.org/ontology/border"
+        ]
+    },
+    "reside": {
+        "in": [
+            "http://dbpedia.org/ontology/residence"
+        ]
+    },
+    "rise": {
+        "to": [
+            "http://dbpedia.org/ontology/elevation",
+            "http://dbpedia.org/ontology/maximumElevation"
+        ]
+    },
+    "open": {
+        "in": [
+            "http://dbpedia.org/ontology/dateUse",
+            "http://dbpedia.org/ontology/openingYear"
+        ],
+        "on": [
+            "http://dbpedia.org/ontology/openingDate"
+        ]
+    },
+    "complete": {
+        "on": [
+            "http://dbpedia.org/ontology/completionDate",
+            "http://dbpedia.org/ontology/dateCompleted"
+        ]
+    },
+    "launch": {
+        "on": [
+            "http://dbpedia.org/ontology/launchDate",
+            "http://dbpedia.org/ontology/shipLaunch"
+        ]
+    },
+    "race": {
+        "DEF": [
+            "http://dbpedia.org/ontology/team"
+        ]
+    },
+    "manage": {
+        "DEF": [
+            "http://dbpedia.org/ontology/team",
+            "http://dbpedia.org/ontology/managerClub",
+            "http://dbpedia.org/ontology/manager"
+        ]
+    },
+    "host": {
+        "DEF": [
+            "http://dbpedia.org/ontology/tenant"
+        ]
+    },
+    "ride": {
+        "DEF": [
+            "http://dbpedia.org/ontology/raceHorse"
+        ]
+    },
+    "accommodate": {
+        "DEF": [
+            "http://dbpedia.org/ontology/capacity"
+        ]
+    },
+    "debut": {
+        "for": [
+            "http://dbpedia.org/ontology/debutTeam"
+        ]
+    },
+    "port": {
+        "to": [
+            "http://dbpedia.org/ontology/computingPlatform"
+        ]
+    },
+    "use": {
+        "DEF": [
+            "http://dbpedia.org/ontology/computingInput"
+        ]
+    },
+    "license": {
+        "under": [
+            "http://dbpedia.org/ontology/license"
+        ]
+    },
+    "intersect": {
+        "with": [
+            "http://dbpedia.org/ontology/routeJunction"
+        ]
+    },
+    "begin": {
+        "at": [
+            "http://dbpedia.org/ontology/routeStart"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/routeStart"
+        ]
+    },
+    "end": {
+        "at": [
+            "http://dbpedia.org/ontology/routeEnd"
+        ],
+        "in": [
+            "http://dbpedia.org/ontology/routeEnd"
+        ]
+    },
+    "assemble": {
+        "in": [
+            "http://dbpedia.org/ontology/assembly"
+        ]
+    },
+    "commission": {
+        "on": [
+            "http://dbpedia.org/ontology/commissioningDate"
+        ]
+    },
+    "decommission": {
+        "on": [
+            "http://dbpedia.org/ontology/decommissioningDate"
+        ]
+    }
+}

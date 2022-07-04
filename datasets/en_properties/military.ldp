@@ -1,0 +1,63 @@
+@prefix dbpedia:  <http://dbpedia.org/ontology/> .
+@prefix resource: <http://dbpedia.org/resource/> .
+@prefix lex: <http://github.com/cunger/lemon.dbpedia/target/dbpedia_all#> .
+
+Lexicon(<http://github.com/cunger/lemon.dbpedia/target/dbpedia_en_6#>,"en",
+
+  //// Classes
+
+  ClassNoun(["military"/adjective "person"/noun],dbpedia:MilitaryPerson),
+  ClassNoun(["military"/adjective "personnel"/noun],dbpedia:MilitaryPerson),
+  ClassNoun(["military"/adjective "unit"/noun],dbpedia:MilitaryUnit),
+  ClassNoun(["military"/adjective "conflict"/noun],dbpedia:MilitaryConflict),
+  ClassNoun(["military"/adjective "structure"/noun],dbpedia:MilitaryStructure),
+  ClassNoun("war",dbpedia:MilitaryConflict),
+  ClassNoun("battle",dbpedia:MilitaryConflict),
+  ClassNoun("weapon",dbpedia:Weapon),
+  ClassNoun("blazon",dbpedia:Blazon),
+
+  //// Properties 
+
+  StateVerb("fight",dbpedia:battle,
+       propObj = PrepositionalObject("in")), 
+  StateVerb("serve",dbpedia:battle,
+       propObj = PrepositionalObject("in")), 
+
+  RelationalNoun("commander",dbpedia:commander,
+       propSubj = PrepositionalObject("in"),
+       propObj  = CopulativeArg), 
+  RelationalNoun("leader",dbpedia:commander,
+       propSubj = PrepositionalObject("in"),
+       propObj  = CopulativeArg), 
+
+  StateVerb("command",dbpedia:commander,
+       propSubj = PrepositionalObject("during"),
+       propObj  = Subject), 
+  StateVerb("command",dbpedia:militaryCommand),
+
+  StateVerb("serve",dbpedia:militaryBranch,
+       propObj = PrepositionalObject("in")),
+  StateVerb("serve",dbpedia:militaryUnit,
+       propObj = PrepositionalObject("in")),
+
+  RelationalNoun("casualties",dbpedia:causalties,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg), 
+
+  RelationalNoun("result",dbpedia:result,
+       propSubj = PrepositionalObject("of"),
+       propObj  = CopulativeArg),
+
+  RelationalNoun("part",dbpedia:isPartOfMilitaryConflict,
+      propObj  = PrepositionalObject("of")), 
+  RelationalNoun("part",dbpedia:commandStructure,
+      propObj  = PrepositionalObject("of")), 
+  RelationalAdjective("subordinate",dbpedia:commandStructure,
+       relationalArg = PrepositionalObject("to")),
+
+  RelationalAdjective("based",dbpedia:garrison,
+       relationalArg = PrepositionalObject("at") restrictedTo lex:Building_or_Infrastructure),
+  RelationalAdjective("based",dbpedia:garrison,
+       relationalArg = PrepositionalObject("in") restrictedTo dbpedia:PopulatedPlace)
+
+)

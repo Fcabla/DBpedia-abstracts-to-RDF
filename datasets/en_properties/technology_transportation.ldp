@@ -1,0 +1,221 @@
+@prefix dbpedia: <http://dbpedia.org/ontology/> .
+@prefix resource: <http://dbpedia.org/resource/> .
+@prefix lex: <http://github.com/cunger/lemon.dbpedia/target/dbpedia_all#> .
+
+Lexicon(<http://github.com/cunger/lemon.dbpedia/target/dbpedia_en_14#>,"en",
+
+  //// Classes
+
+  ClassNoun("device",dbpedia:Device),
+  ClassNoun("camera",dbpedia:Camera),
+  ClassNoun(["digital"/adjective "camera"/noun],dbpedia:DigitalCamera),
+  ClassNoun(["information"/noun "appliance"/noun],dbpedia:InformationAppliance),
+  ClassNoun("software",dbpedia:Software),
+  ClassNoun(["piece"/noun "of"/preposition "software"/noun],dbpedia:Software) with plural "pieces of software",
+  ClassNoun(["programming"/noun "language"/noun],dbpedia:ProgrammingLanguage),
+  ObjectPropertyNoun("freeware",dbpedia:license,resource:Freeware),
+  ObjectPropertyNoun("shareware",dbpedia:license,resource:Shareware),
+  ClassNoun(["video"/noun "game"/noun],dbpedia:VideoGame),
+  ClassNoun(["automobile"/noun "engine"/noun],dbpedia:AutomobileEngine),
+
+  // Transportation
+
+  ClassNoun(["mean"/noun "of"/preposition "transportation"/noun],dbpedia:MeanOfTransportation) with plural "means of transportation",
+  ClassNoun("ship",dbpedia:Ship),
+  ClassNoun("boat",dbpedia:Ship),
+  ClassNoun("aircraft",dbpedia:Aircraft) with plural "aircraft",
+  ClassNoun("airplane",dbpedia:Aircraft),
+  ClassNoun("plane",dbpedia:Aircraft),
+  ClassNoun("airline",dbpedia:Airline),
+  ClassNoun("automobile",dbpedia:Automobile),
+  ClassNoun("auto",dbpedia:Automobile),
+  ClassNoun("car",dbpedia:Automobile),
+  ClassNoun("vehicle",dbpedia:Automobile),
+  ObjectPropertyNoun("coupé",dbpedia:bodyStyle,<http://dbpedia.org/resource/Coupé>),
+  ObjectPropertyNoun("hatchback",dbpedia:bodyStyle,resource:Hatchback),
+  ObjectPropertyNoun("convertible",dbpedia:bodyStyle,resource:Convertible),
+  ObjectPropertyNoun(["station"/noun "wagon"/noun],dbpedia:bodyStyle,resource:Station_wagon),
+  ObjectPropertyNoun("pickup",dbpedia:bodyStyle,resource:Pickup_truck),
+  ObjectPropertyNoun("pickup truck",dbpedia:bodyStyle,resource:Pickup_truck),
+  ClassNoun("locomotive",dbpedia:Locomotive),
+  ClassNoun("engine",dbpedia:Locomotive),
+  ClassNoun("train",dbpedia:Train),
+
+
+  //// Properties 
+
+  // origin 
+
+  RelationalAdjective("made",dbpedia:origin,
+      relationalArg = PrepositionalObject("in")),
+  //  propSubj = CopulativeArg restrictedTo dbpedia:Device,
+  //  propObj  = PrepositionalObject("in)),
+
+  // averageSpeed, topSpeed, displacement
+
+  RelationalNoun(["average"/adjective "speed"/noun],dbpedia:averageSpeed,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+  RelationalNoun(["top"/adjective "speed"/noun],dbpedia:topSpeed,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+
+  RelationalNoun("displacement",dbpedia:displacement,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+  RelationalNoun(["engine"/noun "displacement"/noun],dbpedia:displacement,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+
+  // developer, computingPlatform, computingMedia, computingInput, operatingSystem
+
+  RelationalNoun("developer",dbpedia:developer,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+
+  StateVerb("develop",dbpedia:developer,
+       propSubj = DirectObject,
+       propObj  = Subject), 
+
+  RelationalAdjective("developed",dbpedia:computingPlatform,
+       relationalArg = PrepositionalObject("for")), 
+  RelationalAdjective("ported",dbpedia:computingPlatform,
+       relationalArg = PrepositionalObject("to")), 
+  RelationalAdjective("released",dbpedia:computingMedia,
+       relationalArg = PrepositionalObject("on")),
+
+  StateVerb("use",dbpedia:computingInput),
+
+  // StateVerb("play",dbpedia:computingInput,
+  //      propObj  = PrepositionalObject("with")),
+  //      propSubj = DirectObject,
+
+  StateVerb("run",dbpedia:operatingSystem,
+       propObj  = PrepositionalObject("under")),
+
+  // programmingLanguage, license
+
+  RelationalNoun(["programming"/noun "language"/noun],dbpedia:programmingLanguage,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+
+  RelationalAdjective("written",dbpedia:programmingLanguage,
+       relationalArg = PrepositionalObject("in")),
+
+  RelationalAdjective("licensed",dbpedia:license,
+       relationalArg = PrepositionalObject("under")),
+  IntersectiveObjectPropertyAdjective("proprietary",dbpedia:license,resource:Proprietary_software),
+  IntersectiveObjectPropertyAdjective("open source",dbpedia:license,resource:Open_source),
+
+  // route{Junction|Start|End}
+
+  StateVerb("intersect",dbpedia:routeJunction,
+       propObj  = PrepositionalObject("with")),
+  StateVerb("cross",dbpedia:routeJunction), 
+
+  StateVerb("begin",dbpedia:routeStart,
+       propObj  = PrepositionalObject("at") restrictedTo dbpedia:Road),
+  StateVerb("begin",dbpedia:routeStart,
+       propObj  = PrepositionalObject("in") restrictedTo dbpedia:PopulatedPlace),
+  StateVerb("end",dbpedia:routeEnd,
+       propObj  = PrepositionalObject("at") restrictedTo dbpedia:Road),
+  StateVerb("end",dbpedia:routeEnd,
+       propObj  = PrepositionalObject("in") restrictedTo dbpedia:PopulatedPlace),
+
+
+  // others 
+
+  RelationalNoun("beam",dbpedia:shipBeam,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg), 
+  RelationalNoun("draft",dbpedia:shipDraft,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+
+  RelationalNoun("format",dbpedia:format,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg), 
+  IntersectiveObjectPropertyAdjective("color",dbpedia:format,resource:Color),
+  IntersectiveObjectPropertyAdjective("black-and-white",dbpedia:format,<http://dbpedia.org/resource/Black-and-white>),
+  IntersectiveObjectPropertyAdjective("stereo",dbpedia:format,resource:Stereophonic_sound),
+  IntersectiveObjectPropertyAdjective("stereo",dbpedia:format,resource:Dolby_Stereo),
+
+  IntersectiveDataPropertyAdjective("straight-four",dbpedia:configuration,"straight-four"),
+  IntersectiveDataPropertyAdjective("inline-four",dbpedia:configuration,"straight-four"),
+  IntersectiveDataPropertyAdjective("straight-six",dbpedia:configuration,"straight-six"),
+  IntersectiveDataPropertyAdjective("inline-six",dbpedia:configuration,"straight-six"),
+  IntersectiveDataPropertyAdjective("V6",dbpedia:configuration,"V6"),
+  IntersectiveDataPropertyAdjective("V8",dbpedia:configuration,"V8"),
+
+  RelationalAdjective("assembled",dbpedia:assembly,
+       relationalArg = PrepositionalObject("in")), 
+
+  RelationalAdjective("commissioned",dbpedia:commissioningDate,
+     relationalArg = PrepositionalObject("on")),
+  RelationalAdjective("decommissioned",dbpedia:decommissioningDate,
+     relationalArg = PrepositionalObject("on")),
+
+  StateVerb("build",dbpedia:builder,
+       propSubj = DirectObject,
+       propObj  = Subject),
+
+  StateVerb("design",dbpedia:designer,
+       propSubj = DirectObject,
+       propObj  = Subject),
+  StateVerb("develop",dbpedia:designer,
+       propSubj = DirectObject,
+       propObj  = Subject),
+  StateVerb("create",dbpedia:designer,
+       propSubj = DirectObject,
+       propObj  = Subject),
+
+  RelationalAdjective("based",dbpedia:relatedMeanOfTransportation,
+       relationalArg = PrepositionalObject("on")), 
+
+  StateVerb("operate",dbpedia:operatedBy,
+       propSubj = DirectObject,
+       propObj  = Subject),
+  StateVerb("operate",dbpedia:operator,
+       propSubj = Subject restrictedTo lex:Infrastructure_or_MeanOfTransportation,
+       propObj  = DirectObject),
+
+  StateVerb("serve",dbpedia:servingRailwayLine,
+       propSubj = DirectObject,
+       propObj  = Subject),
+
+  RelationalAdjective(["laid"/verb "down"/preposition],dbpedia:layingDown,
+       relationalArg = PrepositionalObject("on")),
+  RelationalAdjective("launched",dbpedia:shipLaunch,
+       relationalArg = PrepositionalObject("on")),
+
+  RelationalNoun(["ICAO"/noun "identifier"/noun],dbpedia:icaoLocationIdentifier,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+  RelationalNoun(["ICAO"/noun "code"/noun],dbpedia:icaoLocationIdentifier,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+  RelationalNoun(["location"/noun "indicator"/noun],dbpedia:icaoLocationIdentifier,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg), 
+  RelationalNoun(["IATA"/noun "location"/noun "identifier"/noun],dbpedia:iataLocationIdentifier,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+  RelationalNoun(["IATA"/noun "identifier"/noun],dbpedia:iataLocationIdentifier,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+  RelationalNoun(["IATA"/noun "code"/noun],dbpedia:iataLocationIdentifier,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+
+  RelationalNoun(["current"/adjective "release"/noun],dbpedia:latestReleaseVersion,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg), 
+  RelationalNoun(["latest"/adjective "version"/noun],dbpedia:latestReleaseVersion,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg), 
+
+  RelationalNoun(["station"/noun "code"/noun],dbpedia:agencyStationCode,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg)
+
+)

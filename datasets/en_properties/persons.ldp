@@ -1,0 +1,474 @@
+@prefix dbpedia:  <http://dbpedia.org/ontology/> .
+@prefix resource: <http://dbpedia.org/resource/> .
+@prefix lex: <http://github.com/cunger/lemon.dbpedia/target/dbpedia_all#> .
+
+Lexicon(<http://github.com/cunger/lemon.dbpedia/target/dbpedia_en_9#>,"en",
+
+  //// Classes
+
+  ClassNoun("person",dbpedia:Person),
+  ObjectPropertyNoun("woman",dbpedia:gender,resource:Female) with plural "women",
+  ObjectPropertyNoun("man",dbpedia:gender,resource:Male) with plural "men",
+  ClassNoun(["ethnic"/adjective "group"/noun],dbpedia:EthnicGroup),
+
+  ClassNoun("name",<http://dbpedia.org/ontology/Name>),
+  ClassNoun("given name",dbpedia:GivenName),
+  ClassNoun("first name",dbpedia:GivenName),
+  ClassNoun("surname",dbpedia:Surname),
+  ClassNoun("last name",dbpedia:Surname),
+
+  // Occupations
+
+  ClassNoun(["career"/noun "station"/noun],dbpedia:CareerStation),
+
+  ClassNoun("scientist",dbpedia:Scientist),
+  ClassNoun("researcher",dbpedia:Scientist),
+  ClassNoun("medician",dbpedia:Medician),
+  ClassNoun("professor",dbpedia:Professor),
+  ObjectPropertyNoun("historian",dbpedia:profession,resource:Historian),
+  ObjectPropertyNoun("chemist",dbpedia:profession,resource:Chemist),
+  ObjectPropertyNoun("biologist",dbpedia:profession,resource:Biologist),
+  ObjectPropertyNoun("economist",dbpedia:profession,resource:Economist),
+  ClassNoun("engineer",dbpedia:Engineer),
+  ObjectPropertyNoun("teacher",dbpedia:profession,resource:Teacher),
+  ObjectPropertyNoun("revolutionary",dbpedia:profession,resource:Revolutionary),
+  ObjectPropertyNoun("poet",dbpedia:profession,resource:Poet),
+  ClassNoun("architect",dbpedia:Architect),
+  ClassNoun("journalist",dbpedia:Journalist),
+  ClassNoun("philosopher",dbpedia:Philosopher),
+  ClassNoun("aristocrat",dbpedia:Aristocrat),
+  ClassNoun("chef",dbpedia:Chef),
+  ClassNoun(["horse"/noun "trainer"/noun],dbpedia:HorseTrainer),
+  ClassNoun("model",dbpedia:Model),
+
+  ClassNoun("celebrity",dbpedia:Celebrity),
+  ClassNoun(["beauty"/noun "queen"/noun],dbpedia:BeautyQueen),
+
+  // Nationalities
+
+  ObjectPropertyNoun("Russian",dbpedia:nationality,resource:Russia),
+  IntersectiveObjectPropertyAdjective("Russian",dbpedia:nationality,resource:Russia),
+
+  ObjectPropertyNoun("Chinese",dbpedia:nationality,resource:China),
+  IntersectiveObjectPropertyAdjective("Chinese",dbpedia:nationality,resource:China),
+
+  ObjectPropertyNoun("US American",dbpedia:nationality,resource:United_States),
+  IntersectiveObjectPropertyAdjective("US American",dbpedia:nationality,resource:United_States),
+  ObjectPropertyNoun("American",dbpedia:nationality,resource:Americans),
+  IntersectiveObjectPropertyAdjective("American",dbpedia:nationality,resource:Americans),
+
+  ObjectPropertyNoun("British",dbpedia:nationality,resource:United_Kingdom),
+  ObjectPropertyNoun("British",dbpedia:nationality,resource:British_people),
+  IntersectiveObjectPropertyAdjective("British",dbpedia:nationality,resource:United_Kingdom),
+  IntersectiveObjectPropertyAdjective("British",dbpedia:nationality,resource:British_people),
+  IntersectiveObjectPropertyAdjective("English",dbpedia:nationality,resource:English),
+  ObjectPropertyNoun("Irishman",dbpedia:nationality,resource:Ireland) with plural "Irishmen",
+  ObjectPropertyNoun("Irishman",dbpedia:nationality,resource:Republic_of_Ireland) with plural "Irishmen",
+  ObjectPropertyNoun("Irishman",dbpedia:nationality,resource:Irish_people) with plural "Irishmen",
+  IntersectiveObjectPropertyAdjective("Irish",dbpedia:nationality,resource:Ireland),
+  IntersectiveObjectPropertyAdjective("Irish",dbpedia:nationality,resource:Republic_of_Ireland),
+  IntersectiveObjectPropertyAdjective("Irish",dbpedia:nationality,resource:Irish_people),
+
+  ObjectPropertyNoun("Japanese",dbpedia:nationality,resource:Japan),
+  ObjectPropertyNoun("Japanese",dbpedia:nationality,resource:Japanese_people),
+  IntersectiveObjectPropertyAdjective("Japanese",dbpedia:nationality,resource:Japan),
+  IntersectiveObjectPropertyAdjective("Japanese",dbpedia:nationality,resource:Japanese_people),
+
+  ObjectPropertyNoun("Indian",dbpedia:nationality,resource:Indian),
+  IntersectiveObjectPropertyAdjective("Indian",dbpedia:nationality,resource:Indian),
+
+  ObjectPropertyNoun("German",dbpedia:nationality,resource:German),
+  IntersectiveObjectPropertyAdjective("German",dbpedia:nationality,resource:German),
+
+  ObjectPropertyNoun("French",dbpedia:nationality,resource:France),
+  IntersectiveObjectPropertyAdjective("French",dbpedia:nationality,resource:France),
+
+  ObjectPropertyNoun("Canadian",dbpedia:nationality,resource:Canada),
+  ObjectPropertyNoun("Canadian",dbpedia:nationality,resource:Canadians),
+  IntersectiveObjectPropertyAdjective("Canadian",dbpedia:nationality,resource:Canada),
+  IntersectiveObjectPropertyAdjective("Canadian",dbpedia:nationality,resource:Canadians),
+
+  ObjectPropertyNoun("Italian",dbpedia:nationality,resource:Italian),
+  IntersectiveObjectPropertyAdjective("Italian",dbpedia:nationality,resource:Italian),
+
+  ObjectPropertyNoun("Dutch",dbpedia:nationality,resource:Netherlands),
+  IntersectiveObjectPropertyAdjective("Dutch",dbpedia:nationality,resource:Netherlands),
+  ObjectPropertyNoun("Belgian",dbpedia:nationality,resource:Belgium),
+  IntersectiveObjectPropertyAdjective("Belgian",dbpedia:nationality,resource:Belgium),
+
+  ObjectPropertyNoun("Pole",dbpedia:nationality,resource:Polish),
+  IntersectiveObjectPropertyAdjective("Polish",dbpedia:nationality,resource:Polish),
+
+
+  // Ethnicities
+
+  ObjectPropertyNoun("Jew",dbpedia:ethnicity,resource:Jews),
+  ObjectPropertyNoun("Jew",dbpedia:ethnicity,resource:Jewish),
+  IntersectiveObjectPropertyAdjective("Jewish",dbpedia:ethnicity,resource:Jews),
+  IntersectiveObjectPropertyAdjective("Jewish",dbpedia:ethnicity,resource:Jewish),
+
+  ObjectPropertyNoun("African American",dbpedia:ethnicity,resource:AfricanAmerican),
+  IntersectiveObjectPropertyAdjective("African American",dbpedia:ethnicity,resource:AfricanAmerican),
+
+  // Religion 
+
+  IntersectiveAdjective("religious",dbpedia:Religious),
+
+  ObjectPropertyNoun("Christian",dbpedia:religion,resource:Christian),
+  ObjectPropertyNoun("Christian",dbpedia:religion,resource:Christianity),
+  IntersectiveObjectPropertyAdjective("Christian",dbpedia:religion,resource:Christian),
+  IntersectiveObjectPropertyAdjective("Christian",dbpedia:religion,resource:Christianity),
+  ObjectPropertyNoun("Protestant",dbpedia:religion,resource:Protestantism),
+  IntersectiveObjectPropertyAdjective("Protestant",dbpedia:religion,resource:Protestantism),
+  ObjectPropertyNoun("Catholic",dbpedia:religion,resource:Catholic),
+  ObjectPropertyNoun("Catholic",dbpedia:religion,resource:Catholic_Church),
+  IntersectiveObjectPropertyAdjective("Catholic",dbpedia:religion,resource:Catholic),
+  IntersectiveObjectPropertyAdjective("Catholic",dbpedia:religion,resource:Catholic_Church),
+
+  ObjectPropertyNoun("Hindu",dbpedia:religion,resource:Hindu),
+  ObjectPropertyNoun("Hindu",dbpedia:religion,resource:Hinduism),
+  IntersectiveObjectPropertyAdjective("Hindu",dbpedia:religion,resource:Hindu),
+  IntersectiveObjectPropertyAdjective("Hindu",dbpedia:religion,resource:Hinduims),
+
+  ObjectPropertyNoun("Muslim",dbpedia:religion,resource:Muslim),
+  ObjectPropertyNoun("Muslim",dbpedia:religion,resource:Islam),
+  IntersectiveObjectPropertyAdjective("Muslim",dbpedia:religion,resource:Muslim),
+  IntersectiveObjectPropertyAdjective("Muslim",dbpedia:religion,resource:Islam),
+
+  ObjectPropertyNoun("Buddhist",dbpedia:religion,resource:Buddhism),
+  IntersectiveObjectPropertyAdjective("Buddhist",dbpedia:religion,resource:Buddhism),
+
+  ClassNoun(["Christian"/adjective "bishop"/noun],dbpedia:ChristianBishop),
+  ClassNoun("bishop",dbpedia:ChristianBishop),
+  ClassNoun(["Christian"/adjective "patriarch"/noun],dbpedia:ChristianPatriarch),
+  ClassNoun("patriarch",dbpedia:ChristianPatriarch),
+  ClassNoun("cleric",dbpedia:Cleric),
+  ClassNoun("clerk",dbpedia:Cleric),
+  ClassNoun("saint",dbpedia:Saint),
+  ClassNoun("cardinal",dbpedia:Cardinal),
+  ClassNoun("pope",dbpedia:Pope),
+  ClassNoun("priest",dbpedia:Priest),
+
+
+  //// Properties
+
+  // birthDate, birthYear, birthPlace, stateOfOrigin
+
+  RelationalNoun(["birth"/noun "date"/noun],dbpedia:birthDate,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),  
+  RelationalNoun(["date"/noun "of"/preposition "birth"/noun],dbpedia:birthDate,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg) with plural "dates of birth",
+    
+  RelationalAdjective("born",dbpedia:birthDate,
+     relationalArg = PrepositionalObject("on")),
+
+  RelationalAdjective("born",dbpedia:birthYear,
+     relationalArg = PrepositionalObject("in")),
+  RelationalAdjective("born",dbpedia:birthPlace,
+     relationalArg = PrepositionalObject("in")),
+  RelationalAdjective("born",lex:birthCountry,
+     relationalArg = PrepositionalObject("in")),
+
+  RelationalAdjective("born",dbpedia:stateOfOrigin,
+     relationalArg = PrepositionalObject("in")),
+
+  StateVerb("come",dbpedia:stateOfOrigin,
+     propObj  = PrepositionalObject("from")),
+
+  RelationalNoun(["birth"/noun "place"/noun],dbpedia:birthPlace,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),  
+  RelationalNoun(["place"/noun "of"/preposition "birth"/noun],dbpedia:birthPlace,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg) with plural "places of birth",
+
+  // deathDate, deathYear, deathPlace, restingPLace
+
+  RelationalNoun(["death"/noun "date"/noun],dbpedia:deathDate,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),  
+
+  ConsequenceVerb("die",dbpedia:deathDate,
+     propObj = PrepositionalObject("on")),
+  ConsequenceVerb("die",dbpedia:deathYear,
+     propObj = PrepositionalObject("in")),
+  ConsequenceVerb("die",dbpedia:deathPlace,
+     propObj = PrepositionalObject("in")),
+
+  RelationalNoun(["death"/noun "place"/noun],dbpedia:deathPlace,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+  RelationalNoun(["place"/noun "of"/preposition "death"/noun],dbpedia:deathPlace,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg) with plural "places of death",
+
+  RelationalNoun(["resting"/noun "place"/noun],dbpedia:restingPlace,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+  RelationalAdjective("buried",dbpedia:restingPlace,
+     relationalArg = PrepositionalObject("in")),
+
+  // gender 
+
+  IntersectiveObjectPropertyAdjective("female",dbpedia:gender,resource:Female),
+  IntersectiveObjectPropertyAdjective("male",dbpedia:gender,resource:Male),
+
+  // relative, child, parent
+
+  RelationalNoun("relative",dbpedia:relative,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),
+  RelationalAdjective("related",dbpedia:relative,
+     relationalArg = PrepositionalObject("to")), 
+
+  RelationalNoun("child",dbpedia:child,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg) with plural "children", 
+  RelationalNoun("parent",dbpedia:child,
+     propObj  = PossessiveAdjunct), 
+  RelationalNoun("parent",dbpedia:parent,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+  RelationalNoun("child",dbpedia:parent,
+     propObj  = PossessiveAdjunct) with plural "children", 
+
+  RelationalNoun("daughter",dbpedia:child,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg restrictedTo lex:Female), 
+  RelationalNoun("daughter",dbpedia:parent,
+     propSubj = CopulativeArg restrictedTo lex:Female,
+     propObj  = PossessiveAdjunct), 
+  RelationalNoun("son",dbpedia:child,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg restrictedTo lex:Male), 
+  RelationalNoun("son",dbpedia:parent,
+     propSubj = CopulativeArg restrictedTo lex:Male,
+     propObj  = PossessiveAdjunct), 
+
+  RelationalNoun("mother",dbpedia:child,
+     propSubj = CopulativeArg restrictedTo lex:Female,
+     propObj  = PossessiveAdjunct), 
+  RelationalNoun("mother",dbpedia:parent,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg restrictedTo lex:Female), 
+  RelationalNoun("father",dbpedia:child,
+     propSubj = CopulativeArg restrictedTo lex:Male,
+     propObj  = PossessiveAdjunct), 
+  RelationalNoun("father",dbpedia:parent,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg restrictedTo lex:Male), 
+
+  RelationalNoun("grandmother",lex:grandchild,
+     propSubj = CopulativeArg restrictedTo lex:Female,
+     propObj  = PossessiveAdjunct), 
+  RelationalNoun("grandfather",lex:grandchild,
+     propSubj = CopulativeArg restrictedTo lex:Male,
+     propObj  = PossessiveAdjunct), 
+
+  RelationalNoun("grandchild",lex:grandchild,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg) with plural "grandchildren", 
+  RelationalNoun("granddaughter",lex:grandchild,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg restrictedTo lex:Female), 
+  RelationalNoun("grandson",lex:grandchild,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg restrictedTo lex:Male), 
+
+
+  // spouse
+
+  RelationalNoun("spouse",dbpedia:spouse,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),  
+  RelationalNoun("wife",dbpedia:spouse,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+  RelationalNoun("husband",dbpedia:spouse,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  ConsequenceVerb("marry",dbpedia:spouse),
+
+
+  // influenced 
+
+  StateVerb("influence",dbpedia:influenced),
+
+  StateVerb("influence",dbpedia:influencedBy,
+     propSubj = DirectObject,
+     propObj  = Subject),
+
+
+  // successor, predecessor
+
+  RelationalNoun("successor",dbpedia:successor,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),
+  StateVerb("succeed",dbpedia:successor,
+     propSubj = DirectObject,
+     propObj  = Subject),
+  StateVerb("preceed",dbpedia:successor),
+  RelationalNoun("predecessor",dbpedia:successor,
+     propObj = PossessiveAdjunct),
+
+  RelationalNoun("predecessor",dbpedia:predecessor,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),
+  StateVerb("preceed",dbpedia:predecessor,
+     propSubj = DirectObject,
+     propObj  = Subject),
+  StateVerb("succeed",dbpedia:predecessor),
+  RelationalNoun("successor",dbpedia:predecessor,
+     propObj = PossessiveAdjunct),
+
+
+  // ethnicity, religion, related, populationPlace 
+
+  RelationalNoun("ethnicity",dbpedia:ethnicity,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),   
+
+  RelationalNoun("religion",dbpedia:religion,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),
+
+  RelationalAdjective("related",dbpedia:related,
+     relationalArg = PrepositionalObject("to") restrictedTo dbpedia:EthnicGroup),
+
+  StateVerb("live",dbpedia:populationPlace,
+     propObj = PrepositionalObject("in")),
+
+
+  // university, almaMater, education
+
+  RelationalNoun("university",dbpedia:university,
+     propSubj=PossessiveAdjunct,
+     propObj=CopulativeArg), 
+  RelationalNoun(["Alma"/adjective "Mater"/noun],dbpedia:almaMater,
+     propSubj=PossessiveAdjunct,
+     propObj=CopulativeArg),
+
+  StateVerb("study",dbpedia:university,
+     propObj = PrepositionalObject("at")),
+  ConsequenceVerb("study",dbpedia:almaMater,
+     propObj = PrepositionalObject("at")),
+  ConsequenceVerb("graduate",dbpedia:almaMater,
+     propObj = PrepositionalObject("from")),
+
+  StateVerb("attend",dbpedia:education,
+     propObj = DirectObject restrictedTo dbpedia:EducationalInstitution),
+  StateVerb("study",dbpedia:education,
+     propObj = PrepositionalObject("at") restrictedTo dbpedia:EducationalInstitution),
+  StateVerb("go",dbpedia:education,
+     propObj = PrepositionalObject("to") restrictedTo dbpedia:EducationalInstitution),
+
+
+  // field 
+
+  RelationalNoun("field",dbpedia:field,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  StateVerb("work",dbpedia:field,
+     propObj = PrepositionalObject("on")),
+
+
+  // profession, occupation 
+
+  RelationalNoun("profession",dbpedia:profession,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  RelationalNoun("occupation",dbpedia:occupation,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  StateVerb("work",dbpedia:profession,
+     propObj = PrepositionalObject("as")),
+  StateVerb("work",dbpedia:occupation,
+     propObj = PrepositionalObject("as")),
+
+
+  // rector
+
+  RelationalNoun("rector",dbpedia:rector,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  RelationalNoun("principal",dbpedia:rector,
+     propSubj = PossessiveAdjunct restrictedTo dbpedia:School,
+     propObj  = CopulativeArg), 
+
+
+  // canonizedPlace 
+
+  ConsequenceVerb("canonize",dbpedia:canonizedPlace,
+     propObj  = PrepositionalObject("in")),
+
+  // patron 
+
+  RelationalNoun("patron",dbpedia:patron,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+  RelationalNoun(["patron"/noun "saint"/noun],dbpedia:patron,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+
+  // hometown, nationality 
+
+  RelationalNoun(["home"/noun "town"/noun],dbpedia:hometown,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  RelationalNoun(["home"/noun "country"/noun],dbpedia:nationality,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg restrictedTo dbpedia:Country ), 
+
+  StateVerb("come",dbpedia:hometown,
+     propObj = PrepositionalObject("from")),
+  StateVerb("come",dbpedia:nationality,
+     propObj = PrepositionalObject("from") restrictedTo dbpedia:Place),
+
+
+  // birthName, formerName, commonName, pseudonym, alias
+
+  RelationalNoun(["birth"/noun "name"/noun],dbpedia:birthName,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  RelationalNoun(["former"/adjective "name"/noun],dbpedia:formerName,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  RelationalNoun(["common"/adjective "name"/noun],dbpedia:commonName,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  RelationalNoun("pseudonym",dbpedia:pseudonym,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),
+
+  RelationalNoun("alias",dbpedia:alias,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg),
+
+  RelationalAdjective("called",dbpedia:pseudonym,relationalArg=DirectObject),
+
+  RelationalAdjective("called",dbpedia:alias,relationalArg=DirectObject),
+
+  RelationalAdjective("called",dbpedia:commonName,relationalArg=DirectObject),
+
+
+  // weight 
+
+  RelationalNoun("weight",dbpedia:weight,
+     propSubj = PossessiveAdjunct,
+     propObj  = CopulativeArg), 
+
+  StateVerb("weigh",dbpedia:weight)
+
+)

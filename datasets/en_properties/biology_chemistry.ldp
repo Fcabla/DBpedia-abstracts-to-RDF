@@ -1,0 +1,70 @@
+@prefix dbpedia: <http://dbpedia.org/ontology/> .
+@prefix lex: <http://github.com/cunger/lemon.dbpedia/target/dbpedia_all#> .
+
+Lexicon(<http://github.com/cunger/lemon.dbpedia/target/dbpedia_en_4#>,"en",
+
+  //// Classes
+
+  ClassNoun(["anatomical"/adjective "structure"/noun],dbpedia:AnatomicalStructure),
+  ClassNoun("brain",dbpedia:Brain),
+  ClassNoun("bone",dbpedia:Bone),
+  ClassNoun("artery",dbpedia:Artery),
+  ClassNoun("vein",dbpedia:Vein),
+  ClassNoun(["blood"/noun "vessel"/noun],lex:BloodVessel),
+  ClassNoun("muscle",dbpedia:Muscle),
+  ClassNoun("nerve",dbpedia:Nerve),
+  ClassNoun("lymph",dbpedia:Lymph),
+  ClassNoun("embryology",dbpedia:Embryology),
+  ClassNoun("ligament",dbpedia:Ligament),
+
+  ClassNoun(["chemical"/adjective "substance"/noun],dbpedia:ChemicalSubstance),
+  ClassNoun(["chemical"/adjective "compound"/noun],dbpedia:ChemicalCompound),
+  ClassNoun(["chemical"/adjective "element"/noun],dbpedia:ChemicalElement),
+  ClassNoun("mineral",dbpedia:Mineral),
+  ClassNoun("biomolecule",dbpedia:Biomolecule),
+  ClassNoun("enzyme",dbpedia:Enzyme),
+  ClassNoun("gene",dbpedia:Gene),
+  ClassNoun(["human"/adjective "gene"/noun],dbpedia:HumanGene),
+  ClassNoun(["mouse"/noun "gene"/noun],dbpedia:MouseGene),
+  ClassNoun(["gene"/noun "location"/noun],dbpedia:GeneLocation),
+  ClassNoun(["human"/adjective "gene"/noun "location"/noun],dbpedia:HumanGeneLocation),
+  ClassNoun(["mouse"/noun "gene"/noun "location"/noun],dbpedia:MouseGeneLocation),
+  ClassNoun("protein",dbpedia:Protein),
+
+  ClassNoun("disease",dbpedia:Disease),
+  ClassNoun("illness",dbpedia:Disease),
+  ClassNoun("sickness",dbpedia:Disease),
+  ClassNoun("drug",dbpedia:Drug),
+  ClassNoun("medicine",dbpedia:Drug),
+  ClassNoun("medicament",dbpedia:Drug),
+  ClassNoun("pharmaceutical",dbpedia:Drug),
+
+  ClassNoun(["blood"/noun "type"/noun],dbpedia:BloodType),
+
+  ClassNoun("database",dbpedia:Database),
+  ClassNoun(["biological"/noun "database"/noun],dbpedia:BiologicalDatabase),
+
+
+  //// Properties 
+
+  RelationalNoun("precursor",dbpedia:precursor,
+       propSubj = PrepositionalObject("of"),
+       propObj  = CopulativeArg), 
+  StateVerb("precede",dbpedia:precursor,
+       propSubj = DirectObject,
+       propObj  = Subject),
+  StateVerb("develop",dbpedia:precursor,
+       propObj  = PrepositionalObject("from")), 
+
+  RelationalNoun(["Entrez Gene"/noun "ID"/noun],dbpedia:entrezgene,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+  RelationalNoun(["Entrez"/noun "ID"/noun],dbpedia:entrezgene,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg), 
+  RelationalNoun(["IUPAC"/noun "name"/noun],dbpedia:iupacName,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+
+)
+

@@ -1,0 +1,175 @@
+@prefix dbpedia: <http://dbpedia.org/ontology/> .
+@prefix resource: <http://dbpedia.org/resource/> .
+
+Lexicon(<http://github.com/cunger/lemon.dbpedia/target/dbpedia_en_7#>,"en",
+
+  //// Classes
+
+  ClassNoun("event",dbpedia:Event), 
+  ClassNoun("activity",dbpedia:Activity),
+  ClassNoun("holiday",dbpedia:Holiday),
+  ClassNoun("language",dbpedia:Language),
+  ClassNoun("letter",dbpedia:Letter),
+  ClassNoun("colour",dbpedia:Colour),
+  ClassNoun("website",dbpedia:Website),
+  ClassNoun("homepage",dbpedia:Webiste),
+  ClassNoun(["web"/noun "page"/noun],dbpedia:Website),
+
+  ClassNoun("food",dbpedia:Food),
+  ClassNoun("beverage",dbpedia:Beverage),
+  ClassNoun("drink",dbpedia:Beverage),
+  ClassNoun("beer",dbpedia:Beer),
+  ClassNoun("wine",dbpedia:Wine),
+  ClassNoun(["quality"/noun "wine"/noun],dbpedia:ControlledDesignationOfOriginWine),
+  ClassNoun("cheese",dbpedia:Cheese),
+
+  ClassNoun("agent",dbpedia:Agent),
+  ClassNoun("deity",dbpedia:Deity),
+  ClassNoun("family",dbpedia:Family),
+
+  ClassNoun("currency",dbpedia:Currency),
+  ClassNoun("tax",dbpedia:Tax),
+
+  ClassNoun("flag",dbpedia:Flag),
+
+  ClassNoun("community",dbpedia:Community),
+
+  ClassNoun("sales",dbpedia:Sales),
+  ClassNoun("fashion",dbpedia:Fashion),
+  ClassNoun(["line"/noun "of"/preposition "fashion"/noun],dbpedia:LineOfFashion),
+
+  ClassNoun(["public"/noun "service"/noun],dbpedia:PublicService),
+  ClassNoun(["public"/noun "service"/noun "input"/noun],dbpedia:PublicServiceInput),
+  ClassNoun(["public"/noun "service"/noun "output"/noun],dbpedia:PublicServiceOutput),
+
+  ClassNoun("polyhedron",dbpedia:Polyhedron),
+
+  ClassNoun(["time"/noun "period"/noun],dbpedia:TimePeriod),
+  ClassNoun(["geological"/adjective "period"/noun],dbpedia:GeologicalPeriod),
+  ClassNoun(["historical"/adjective "period"/noun],dbpedia:HistoricalPeriod),
+  ClassNoun(["prehistorical"/adjective "period"/noun],dbpedia:PrehistoricalPeriod),
+  ClassNoun(["protohistorical"/adjective "period"/noun],dbpedia:ProtohistoricalPeriod),
+  ClassNoun(["art"/noun "period"/noun],dbpedia:PeriodOfArtisticStyle),
+  ClassNoun("year",dbpedia:Year),
+
+  ClassNoun(["topical"/noun "concept"/noun],dbpedia:TopicalConcept),
+  ClassNoun(["Christian"/noun "doctrine"/noun],dbpedia:ChristianDoctrine),
+  ClassNoun("ideology",dbpedia:Ideology),
+
+  ClassNoun(["unit"/noun "of"/preposition "work"/noun],dbpedia:UnitOfWork),
+  ClassNoun("project",dbpedia:Project),
+  ClassNoun(["research"/noun "project"/noun],dbpedia:ResearchProject),
+
+
+  //// Properties 
+
+  StateVerb(["take"/verb "place"/noun],dbpedia:place,
+       propObj  = PrepositionalObject("in")),
+
+  RelationalNoun("part",dbpedia:isPartOf,
+       propObj  = PrepositionalObject("of")),
+
+  StateVerb(["take"/verb "place"/noun],dbpedia:date,
+       propObj = PrepositionalObject("on")),
+
+  StateVerb("belong",dbpedia:division,
+       propObj = PrepositionalObject("to")),
+
+  RelationalNoun("color",dbpedia:colourName,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+
+  // similar, synonym, abbreviation
+
+  RelationalAdjective("similar",dbpedia:similar,
+       relationalArg = PrepositionalObject("to")), 
+
+  RelationalNoun("synonym",dbpedia:synonym,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+
+  RelationalNoun("abbreviation",dbpedia:abbreviation,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+  StateVerb("abbreviate",dbpedia:abbreviation,
+       propSubj = DirectObject,
+       propObj  = Subject),
+  RelationalAdjective("abbreviated",dbpedia:abbreviation,
+       relationalArg = PrepositionalObject("as")),
+
+
+  // melting, boiling and sublimation point
+
+  RelationalNoun(["sublimation"/noun "point"/noun],dbpedia:sublimationPoint,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+  StateVerb("sublime",dbpedia:sublimationPoint,
+       propObj = PrepositionalObject("at")),
+
+  RelationalNoun(["melting"/noun "point"/noun],dbpedia:meltingPoint,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+  StateVerb("melt",dbpedia:meltingPoint,
+       propObj = PrepositionalObject("at")),
+
+  RelationalNoun(["boiling"/noun "point"/noun],dbpedia:boilingPoint,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+  StateVerb("boil",dbpedia:boilingPoint,
+       propObj = PrepositionalObject("at")), 
+
+
+  // spokenIn, languageFamily
+
+  StateVerb("belong",dbpedia:languageFamily,
+       propObj = PrepositionalObject("to")),
+  RelationalNoun(["language"/noun "family"/noun],dbpedia:languageFamily,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+
+  RelationalAdjective("spoken",dbpedia:spokenIn,
+       relationalArg = PrepositionalObject("in")),
+  RelationalNoun("language",dbpedia:spokenIn,
+       propSubj = PossessiveAdjunct,
+       propObj  = CopulativeArg),
+
+
+  // languages 
+
+  IntersectiveObjectPropertyAdjective("English",dbpedia:language,resource:English_language),
+  IntersectiveObjectPropertyAdjective("Hindi",dbpedia:language,resource:Standard_Hindi),
+  IntersectiveObjectPropertyAdjective("Spanish",dbpedia:language,resource:Spanish_language),
+  IntersectiveObjectPropertyAdjective("French",dbpedia:language,resource:French_language),
+  IntersectiveObjectPropertyAdjective("Japanese",dbpedia:language,resource:Japanese_language),
+  IntersectiveObjectPropertyAdjective("German",dbpedia:language,resource:German_language),
+  IntersectiveObjectPropertyAdjective("Tamil",dbpedia:language,resource:Tamil_language),
+  IntersectiveObjectPropertyAdjective("Italian",dbpedia:language,resource:Italian_language),
+  IntersectiveObjectPropertyAdjective("Portuguese",dbpedia:language,resource:Portuguese_language),
+  IntersectiveObjectPropertyAdjective("Russian",dbpedia:language,resource:Russian_language),
+  IntersectiveObjectPropertyAdjective("Dutch",dbpedia:language,resource:Dutch_language),
+  IntersectiveObjectPropertyAdjective("Korean",dbpedia:language,resource:Korean_language),
+  IntersectiveObjectPropertyAdjective("Arabic",dbpedia:language,resource:Arabic_language),
+  IntersectiveObjectPropertyAdjective("Chinese",dbpedia:language,resource:Standard_Chinese),
+  IntersectiveObjectPropertyAdjective("Chinese",dbpedia:language,resource:Chinese_language),
+  IntersectiveObjectPropertyAdjective("Chinese",dbpedia:language,resource:Mandarin_Chinese),
+  IntersectiveObjectPropertyAdjective("Cantonese",dbpedia:language,resource:Cantonese_language),
+  IntersectiveObjectPropertyAdjective("Swedish",dbpedia:language,resource:Swedish_language),
+  IntersectiveObjectPropertyAdjective("Polish",dbpedia:language,resource:Polish_language),
+  IntersectiveObjectPropertyAdjective("Greek",dbpedia:language,resource:Greek_language),
+  IntersectiveObjectPropertyAdjective("Hebrew",dbpedia:language,resource:Hebrew_language),
+  IntersectiveObjectPropertyAdjective("Turkish",dbpedia:language,resource:Turkish_language),
+  IntersectiveObjectPropertyAdjective("Danish",dbpedia:language,resource:Danish_language),
+  IntersectiveObjectPropertyAdjective("Finnish",dbpedia:language,resource:Finnish_language),
+  IntersectiveObjectPropertyAdjective("Norwegian",dbpedia:language,resource:Norwegian_language),
+  IntersectiveObjectPropertyAdjective("Croatian",dbpedia:language,resource:Croatian_language),
+  IntersectiveObjectPropertyAdjective("Romanian",dbpedia:language,resource:Romanian_language),
+  IntersectiveObjectPropertyAdjective("Thai",dbpedia:language,resource:Thai_language),
+  IntersectiveObjectPropertyAdjective("Hungarian",dbpedia:language,resource:Hungarian_language),
+  IntersectiveObjectPropertyAdjective("Serbian",dbpedia:language,resource:Serbian_language),
+  IntersectiveObjectPropertyAdjective("Slovene",dbpedia:language,resource:Slovene_language),
+  IntersectiveObjectPropertyAdjective("Punjabi",dbpedia:language,resource:Punjabi_language),
+  IntersectiveObjectPropertyAdjective("Albanian",dbpedia:language,resource:Albanian_language),
+  IntersectiveObjectPropertyAdjective("Indonesian",dbpedia:language,resource:Indonesian_language),
+  IntersectiveObjectPropertyAdjective("Estonian",dbpedia:language,resource:Estonian_language)
+
+)
