@@ -1,0 +1,367 @@
+--------------------------------------------------
+lp: 0, nrs: 3
+10
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama II|position held|President of the United States
+President of the United States|officeholder|Barack Hussein Obama II
+Barack Hussein Obama II|place of birth|Honolulu, Hawaii
+Barack Hussein Obama II|educated at|Harvard Law School
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Columbia University
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 0, nrs: 4
+11
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama II|position held|President of the United States
+President of the United States|officeholder|Barack Hussein Obama II
+Barack Hussein Obama II|place of birth|Honolulu, Hawaii
+Barack Hussein Obama II|educated at|Harvard Law School
+Barack Hussein Obama|place of birth|Honolulu, Hawaii
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Columbia University
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 0, nrs: 5
+11
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama II|position held|President of the United States
+President of the United States|officeholder|Barack Hussein Obama II
+Barack Hussein Obama II|place of birth|Honolulu, Hawaii
+Barack Hussein Obama II|educated at|Harvard Law School
+Barack Hussein Obama|place of birth|Honolulu, Hawaii
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Columbia University
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 0, nrs: 10
+11
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama II|position held|President of the United States
+President of the United States|officeholder|Barack Hussein Obama II
+Barack Hussein Obama II|place of birth|Honolulu, Hawaii
+Barack Hussein Obama II|educated at|Harvard Law School
+Barack Hussein Obama|place of birth|Honolulu, Hawaii
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Columbia University
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 0, nrs: 20
+15
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama II|position held|President of the United States
+President of the United States|officeholder|Barack Hussein Obama II
+Barack Hussein Obama II|place of birth|Honolulu, Hawaii
+Barack Hussein Obama|place of birth|Honolulu
+Barack Hussein Obama II|educated at|Harvard Law School
+Barack Hussein Obama|place of birth|Honolulu, Hawaii
+Barack Hussein Obama II|place of birth|Honolulu
+Harvard Law Review|publisher|Harvard Law School
+Hawaii|capital|Honolulu
+Barack Hussein Obama|educated at|Columbia University
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Barack Hussein Obama II|educated at|Columbia University
+Honolulu|capital of|Hawaii
+--------------------------------------------------
+lp: 1, nrs: 3
+10
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama II|position held|President of the United States
+President of the United States|officeholder|Barack Hussein Obama II
+Barack Hussein Obama II|place of birth|Honolulu, Hawaii
+Barack Hussein Obama II|educated at|Harvard Law School
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Columbia University
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 1, nrs: 4
+11
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama II|position held|President of the United States
+President of the United States|officeholder|Barack Hussein Obama II
+Barack Hussein Obama II|place of birth|Honolulu, Hawaii
+Barack Hussein Obama II|educated at|Harvard Law School
+Barack Hussein Obama|place of birth|Honolulu, Hawaii
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Columbia University
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 1, nrs: 5
+11
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama II|position held|President of the United States
+President of the United States|officeholder|Barack Hussein Obama II
+Barack Hussein Obama II|place of birth|Honolulu, Hawaii
+Barack Hussein Obama II|educated at|Harvard Law School
+Barack Hussein Obama|place of birth|Honolulu, Hawaii
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Columbia University
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 1, nrs: 10
+19
+Barack Hussein Obama II|position held|President of the United States
+Barack Hussein Obama II|country of citizenship|United States
+Hawaii|country|United States
+Barack Hussein Obama II|place of birth|Honolulu, Hawaii
+Hawaii|capital|Honolulu
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Honolulu|country|United States
+Honolulu|capital of|Hawaii
+President of the United States|officeholder|Barack Hussein Obama II
+Harvard Law School|country|United States
+Barack Hussein Obama|place of birth|Honolulu, Hawaii
+Columbia University|country|United States
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama|educated at|Columbia University
+President of the United States|country|United States
+Barack Hussein Obama II|educated at|Harvard Law School
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 1, nrs: 20
+25
+Barack Hussein Obama II|position held|President of the United States
+Barack Hussein Obama II|country of citizenship|United States
+Hawaii|country|United States
+Barack Hussein Obama II|place of birth|Honolulu, Hawaii
+Barack Hussein Obama|place of birth|Honolulu
+Barack Hussein Obama II|place of birth|Honolulu
+Harvard Law Review|publisher|United
+Hawaii|capital|Honolulu
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Honolulu|country|United States
+Honolulu|capital of|Hawaii
+President of the United States|officeholder|Barack Hussein Obama II
+Harvard Law School|country|United States
+Barack Hussein Obama|place of birth|Honolulu, Hawaii
+Columbia University|country|United States
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama|educated at|Columbia University
+Barack Hussein Obama|country of citizenship|United States
+United States|contains administrative territorial entity|Hawaii
+President of the United States|country|United States
+Barack Hussein Obama II|educated at|Harvard Law School
+Harvard Law Review|country|United States
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 5, nrs: 3
+10
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama II|position held|President of the United States
+President of the United States|officeholder|Barack Hussein Obama II
+Democratic primary|candidate|Barack Hussein Obama II
+Barack Hussein Obama II|educated at|Harvard Law School
+Barack Hussein Obama|position held|President of the United States
+Barack Hussein Obama|educated at|Columbia University
+President of the United States|officeholder|Barack Hussein Obama
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 5, nrs: 4
+15
+United States|contains administrative territorial entity|Hawaii
+Harvard Law Review|country|United States
+Barack Hussein Obama II|position held|President of the United States
+President of the United States|officeholder|Barack Hussein Obama II
+President of the United States|country|United States
+Hawaii|country|United States
+Honolulu|country|United States
+Harvard Law School|country|United States
+Barack Hussein Obama II|educated at|Harvard Law School
+Columbia University|country|United States
+Hawaii|capital|Honolulu
+Hawaii|located in the administrative territorial entity|United States
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama II|educated at|Columbia University
+Honolulu|capital of|Hawaii
+--------------------------------------------------
+lp: 5, nrs: 5
+15
+United States|contains administrative territorial entity|Hawaii
+Harvard Law Review|country|United States
+Barack Hussein Obama II|position held|President of the United States
+Barack Hussein Obama II|country of citizenship|United States
+President of the United States|officeholder|Barack Hussein Obama II
+President of the United States|country|United States
+Hawaii|country|United States
+Honolulu|country|United States
+Harvard Law School|country|United States
+Barack Hussein Obama II|educated at|Harvard Law School
+Columbia University|country|United States
+Hawaii|capital|Honolulu
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama II|educated at|Columbia University
+Honolulu|capital of|Hawaii
+--------------------------------------------------
+lp: 5, nrs: 10
+21
+Barack Hussein Obama II|position held|President of the United States
+Barack Hussein Obama II|country of citizenship|United States
+Hawaii|country|United States
+Hawaii|capital|Honolulu
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Honolulu|country|United States
+Honolulu|capital of|Hawaii
+President of the United States|officeholder|Barack Hussein Obama II
+Harvard Law School|country|United States
+Columbia University|country|United States
+United States|contains administrative|Hawaii
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama|educated at|Columbia University
+Hawaii|located in the administrative territorial entity|United States
+United States|contains administrative territorial entity|Hawaii
+President of the United States|country|United States
+Barack Hussein Obama II|educated at|Harvard Law School
+Harvard Law Review|country|United States
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 5, nrs: 20
+24
+Barack Hussein Obama II|position held|President of the United States
+Barack Hussein Obama II|country of citizenship|United States
+Hawaii|country|United States
+Harvard Law Review|country of|United States
+Harvard Law Review|publisher|United
+Hawaii|capital|Honolulu
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Honolulu|country|United States
+Honolulu|capital of|Hawaii
+President of the United States|officeholder|Barack Hussein Obama II
+Harvard Law School|country|United States
+Columbia University|country|United States
+United States|contains administrative|Hawaii
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Harvard Law School
+Barack Hussein Obama|educated at|Columbia University
+Hawaii|located in the administrative territorial entity|United States
+Barack Hussein Obama|country of citizenship|United States
+United States|contains administrative territorial entity|Hawaii
+President of the United States|country|United States
+Barack Hussein Obama II|educated at|Harvard Law School
+Harvard Law Review|country|United States
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 10, nrs: 3
+10
+United States|ethnic group|African American
+Barack Hussein Obama II|position held|President of the United States
+President of the United States|officeholder|Barack Hussein Obama II
+Democratic primary|candidate|Barack Hussein Obama II
+Barack Hussein Obama II|educated at|Harvard Law School
+Democratic primary|point in time|2004
+United States|office held by head of government|President of the United States
+Democratic primary|country|United States
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 10, nrs: 4
+16
+United States|contains administrative territorial entity|Hawaii
+Harvard Law Review|country|United States
+Barack Hussein Obama II|position held|President of the United States
+President of the United States|officeholder|Barack Hussein Obama II
+President of the United States|country|United States
+Hawaii|country|United States
+Honolulu|country|United States
+Harvard Law School|country|United States
+Barack Hussein Obama II|educated at|Harvard Law School
+Columbia University|country|United States
+Harvard Law Review|country of origin|United States
+Hawaii|capital|Honolulu
+Hawaii|located in the administrative territorial entity|United States
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama II|educated at|Columbia University
+Honolulu|capital of|Hawaii
+--------------------------------------------------
+lp: 10, nrs: 5
+15
+United States|contains administrative territorial entity|Hawaii
+Harvard Law Review|country|United States
+Barack Hussein Obama II|position held|President of the United States
+Barack Hussein Obama II|country of citizenship|United States
+President of the United States|officeholder|Barack Hussein Obama II
+President of the United States|country|United States
+Hawaii|country|United States
+Honolulu|country|United States
+Harvard Law School|country|United States
+Barack Hussein Obama II|educated at|Harvard Law School
+Columbia University|country|United States
+Hawaii|capital|Honolulu
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama II|educated at|Columbia University
+Honolulu|capital of|Hawaii
+--------------------------------------------------
+lp: 10, nrs: 10
+22
+Barack Hussein Obama II|position held|President of the United States
+Barack Hussein Obama II|country of citizenship|United States
+Hawaii|country|United States
+Harvard Law Review|country of|United States
+Hawaii|capital|Honolulu
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Honolulu|country|United States
+Honolulu|capital of|Hawaii
+President of the United States|officeholder|Barack Hussein Obama II
+Harvard Law School|country|United States
+Columbia University|country|United States
+United States|contains administrative|Hawaii
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Harvard Law School
+Hawaii|located in the administrative territorial entity|United States
+Barack Hussein Obama|educated at|Columbia University
+United States|contains administrative territorial entity|Hawaii
+President of the United States|country|United States
+Barack Hussein Obama II|educated at|Harvard Law School
+Harvard Law Review|country|United States
+Barack Hussein Obama II|educated at|Columbia University
+--------------------------------------------------
+lp: 10, nrs: 20
+25
+Barack Hussein Obama II|position held|President of the United States
+Barack Hussein Obama II|country of citizenship|United States
+Hawaii|country|United States
+Harvard Law Review|country of|United States
+Harvard Law Review|publisher|United
+Hawaii|capital|Honolulu
+President of the United States|officeholder|Barack Hussein Obama
+Barack Hussein Obama|position held|President of the United States
+Honolulu|country|United States
+Honolulu|capital of|Hawaii
+President of the United States|officeholder|Barack Hussein Obama II
+Harvard Law School|country|United States
+Columbia University|country|United States
+United States|contains administrative|Hawaii
+Harvard Law Review|publisher|Harvard Law School
+Barack Hussein Obama|educated at|Harvard Law School
+Harvard Law Review|country of origin|United States
+Barack Hussein Obama|educated at|Columbia University
+Hawaii|located in the administrative territorial entity|United States
+Barack Hussein Obama|country of citizenship|United States
+United States|contains administrative territorial entity|Hawaii
+President of the United States|country|United States
+Barack Hussein Obama II|educated at|Harvard Law School
+Harvard Law Review|country|United States
+Barack Hussein Obama II|educated at|Columbia University

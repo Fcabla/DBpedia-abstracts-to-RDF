@@ -1,3 +1,7 @@
 /.idea
 /code/app/output/*
 /log_files
+Rebel/text_properties_extractor.py
+Rebel/model
+Rebel/__pycache__/spacy_component.cpython-38.pyc
+Rebel/triplets0_3000.csv
