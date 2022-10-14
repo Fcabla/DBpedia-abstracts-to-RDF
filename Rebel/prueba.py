@@ -4,6 +4,7 @@ import re
 import coreferee
 from transformers import pipeline
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+import time
 
 def resolve_correferences(doc):
     chains = doc._.coref_chains
@@ -145,10 +146,10 @@ def print_triplets(triplets, uniques=True):
     if uniques:
         triplets = list(set(triplets))
     print('-'*50)
-    print(len(triplets))
     for triplet in triplets:
         print(triplet)
-    
+    return len(triplets)
+
 def main():
     input_sentence = "Gràcia is a district of the city of Barcelona, Spain. It comprises the neighborhoods of Vila de Gràcia, Vallcarca i els Penitents, El Coll, La Salut and Camp d'en Grassot i Gràcia Nova. Gràcia is bordered by the districts of Eixample to the south, Sarrià-Sant Gervasi to the west and Horta-Guinardó to the east. A vibrant and diverse enclave of Catalan life, Gràcia was an independent municipality for centuries before being formally annexed by Barcelona in 1897 as a part of the city's expansion."
     input_sentence = "Barack Hussein Obama II is an American politician who is the 44th and current President of the United States. He is the first African American to hold the office and the first president born outside the continental United States. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University and Harvard Law School, where he was president of the Harvard Law Review. He was a community organizer in Chicago before earning his law degree. He worked as a civil rights attorney and taught constitutional law at the University of Chicago Law School between 1992 and 2004. While serving three terms representing the 13th District in the Illinois Senate from 1997 to 2004, he ran unsuccessfully in the Democratic primary for the United States Hou"
@@ -157,6 +158,7 @@ def main():
     by_sent = False
 
     if use_correferences:
+        print("Using correferences")
         nlp_ref = spacy.load("en_core_web_trf")
         nlp_ref.add_pipe('coreferee')
         doc = nlp_ref(input_sentence)
@@ -173,16 +175,18 @@ def main():
     #print_triplets(triplets)
 
     for lp in [0, 1, 5, 10]:
-        for nrs in [3, 4, 5, 10, 20]:
-            print(f'lp: {lp}, nrs: {nrs}')
+        for nrs in [3, 4, 5, 10, 20, 30]:
+            tme = time.time()
             gen_kwargs = {
-                "max_length": 256,
+                "max_length": 1024,
                 "length_penalty": lp,
                 "num_beams": nrs,
-                "num_return_sequences": nrs,
+                "num_return_sequences": nrs
             }
             triplets = rebel_transformers2(input_sentence, gen_kwargs, by_sent=by_sent)
-            print_triplets(triplets)
+            num_triplets = print_triplets(triplets)
+            tme = time.time() - tme
+            print(f'lp: {lp}, nrs: {nrs}, len: {num_triplets}, time: {tme}')
 
 if __name__ == "__main__":
     main()
