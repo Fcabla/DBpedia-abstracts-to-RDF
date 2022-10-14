@@ -5,3 +5,4 @@ Rebel/text_properties_extractor.py
 Rebel/model
 Rebel/__pycache__/spacy_component.cpython-38.pyc
 Rebel/triplets0_3000.csv
+Rebel/results/rebel_triplets0_1000.csv
