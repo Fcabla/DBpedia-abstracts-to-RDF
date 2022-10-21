@@ -16,6 +16,7 @@ import pandas as pd
 import json
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 import tqdm
+import torch
 
 # from rdflib import Graph, RDFS, URIRef, Literal
 
@@ -25,6 +26,10 @@ UNKOWN_VALUE = "UNK"
 DEFAULT_VERB = "DEF"
 TEST_TEXT = "Barack Hussein Obama II is an American politician who is the 44th and current President of the United States. He is the first African American to hold the office and the first president born outside the continental United States. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University and Harvard Law School, where he was president of the Harvard Law Review. He was a community organizer in Chicago before earning his law degree. He worked as a civil rights attorney and taught constitutional law at the University of Chicago Law School between 1992 and 2004. While serving three terms representing the 13th District in the Illinois Senate from 1997 to 2004, he ran unsuccessfully in the Democratic primary for the United States Hou"
 TEST_TEXT2 = "Gràcia is a district of the city of Barcelona, Spain. It comprises the neighborhoods of Vila de Gràcia, Vallcarca i els Penitents, El Coll, La Salut and Camp d'en Grassot i Gràcia Nova. Gràcia is bordered by the districts of Eixample to the south, Sarrià-Sant Gervasi to the west and Horta-Guinardó to the east. A vibrant and diverse enclave of Catalan life, Gràcia was an independent municipality for centuries before being formally annexed by Barcelona in 1897 as a part of the city's expansion."
+
+# Load model and tokenizer
+REBEL_TOKENIZER = AutoTokenizer.from_pretrained("Babelscape/rebel-large")
+REBEL_MODEL = AutoModelForSeq2SeqLM.from_pretrained("Babelscape/rebel-large").cuda()
 
 # DBPEDIA SPOTLIGHT FUNCTIONS
 
@@ -123,11 +128,15 @@ def resolve_correferences(doc):
     new_text = re.sub(' \,', ',', new_text)
     return new_text
 
-def run_rebel(input_sentence, gen_kwargs=None):
-    # Load model and tokenizer
-    tokenizer = AutoTokenizer.from_pretrained("Babelscape/rebel-large")
-    model = AutoModelForSeq2SeqLM.from_pretrained("Babelscape/rebel-large")
+def run_rebel(input_sentence, gen_kwargs=None, tokenizer=REBEL_TOKENIZER, model=REBEL_MODEL):
+    if torch.cuda.is_available():
+        my_device = 'cuda:0'
+    else:
+        print('cpu')
+        my_device = model.device
+
     if gen_kwargs == None:
+        print("Using default args!")
         gen_kwargs = {
             "max_length": 256, #max_length – (optional) int The max length of the sequence to be generated. Between min_length and infinity. Default to 20.
             "length_penalty": 0, #length_penalty – (optional) float Exponential penalty to the length. Default to 1.
@@ -140,11 +149,11 @@ def run_rebel(input_sentence, gen_kwargs=None):
 
     # Tokenizer text
     model_inputs = tokenizer(text, max_length=1024, padding=True, truncation=True, return_tensors = 'pt')
-
+    
     # Generate
     generated_tokens = model.generate(
-        model_inputs["input_ids"].to(model.device),
-        attention_mask=model_inputs["attention_mask"].to(model.device),
+        model_inputs["input_ids"].to(my_device),
+        attention_mask=model_inputs["attention_mask"].to(my_device),
         **gen_kwargs,
     )
 
@@ -177,7 +186,7 @@ def pipeline(input_sentence="", use_correferences = False, by_sent = False, gen_
         doc = nlp_sents(input_sentence)
         input_sentence = [sent.text for sent in doc.sents]
 
-    triplets = run_rebel(input_sentence, gen_kwargs)
+    triplets = run_rebel(input_sentence, gen_kwargs=gen_kwargs)
 
     # TEXT TRIPLES TO RDF TRIPLES
     # ...
@@ -208,14 +217,13 @@ def pipeline_hf(from_index, to_index):
         except:
             print('error')
             elem['relations'] = ['None']
-    
     df = pd.DataFrame.from_records(df)
     
     df.to_csv(f'Rebel/results/rebel_triplets{from_index}_{to_index}.csv')
         #{'individual': 'http://dbpedia.org/resource/Lefkogeia', 'abstract': 'Lefkogeia (Greek: Λευκόγεια) is a village in the municipal unit of Foinikas, Rethymno regional unit, Crete, Greece. The village has 289 inhabitants.', 'test': 'Lefko'}
 
 def main():    
-    pipeline_hf(0,1000)
+    pipeline_hf(9000,10000)
 
 if __name__ == "__main__":
     main()
