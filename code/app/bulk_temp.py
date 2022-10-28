@@ -126,7 +126,7 @@ if __name__ == "__main__":
     print('This app translates any kind of text into RDF!')
 
     # Read pandas
-    from_index = 3000
+    from_index = 5000
     to_index = 10000
     df = pd.read_csv('datasets/long-abstracts-sample.csv')
     df = df.to_dict(orient='records')
@@ -141,14 +141,21 @@ if __name__ == "__main__":
         raw_text = elem['abstract'].replace('\n', '')
         try:
             text_triples, rdf_triples, nsent_spacy, nsent_simples = pipeline(nlp, raw_text, dbo_graph, prop_lex_table, cla_lex_table)
+            # modify text triples
             if rdf_triples:
                     text_triples_all.extend(rdf_triples)
             rdf_triples = [t.get_rdf_triple() for t in rdf_triples]
             rdf_triples = [t.__repr__() for t in rdf_triples]
             rdf_print_triples = list(set(rdf_triples))
+
+            st = "["
+            for tri in text_triples:
+                st += f"\'{tri.__repr__()}\', "
+            st = st[:-2] + "]"
+
             elem['nsent_spacy'] = nsent_spacy
             elem['nsent_simples'] = nsent_simples
-            elem['relations'] = text_triples
+            elem['relations'] = st
             elem['rdf_triples'] = rdf_print_triples
         except:
             print('error')
