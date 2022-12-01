@@ -1,8 +1,11 @@
 """
-# Test to transform text to RDF by using a relation extraction model (REBEL)
+Test to transform text to RDF by using a relation extraction model (REBEL)
+If you are reading this, you can just skip this file since its the first approach using REBEL.
+We compared differente sources of the SAME model and obtained differente results.
 
-# Rebel paper: https://aclanthology.org/2021.findings-emnlp.204.pdf
-# Rebel repo: https://github.com/babelscape/rebel
+Rebel paper: https://aclanthology.org/2021.findings-emnlp.204.pdf
+Rebel repo: https://github.com/babelscape/rebel
+Author: Fernando Casabán Blasco
 """
 
 # IMPORTS
@@ -102,6 +105,7 @@ def extract_triplets(text):
     return triplets
 
 def resolve_correferences(doc):
+    """Function to resolve and replace correferences in the text using spacy"""
     chains = doc._.coref_chains
     new_text = []
     for token in doc:
@@ -123,6 +127,7 @@ def resolve_correferences(doc):
     return new_text
 
 def p1(text, triplet_extractor):
+    """Model inference using the model as it is (no preprocesing the input)"""
     extracted_text = triplet_extractor.tokenizer.batch_decode([triplet_extractor(text, return_tensors=True, return_text=False)[0]["generated_token_ids"]])
     extracted_triplets = extract_triplets(extracted_text[0])
     results = []
@@ -136,6 +141,7 @@ def p1(text, triplet_extractor):
     return results
 
 def p2(text, triplet_extractor, nlp):
+    """Model inference after resolving correferences"""
     doc = nlp(text)
     processed_text = resolve_correferences(doc)
 
@@ -153,6 +159,7 @@ def p2(text, triplet_extractor, nlp):
     return results
 
 def p3(text, triplet_extractor, nlp):
+    """Model inference after resolving correferences and splitting the text into sentences"""
     doc = nlp(text)
     processed_text = resolve_correferences(doc)
 
@@ -174,6 +181,7 @@ def p3(text, triplet_extractor, nlp):
     return results
 
 def rebel_transformers2(input_sentence):
+    """Model inference using transformers model manual"""
     # Load model and tokenizer
     tokenizer = AutoTokenizer.from_pretrained("Babelscape/rebel-large")
     model = AutoModelForSeq2SeqLM.from_pretrained("Babelscape/rebel-large")
@@ -212,6 +220,7 @@ def rebel_transformers2(input_sentence):
     return results
 
 def pipeline_hf():
+    """Pipeline using hugging faces transformers library manual (rebel_transformers2) with a csv of 10k abstracts"""
     df = pd.read_csv('datasets/long-abstracts-sample.csv')
     df = df[:3000]
     df = df.to_dict(orient='records')
@@ -225,7 +234,9 @@ def pipeline_hf():
     df = pd.DataFrame.from_records(df)
     df.to_csv('Rebel/triplets0_3000.csv')
         #{'individual': 'http://dbpedia.org/resource/Lefkogeia', 'abstract': 'Lefkogeia (Greek: Λευκόγεια) is a village in the municipal unit of Foinikas, Rethymno regional unit, Crete, Greece. The village has 289 inhabitants.', 'test': 'Lefko'}
+
 def pipeline_bunch():
+    """Pipeline using hugging faces transformers library pipeline with a csv of 10k abstracts"""
     # 1. LOAD MODELs
     nlp = spacy.load("en_core_web_trf")
     nlp.add_pipe('coreferee')
@@ -253,6 +264,8 @@ def pipeline_bunch():
         json.dump(samples_dict, f, ensure_ascii=False, indent=4)
 
 def pipeline_single():
+    """Pipeline using hugging faces transformers library pipeline with a single abstract. 
+    Comparing preprocessing steps (p1, p2 and p3 functs)"""
     # 1. LOAD MODELs
     nlp = spacy.load("en_core_web_trf")
     nlp.add_pipe('coreferee')

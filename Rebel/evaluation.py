@@ -1,53 +1,52 @@
+"""
+Naive evaluation of the REBEL approach to translate raw text into RDF.
+For each triple we check if the property range and domain mathes the type of the subject and object.
+Also we check if the triple is alredy in the graph. Although the absence of a triple in the graph can 
+mean either that the triplet is correct and does not exist in the graph (ideal case) or that the triplet 
+is wrong and should not be in the graph. 
+
+--  IN PROGRESS  --
+Rebel paper: https://aclanthology.org/2021.findings-emnlp.204.pdf
+Rebel repo: https://github.com/babelscape/rebel
+Author: Fernando Casabán Blasco
+"""
 import pandas as pd
 from rdflib import Graph, URIRef, Literal
 from rdflib.namespace import RDF
 from SPARQLWrapper import SPARQLWrapper, JSON
 import ssl
+# To query the graph we need this
 ssl._create_default_https_context = ssl._create_unverified_context
 
+# Propertys with literals as objects
 PROPERTIES_DATES = ["http://www.wikidata.org/wiki/Property:P1191", "http://dbpedia.org/ontology/startDate", "http://www.wikidata.org/wiki/Property:P576", "http://dbpedia.org/ontology/birthDate", "http://dbpedia.org/ontology/deathDate", "http://dbpedia.org/ontology/publicationDate", "http://dbpedia.org/ontology/startDateTime", "http://dbpedia.org/ontology/endDateTime", ]
 PROPERTIES_YEARS = ["http://www.wikidata.org/wiki/Property:P585", "http://www.wikidata.org/wiki/Property:P571"]
 PROPERTIES_INTEGERS = ["http://dbpedia.org/ontology/numberOfPeopleAttending", "http://dbpedia.org/ontology/numberOfEpisodes"]
-
+# File to evaluate
 EVAL_FILE = 'Rebel/results/rebel_triples_rdf_othertypes.CSV'
 
 def fix_relations_format(x):
+    """Transform string list into list of strings"""
     x = x.strip('][')
     x = x[1:-1]
     x = x.split("', '")
     #x = [elem.lower() for elem in x]
     return x
 
-def eval_triples_ont_old(x, graph):
-    results = []
-    for elem in x:
-        # Parse the triplet into RDFLib objs
-        triple_elements = elem.split('|')
-        subj = URIRef(triple_elements[0])
-        prop = URIRef(triple_elements[1])
-        if 'dbpedia.org/resource/' in triple_elements[2]:
-            obj = URIRef(triple_elements[2])
-        else:
-            obj = Literal(triple_elements[2])
-
-        print(subj, prop, obj)
-        # Query if triple in graph
-        results.append((subj, prop, obj) in graph)
-        
-    return results
-
 def eval_triples_ont(x, sparql):
+    """Function to check how many triples are alredy in the graph"""
     results = []
     for elem in x:
-        # Parse the triplet into RDFLib objs
+        # for each triple (elem)
         triple_elements = elem.split('|')
         if len(triple_elements) != 3:
             print(triple_elements)
             continue
-            
+        
+        # get elements of triplet
         subj = triple_elements[0]
         prop = triple_elements[1]
-
+        # the object can be a resource or a literal. Figure it out.
         if 'dbpedia.org/resource/' in triple_elements[2]:
             obj = f'<{triple_elements[2]}>'
         else:
@@ -68,6 +67,7 @@ def eval_triples_ont(x, sparql):
         """
         )
         try:
+            # Query and store result
             result_query = sparql.queryAndConvert()
             results.append(result_query['boolean'])
         except:
@@ -77,6 +77,8 @@ def eval_triples_ont(x, sparql):
     return results
 
 def eval_range_domain(x):
+    """Function to check if range and domain matches subject and object of triplet.
+    IN PROGRESS"""
     counter = 0
     for elem in x: 
         pass

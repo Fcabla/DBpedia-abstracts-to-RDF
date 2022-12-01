@@ -1,3 +1,10 @@
+"""
+Script to generate 2 plots based on the results of the differente configurations for REBEL and
+Text2RDF.
+The plots can be found under the rebel/results folder: lexicalization_strategy_rebel.svg and text2rdf_rebel.svg
+
+Author: Fernando Casabán Blasco
+"""
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np

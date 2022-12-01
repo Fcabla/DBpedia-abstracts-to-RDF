@@ -1,8 +1,9 @@
 """
-# Test to transform text to RDF by using a relation extraction model (REBEL)
+# Script that translates raw text into structured text RDF by using a relation extraction model (REBEL)
 
 # Rebel paper: https://aclanthology.org/2021.findings-emnlp.204.pdf
 # Rebel repo: https://github.com/babelscape/rebel
+Author: Fernando Casabán Blasco
 """
 
 # IMPORTS
@@ -22,8 +23,6 @@ import torch
 
 # GLOBALS
 SPOTLIGHT_ONLINE_API = "https://api.dbpedia-spotlight.org/en/annotate"
-UNKOWN_VALUE = "UNK"
-DEFAULT_VERB = "DEF"
 TEST_TEXT = "Barack Hussein Obama II is an American politician who is the 44th and current President of the United States. He is the first African American to hold the office and the first president born outside the continental United States. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University and Harvard Law School, where he was president of the Harvard Law Review. He was a community organizer in Chicago before earning his law degree. He worked as a civil rights attorney and taught constitutional law at the University of Chicago Law School between 1992 and 2004. While serving three terms representing the 13th District in the Illinois Senate from 1997 to 2004, he ran unsuccessfully in the Democratic primary for the United States Hou"
 TEST_TEXT2 = "Gràcia is a district of the city of Barcelona, Spain. It comprises the neighborhoods of Vila de Gràcia, Vallcarca i els Penitents, El Coll, La Salut and Camp d'en Grassot i Gràcia Nova. Gràcia is bordered by the districts of Eixample to the south, Sarrià-Sant Gervasi to the west and Horta-Guinardó to the east. A vibrant and diverse enclave of Catalan life, Gràcia was an independent municipality for centuries before being formally annexed by Barcelona in 1897 as a part of the city's expansion."
 
@@ -32,7 +31,6 @@ REBEL_TOKENIZER = AutoTokenizer.from_pretrained("Babelscape/rebel-large")
 REBEL_MODEL = AutoModelForSeq2SeqLM.from_pretrained("Babelscape/rebel-large").cuda()
 
 # DBPEDIA SPOTLIGHT FUNCTIONS
-
 def get_annotated_text_dict(text, service_url=SPOTLIGHT_ONLINE_API, confidence=0.3, support=0, dbpedia_only=True):
     """
     Function that query's the dbpedia spotlight api with the document text as input. Confidence level is the
@@ -108,6 +106,7 @@ def extract_triplets(text):
     return triplets
 
 def resolve_correferences(doc):
+    """Function to resolve and replace correferences in the text using spacy"""
     chains = doc._.coref_chains
     new_text = []
     for token in doc:
@@ -129,6 +128,8 @@ def resolve_correferences(doc):
     return new_text
 
 def run_rebel(input_sentence, gen_kwargs=None, tokenizer=REBEL_TOKENIZER, model=REBEL_MODEL):
+    """Model inference using transformers library manually. Try to run with GPU"""
+
     if torch.cuda.is_available():
         my_device = 'cuda:0'
     else:
@@ -172,6 +173,8 @@ def run_rebel(input_sentence, gen_kwargs=None, tokenizer=REBEL_TOKENIZER, model=
     return results
 
 def pipeline(input_sentence="", use_correferences = False, by_sent = False, gen_kwargs = None):
+    """ Main pipeline for single text inference. Optinal preprocessing: correferences and splitting the text into sentences.
+    The translation of text triples into RDF triples is performed later with the 'rebel_lexicalizator.py' file """
     #input_sentence = "Gràcia is a district of the city of Barcelona, Spain. It comprises the neighborhoods of Vila de Gràcia, Vallcarca i els Penitents, El Coll, La Salut and Camp d'en Grassot i Gràcia Nova. Gràcia is bordered by the districts of Eixample to the south, Sarrià-Sant Gervasi to the west and Horta-Guinardó to the east. A vibrant and diverse enclave of Catalan life, Gràcia was an independent municipality for centuries before being formally annexed by Barcelona in 1897 as a part of the city's expansion."
     #input_sentence = "Barack Hussein Obama II is an American politician who is the 44th and current President of the United States. He is the first African American to hold the office and the first president born outside the continental United States. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University and Harvard Law School, where he was president of the Harvard Law Review. He was a community organizer in Chicago before earning his law degree. He worked as a civil rights attorney and taught constitutional law at the University of Chicago Law School between 1992 and 2004. While serving three terms representing the 13th District in the Illinois Senate from 1997 to 2004, he ran unsuccessfully in the Democratic primary for the United States Hou"
 
@@ -186,15 +189,26 @@ def pipeline(input_sentence="", use_correferences = False, by_sent = False, gen_
         doc = nlp_sents(input_sentence)
         input_sentence = [sent.text for sent in doc.sents]
 
+    gen_kwargs = {
+        "max_length": 1024,
+        "length_penalty": 10,
+        "num_beams": 10,
+        "num_return_sequences": 10,
+    }
+    
     triplets = run_rebel(input_sentence, gen_kwargs=gen_kwargs)
 
     # TEXT TRIPLES TO RDF TRIPLES
+    # check rebel_lexicalizator.py
     # ...
 
     return triplets
     
 
 def pipeline_hf(from_index, to_index):
+    """ Main pipeline for multiple text inference (text to text triples). Optinal preprocessing: correferences and splitting the text into sentences.
+    The translation of text triples into RDF triples is performed later with the 'rebel_lexicalizator.py' file """
+    # Load csv with the abstracts
     df = pd.read_csv('datasets/long-abstracts-sample.csv')
     try:
         df = df[from_index:to_index]
