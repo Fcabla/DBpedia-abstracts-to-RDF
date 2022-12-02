@@ -50,10 +50,10 @@ Depending on the operations performed before performing inference with the REBEL
 One of the steps that can be applied and that generate different results is the use of correferences, where the main idea is to replace those terms that refer to an entity by the name of this entity, an example would be the following: 'Although everyone saw the President, no one recognized him'.
 
 Some of the hyperparameters used by the REBEL model are the following: 
-- "max_length": 
-- "length_penalty": increasing this attribute generates more triples but may increase the model's hallucination.
-- "num_beams": mainly affects the quality of the triples but is associated with a higher computational cost.
-- "num_return_sequences": 
+- "max_length"(1024): 
+- "length_penalty"(10): increasing this attribute generates more triples but may increase the model's hallucination.
+- "num_beams"(10): mainly affects the quality of the triples but is associated with a higher computational cost.
+- "num_return_sequences"(10): 
 
 Another preprocessing that could improve the quality of the output would be to establish an efficient method of splitting long text documents into small chunks or sentences before passing it to the model.
 
@@ -65,6 +65,9 @@ The next step is to translate the subject and the object of the text triplet int
 The last step consists of translating the text properties into RDF format. For this we have found no other way than to create a lexicalization, where we have expressly defined what is the RDF equivalent of each type of text property produced by the REBEL model. This last step is far from perfect, as there may be cases in which triples are generated where the domain and range of the relation differ from the class of the subject and object.
 
 The object and subject are lexicalized using DBpedia Spotlight. We have found that feeding Spotlight with text triples improves the identification of entities in the sense that they are more closely matched to the elements of the triples.
+
+It should be mentioned that the object of the triplet can be a resource of the ontology or a literal such as a date or an integer. To determine its type we have looked at the property.
+
 ## 4. Evaluation
 Compare the use of REBEL together with DBpedia Spotlight to the performance we obtained in Gsoc's project and Pablo's TFM.
 
@@ -108,8 +111,8 @@ We can observe that case B occurs 30% of the time, i.e. a considerable part of o
 
 To get a better idea of what happens during lexicalization we have counted how many times each case occurs. The difference between this count and the information we can conclude from the previous graphs is that in this case, the count will be per triplet element, rather than per triplet. This means that in a triplet we can find case A in the subject and case C in the object, considering this triplet as erroneous (because not all the elements have been lexicalized correctly).
 
-La distribucion de casos se muestra en el siguiente plot.
-![Distribution of the different cases.](https://raw.githubusercontent.com/Fcabla/DBpedia-abstracts-to-RDF/main/Rebel/results/case_distribution_piel.svg)
+The distribution of cases is shown in the following plot.
+![Distribution of the different cases.](https://raw.githubusercontent.com/Fcabla/DBpedia-abstracts-to-RDF/main/Rebel/results/case_distribution_pie.svg)
 
 As can be seen, two more cases have been considered. Case E occurs when the property is not lexicalized correctly due to an error that exists in the code, since there are some times in which the generated properties are not complete (e.g. instead of 'position held' we obtained 'position').
 
